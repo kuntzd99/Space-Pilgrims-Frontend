@@ -4,13 +4,17 @@
 
 ## By: Daniel Kuntz, Chinwendu Ukoha, and Mark Kennedy
 
-[Trello]()
+[Trello](https://trello.com/b/M5meLcNJ/space-pilgrims)
 
 ---
 
 ### **_Socials_**
 
 Daniel Kuntz: [Github](https://github.com/kuntzd99) | [LinkedIn](https://www.linkedin.com/in/daniel-kuntz-09a036207/)
+
+Chinwendu Ukoha: [LinkedIn](https://www.linkedin.com/in/chinwenduukoha)
+
+Mark Kennedy: [LinkedIn](https://www.linkedin.com/in/kennedymark680/)
 
 ---
 
