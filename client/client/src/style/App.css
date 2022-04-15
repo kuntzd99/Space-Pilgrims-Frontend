@@ -39,16 +39,20 @@
 
 .red {
   position: absolute;
-  background-color: red;
+  /* background-color: red; */
+  /* background: url('./circle.jpg'); */
+  background-image: url("./circle.svg");
   z-index: 2;
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  animation: App-logo-spin infinite 5s linear;
 }
 
 .blue {
   position: absolute;
   background-color: blue;
+  border-radius: 50%;
   z-index: 1;
   width: 200px;
   height: 200px;
