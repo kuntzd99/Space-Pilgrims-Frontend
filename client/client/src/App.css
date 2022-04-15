@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+}
+
+.logo-wrapper {
+  position: relative;
+}
+
+.App-logo {
+    position: absolute;
+    height: 50vmin;
+    z-index: 1;
+    /* pointer-events: none; */
+    animation: App-logo-spin infinite 20s linear;
+}
+
+.App-logo-2 {
+  position: absolute;
+  z-index: 2;
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin infinite 5s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.square_wrapper {
+
+}
+
+
+.red {
+  position: absolute;
+  background-color: red;
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.blue {
+  position: absolute;
+  background-color: blue;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+}
