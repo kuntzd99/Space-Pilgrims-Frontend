@@ -26,12 +26,14 @@ const CommunityDetails = (props) => {
   useEffect(() => {
     getCommunity()
     getPilgrims()
+    console.log(props.pilgrim)
   }, [])
 
   const joinCommunity = async () => {
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
       communityId: communityId
     })
+    props.setPilgrim({ ...props.pilgrim, [communityId]: communityId })
     let population = props.planet.population
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population + 1)
@@ -42,6 +44,7 @@ const CommunityDetails = (props) => {
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
       communityId: null
     })
+    props.setPilgrim({ ...props.pilgrim, [communityId]: communityId })
     let population = props.planet.population
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population - 1)
