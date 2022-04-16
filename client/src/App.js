@@ -40,18 +40,27 @@ const App = () => {
         pilgrim={pilgrim}
         handleLogout={handleLogout}
       />
-      <div className="logo-wrapper" onClick={() => console.log('click big')}>
-        <div onClick={() => console.log('click little')}>
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
-        <div onClick={() => console.log('click big')}>
-          <img src={logo} className="App-logo-2" alt="logo" />
-        </div>
-      </div>
-      <div className="square_wrapper">
-        <div className="blue"></div>
-        <div className="red" onClick={() => console.log('click big')}></div>
-      </div>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                setPilgrim={setPilgrim}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
+          />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/planetpage"
+            element={
+              <PlanetPage pilgrim={pilgrim} authenticated={authenticated} />
+            }
+          />
+        </Routes>
+      </main>
     </div>
   )
 }
