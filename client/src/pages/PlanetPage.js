@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import Community from '../components/Community'
 
 const PlanetPage = (props) => {
   const { planetId } = useParams()
@@ -25,6 +26,10 @@ const PlanetPage = (props) => {
       <p>{props.planet.description}</p>
       <h3>Population: {props.planet.population}</h3>
       <h1>Communities:</h1>
+      <Community
+        communities={props.communities}
+        setCommunities={props.setCommunities}
+      />
     </div>
   )
 }
