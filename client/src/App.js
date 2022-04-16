@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Landing from './pages/Landing'
 import PlanetPage from './pages/PlanetPage'
+import CommunityDetails from './pages/CommunityDetails'
 import { CheckSession } from './services/Auth'
 import './style/App.css'
 
@@ -14,6 +15,8 @@ const App = () => {
   const [pilgrim, setPilgrim] = useState(null)
   const [planet, setPlanet] = useState('')
   const [communities, setCommunities] = useState([])
+  const [community, setCommunity] = useState('')
+  const [pilgrims, setPilgrims] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -63,7 +66,18 @@ const App = () => {
                 setPlanet={setPlanet}
                 communities={communities}
                 setCommunities={setCommunities}
-                authenticated={authenticated}
+                // authenticated={authenticated}
+              />
+            }
+          />
+          <Route
+            path="/communitypage/:communityId"
+            element={
+              <CommunityDetails
+                community={community}
+                setCommunity={setCommunity}
+                pilgrims={pilgrims}
+                setPilgrims={setPilgrims}
               />
             }
           />
