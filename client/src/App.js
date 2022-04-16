@@ -35,6 +35,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <Nav
+        authenticated={authenticated}
+        pilgrim={pilgrim}
+        handleLogout={handleLogout}
+      />
       <div className="logo-wrapper" onClick={() => console.log('click big')}>
         <div onClick={() => console.log('click little')}>
           <img src={logo} className="App-logo" alt="logo" />
