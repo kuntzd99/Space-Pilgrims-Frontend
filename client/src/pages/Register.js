@@ -19,7 +19,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterPilgrim({
-      name: formValues.username,
+      username: formValues.username,
       email: formValues.email,
       password: formValues.password
     })
@@ -37,7 +37,7 @@ const Register = () => {
       <div className="card-overlay centered">
         <form className="forms" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Username</label>
+            <label name="username">Username</label>
             <input
               onChange={handleChange}
               name="username"
@@ -60,7 +60,7 @@ const Register = () => {
           </div>
 
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
+            <label name="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
@@ -70,7 +70,7 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label name="confirmPassword">Confirm Password</label>
             <input
               onChange={handleChange}
               type="password"

@@ -16,7 +16,7 @@ const Login = ({ setPilgrim, toggleAuthenticated }) => {
     setFormValues({ username: '', password: '' })
     setPilgrim(payload)
     toggleAuthenticated(true)
-    navigate('/planetpage')
+    navigate('/home')
   }
 
   return (
