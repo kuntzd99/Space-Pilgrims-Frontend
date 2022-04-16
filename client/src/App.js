@@ -78,6 +78,9 @@ const App = () => {
                 setCommunity={setCommunity}
                 pilgrims={pilgrims}
                 setPilgrims={setPilgrims}
+                pilgrim={pilgrim}
+                planet={planet}
+                setPlanet={setPlanet}
               />
             }
           />
