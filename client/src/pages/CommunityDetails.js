@@ -24,6 +24,19 @@ const CommunityDetails = (props) => {
     getPilgrims()
   }, [])
 
+  const joinCommunity = async () => {
+    await axios.put(`http://localhost:3001/api/pilgrim/${pilgrim.id}`, {
+      communityId: communityId
+    })
+    // Need to increase planet population here
+  }
+
+  const leaveCommunity = async () => {
+    await axios.put(`http://localhost:3001/api/pilgrim/${pilgrim.id}`, {
+      communityId: null
+    })
+  }
+
   return (
     <div>
       <h1>{props.community.name}</h1>
@@ -34,6 +47,13 @@ const CommunityDetails = (props) => {
           <h3>{pilgrim.username}</h3>
         </div>
       ))}
+      {props.pilgrim === null ? (
+        <div>Login to join</div>
+      ) : props.pilgrim.communityId === communityId ? (
+        <button>Leave Community</button>
+      ) : (
+        <button>Join Community</button>
+      )}
     </div>
   )
 }
