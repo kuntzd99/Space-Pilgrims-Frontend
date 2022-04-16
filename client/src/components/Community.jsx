@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import CreateCommunity from './CreateCommunity'
 
 const Community = (props) => {
+  let navigate = useNavigate()
+
   const [creating, toggleCreating] = useState(false)
 
   const getCommunities = async () => {
@@ -22,7 +24,7 @@ const Community = (props) => {
     <div>
       <div>
         {props.communities.map((community) => (
-          <div key={community.id}>
+          <div key={community.id} onClick={() => navigate(`/communitypage/${community.id}`)}>
             <h3>{community.name}</h3>
             <img src={community.image} alt={community.image} />
           </div>
