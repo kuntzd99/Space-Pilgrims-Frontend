@@ -6,8 +6,6 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import PlanetPage from './pages/PlanetPage'
 import { CheckSession } from './services/Auth'
-
-import logo from './logo.svg'
 import './style/App.css'
 
 const App = () => {
