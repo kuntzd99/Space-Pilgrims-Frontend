@@ -37,23 +37,11 @@
 } */
 .solar-system {
   background-color: rgb(237, 237, 148);
-  width: 50vh;
-  height: 50vh;
+  width: 70vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.red {
-  position: absolute;
-  /* background-color: red; */
-  /* background: url('./circle.jpg'); */
-  background-image: url("./circle.svg");
-  z-index: 2;
-  width: 50vh;
-  height: 50vh;
-  border-radius: 50%;
-  animation: App-logo-spin infinite 5s linear;
 }
 
 .blue {
@@ -61,9 +49,42 @@
   background-color: blue;
   border-radius: 50%;
   z-index: 1;
-  width: 49vh;
-  height: 49vh;
+  width: 69vh;
+  height: 69vh;
 }
+
+.blue-planet {
+  position: absolute;
+  background-image: url("./circle.svg");
+  z-index: 2;
+  width: 70vh;
+  height: 70vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+
+.red {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 3;
+  width: 60vh;
+  height: 60vh;
+}
+
+.red-planet {
+  position: absolute;
+  /* background-color: red; */
+  /* background: url('./circle.jpg'); */
+  background-image: url("./circle.svg");
+  z-index: 4;
+  width: 61vh;
+  height: 61vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 20s linear;
+}
+
 
 
 * {
