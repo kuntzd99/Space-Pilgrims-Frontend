@@ -6,12 +6,10 @@ const Home = () => {
 
   return (
     <div className="home-container col">
-      <img src={SolarSystem} alt="welcome" />
+      <img className="homeImage" src={SolarSystem} alt="welcome" />
 
       <section className="welcome-signin">
-        <button onClick={() => navigate('/login')}>
-          Click Here To Get Started
-        </button>
+        <button onClick={() => navigate('/login')}>Get Started</button>
       </section>
     </div>
   )

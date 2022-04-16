@@ -20,7 +20,7 @@ const Login = ({ setPilgrim, toggleAuthenticated }) => {
   }
 
   return (
-    <div className="login">
+    <div className=" login forms">
       <div className="login-card col">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
