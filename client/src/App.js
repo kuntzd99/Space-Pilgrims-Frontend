@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Login from './pages/Login'
-import Home from './pages/Home'
+import Landing from './pages/Landing'
 import PlanetPage from './pages/PlanetPage'
 import { CheckSession } from './services/Auth'
 import './style/App.css'
@@ -40,7 +40,7 @@ const App = () => {
       />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
           <Route
             path="/login"
             element={
