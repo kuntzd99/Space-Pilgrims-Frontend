@@ -137,11 +137,11 @@ input[type='checkbox'] {
 }
 
 .forms {
-  margin-top: 40px;
-  padding-left: 40px;
+  margin: 40px;
+  padding: 40px;
   background: white;
   border-radius: 30px;
-  padding: 70px 50px 70px 50px;
+  padding: 70px 70px 70px 70px;
   box-shadow: 12px 12px 22px grey;
   display: block;
 }
