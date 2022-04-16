@@ -1,21 +1,30 @@
-import logo from '../logo.svg'
-import '../style/App.css'
+import { useEffect } from 'react'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const PlanetPage = () => {
+const PlanetPage = (props) => {
+  const { planetId } = useParams()
+
+  const getPlanet = async () => {
+    const response = await axios.get(
+      `http://localhost:3001/api/planet/${planetId}`
+    )
+    console.log(response.data[0])
+    props.setPlanet(response.data[0])
+  }
+
+  useEffect(() => {
+    getPlanet()
+  }, [])
+
   return (
     <div>
-      <div className="logo-wrapper" onClick={() => console.log('click big')}>
-        <div onClick={() => console.log('click little')}>
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
-        <div onClick={() => console.log('click big')}>
-          <img src={logo} className="App-logo-2" alt="logo" />
-        </div>
-      </div>
-      <div className="square_wrapper">
-        <div className="blue"></div>
-        <div className="red" onClick={() => console.log('click big')}></div>
-      </div>
+      <h1>{props.planet.name}</h1>
+      <img src={props.planet.image} alt={props.planet.name} />
+      <p>{props.planet.description}</p>
+      <h3>Population: {props.planet.population}</h3>
+      <h1>Communities:</h1>
     </div>
   )
 }

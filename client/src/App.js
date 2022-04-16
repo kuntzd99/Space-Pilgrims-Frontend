@@ -11,6 +11,7 @@ import './style/App.css'
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [pilgrim, setPilgrim] = useState(null)
+  const [planet, setPlanet] = useState('')
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -52,9 +53,13 @@ const App = () => {
           />
           <Route path="/register" element={<Register />} />
           <Route
-            path="/planetpage"
+            path="/planetpage/:planetId"
             element={
-              <PlanetPage pilgrim={pilgrim} authenticated={authenticated} />
+              <PlanetPage
+                planet={planet}
+                setPlanet={setPlanet}
+                authenticated={authenticated}
+              />
             }
           />
         </Routes>
