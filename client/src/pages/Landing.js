@@ -5,11 +5,11 @@ const Home = () => {
   let navigate = useNavigate()
 
   return (
-    <div className="home-container col">
-      <img className="homeImage" src={SolarSystem} alt="welcome" />
+    <div className="landing-container col">
+      <img className="landingImage" src={SolarSystem} alt="welcome" />
 
       <section className="welcome-signin">
-        <button className="btn" onClick={() => navigate('/login')}>
+        <button className="landingBtn" onClick={() => navigate('/login')}>
           Get Started
         </button>
       </section>
