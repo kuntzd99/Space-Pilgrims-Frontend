@@ -79,6 +79,7 @@ const App = () => {
                 pilgrims={pilgrims}
                 setPilgrims={setPilgrims}
                 pilgrim={pilgrim}
+                setPilgrim={setPilgrim}
                 planet={planet}
                 setPlanet={setPlanet}
               />
