@@ -60,7 +60,7 @@
   width: 70vh;
   height: 70vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 40s linear;
 }
 
 
@@ -75,17 +75,155 @@
 
 .red-planet {
   position: absolute;
-  /* background-color: red; */
-  /* background: url('./circle.jpg'); */
   background-image: url("./circle.svg");
   z-index: 4;
   width: 61vh;
   height: 61vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 25s linear;
 }
 
+.purple {
+  position: absolute;
+  background-color: purple;
+  border-radius: 50%;
+  z-index: 5;
+  width: 53.5vh;
+  height: 53.5vh;
+}
 
+.purple-planet {
+  position: absolute;
+  background-image: url("./circle.svg");
+  z-index: 6;
+  width: 54vh;
+  height: 54vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 30s linear;
+}
+
+.green {
+  position: absolute;
+  background-color: green;
+  border-radius: 50%;
+  z-index: 7;
+  width: 45.5vh;
+  height: 45.5vh;
+}
+
+.green-planet {
+  position: absolute;
+  background-image: url("./circle.svg");
+  z-index: 8;
+  width: 46vh;
+  height: 46vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 15s linear;
+}
+
+.orange {
+  position: absolute;
+  background-color: orange;
+  border-radius: 50%;
+  z-index: 9;
+  width: 37.5vh;
+  height: 37.5vh;
+}
+
+.orange-planet {
+  position: absolute;
+  background-image: url("./circle.svg");
+  z-index: 10;
+  width: 38vh;
+  height: 38vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 40s linear;
+}
+
+.yellow {
+  position: absolute;
+  background-color: rgb(203, 166, 0);
+  border-radius: 50%;
+  z-index: 11;
+  width: 29.5vh;
+  height: 29.5vh;
+}
+
+.yellow-planet {
+  position: absolute;
+  background-image: url("./circle.svg");
+  z-index: 12;
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 40s linear;
+}
+
+.pink {
+  position: absolute;
+  background-color: pink;
+  border-radius: 50%;
+  z-index: 13;
+  width: 19.8vh;
+  height: 19.8vh;
+}
+
+.pink-planet {
+  position: absolute;
+  background-image: url("./circle_2.svg");
+  z-index: 14;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 50s linear;
+}
+
+.black {
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 15;
+  width: 11.6vh;
+  height: 11.6vh;
+}
+
+.black-planet {
+  position: absolute;
+  background-image: url("./circle_3.svg");
+  z-index: 16;
+  width: 12vh;
+  height: 12vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 50s linear;
+}
+
+.grey {
+  position: absolute;
+  background-color: grey;
+  border-radius: 50%;
+  z-index: 17;
+  width: 3.6vh;
+  height: 3.6vh;
+}
+
+.grey-planet {
+  position: absolute;
+  background-image: url("./circle_3.svg");
+  z-index: 18;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+  animation: App-logo-spin infinite 50s linear;
+}
+
+.sun {
+  position: absolute;
+  background-color: rgb(255, 196, 0);
+  z-index: 19;
+  width: 2.5vh;
+  height: 2.5vh;
+  border-radius: 50%;
+}
 
 * {
   margin: 0;
