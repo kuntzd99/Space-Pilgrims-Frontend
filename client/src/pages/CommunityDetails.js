@@ -10,6 +10,10 @@ const CommunityDetails = (props) => {
       `http://localhost:3001/api/community/communities/${communityId}`
     )
     props.setCommunity(response.data)
+    const planetResponse = await axios.get(
+      `http://localhost:3001/api/planet/${response.data.planetId}`
+    )
+    props.setPlanet(planetResponse.data[0])
   }
 
   const getPilgrims = async () => {
@@ -25,15 +29,22 @@ const CommunityDetails = (props) => {
   }, [])
 
   const joinCommunity = async () => {
-    await axios.put(`http://localhost:3001/api/pilgrim/${pilgrim.id}`, {
+    await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
       communityId: communityId
     })
-    // Need to increase planet population here
+    let population = props.planet.population
+    await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
+      population: parseInt(population + 1)
+    })
   }
 
   const leaveCommunity = async () => {
-    await axios.put(`http://localhost:3001/api/pilgrim/${pilgrim.id}`, {
+    await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
       communityId: null
+    })
+    let population = props.planet.population
+    await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
+      population: parseInt(population - 1)
     })
   }
 
@@ -50,9 +61,9 @@ const CommunityDetails = (props) => {
       {props.pilgrim === null ? (
         <div>Login to join</div>
       ) : props.pilgrim.communityId === communityId ? (
-        <button>Leave Community</button>
+        <button onClick={() => leaveCommunity()}>Leave Community</button>
       ) : (
-        <button>Join Community</button>
+        <button onClick={() => joinCommunity()}>Join Community</button>
       )}
     </div>
   )
