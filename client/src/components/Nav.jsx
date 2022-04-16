@@ -27,7 +27,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
     <nav>
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
-      <Link to="/signin">Sign In</Link>
+      <Link to="/login">Sign In</Link>
     </nav>
   )
 
