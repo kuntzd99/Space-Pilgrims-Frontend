@@ -9,7 +9,9 @@ const Home = () => {
       <img className="homeImage" src={SolarSystem} alt="welcome" />
 
       <section className="welcome-signin">
-        <button onClick={() => navigate('/login')}>Get Started</button>
+        <button className="btn" onClick={() => navigate('/login')}>
+          Get Started
+        </button>
       </section>
     </div>
   )
