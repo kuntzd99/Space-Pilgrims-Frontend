@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -11,7 +11,6 @@ const PlanetPage = (props) => {
     const response = await axios.get(
       `http://localhost:3001/api/planet/${planetId}`
     )
-    console.log(response.data[0])
     props.setPlanet(response.data[0])
   }
 
@@ -29,6 +28,7 @@ const PlanetPage = (props) => {
       <Community
         communities={props.communities}
         setCommunities={props.setCommunities}
+        planetId={planetId}
       />
     </div>
   )
