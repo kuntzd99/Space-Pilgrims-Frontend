@@ -13,7 +13,7 @@ const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [pilgrim, setPilgrim] = useState(null)
   const [planet, setPlanet] = useState('')
-  const [communities, setCommunities] = useState('')
+  const [communities, setCommunities] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
