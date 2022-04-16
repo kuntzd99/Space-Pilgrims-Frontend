@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import SolarSystem from '../assets/SolarSystemImage.webp'
 
-const Home = () => {
+const Landing = () => {
   let navigate = useNavigate()
 
   return (
@@ -17,4 +17,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Landing

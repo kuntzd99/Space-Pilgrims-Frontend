@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
+import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Landing from './pages/Landing'
@@ -51,6 +52,7 @@ const App = () => {
             }
           />
           <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
           <Route
             path="/planetpage"
             element={
