@@ -1,3 +1,6 @@
+import logo from '../logo.svg'
+import '../style/App.css'
+
 const PlanetPage = () => {
   return (
     <div>
