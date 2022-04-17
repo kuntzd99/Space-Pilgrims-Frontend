@@ -36,12 +36,23 @@
 
 } */
 .solar-system {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.system {
   background-color: rgb(237, 237, 148);
   width: 70vh;
   height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.orbit {
+  position: absolute;
+  animation: App-logo-spin infinite 50s linear;
 }
 
 .blue {
@@ -60,7 +71,7 @@
   width: 70vh;
   height: 70vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 40s linear;
+  animation: App-logo-spin infinite 90s linear;
 }
 
 
@@ -80,7 +91,7 @@
   width: 61vh;
   height: 61vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 25s linear;
+  animation: App-logo-spin infinite 70s linear;
 }
 
 .purple {
@@ -99,7 +110,7 @@
   width: 54vh;
   height: 54vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 30s linear;
+  animation: App-logo-spin infinite 80s linear;
 }
 
 .green {
@@ -118,7 +129,7 @@
   width: 46vh;
   height: 46vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 15s linear;
+  animation: App-logo-spin infinite 32s linear;
 }
 
 .orange {
@@ -137,7 +148,7 @@
   width: 38vh;
   height: 38vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 40s linear;
+  animation: App-logo-spin infinite 45s linear;
 }
 
 .yellow {
@@ -156,7 +167,7 @@
   width: 30vh;
   height: 30vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 40s linear;
+  animation: App-logo-spin infinite 55s linear;
 }
 
 .pink {
@@ -175,7 +186,7 @@
   width: 20vh;
   height: 20vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 50s linear;
+  animation: App-logo-spin infinite 65s linear;
 }
 
 .black {
@@ -194,7 +205,7 @@
   width: 12vh;
   height: 12vh;
   border-radius: 50%;
-  animation: App-logo-spin infinite 50s linear;
+  animation: App-logo-spin infinite 56s linear;
 }
 
 .grey {
@@ -224,6 +235,7 @@
   height: 2.5vh;
   border-radius: 50%;
 }
+
 
 * {
   margin: 0;
@@ -326,6 +338,8 @@ input[type='checkbox'] {
   text-align: center;
   margin-bottom: 50px;
 }
+
+
 
 @media (max-width: 768px) {
   .navbar {
