@@ -31,6 +31,15 @@
   }
 }
 
+@keyframes Reverse-logo-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 
 /* .square_wrapper {
 
@@ -42,8 +51,8 @@
 }
 
 .system {
-  /* background-color: rgb(237, 237, 148); */
-  width: 70vh;
+  background-color: rgb(29, 42, 58);
+  width: 100vw;
   height: 70vh;
   display: flex;
   justify-content: center;

@@ -24,6 +24,16 @@ const Home = () => {
             surface={surface}
           />
         ))}
+        <img
+          src="https://i.ibb.co/x5JbPsC/sun.jpg"
+          alt="sun"
+          style={{
+            zIndex: `12`,
+            height: '100px',
+            width: '100px',
+            animation: `Reverse-logo-spin infinite 30s linear`
+          }}
+        />
       </div>
     </div>
   )
