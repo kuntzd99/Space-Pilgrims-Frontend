@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SignInPilgrim } from '../services/Auth'
+import { SignInPilgrim, UpdatePassword } from '../services/Auth'
 
-const Login = ({ setPilgrim, toggleAuthenticated }) => {
+const Login = ({
+  setPilgrim,
+  toggleAuthenticated,
+  setPasswordUpdate,
+  newPassword,
+  confirmNewPassword
+}) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ username: '', password: '' })
 
@@ -19,10 +25,14 @@ const Login = ({ setPilgrim, toggleAuthenticated }) => {
     navigate('/home')
   }
 
+  const handleUpdate = async (e) => {
+    navigate('/update')
+  }
+
   return (
     <div className=" login forms">
       <div className="login-card col">
-        <form className="col" onSubmit={handleSubmit}>
+        <form className="col">
           <div className="input-wrapper">
             <label htmlFor="username">Username</label>
             <input
@@ -44,9 +54,15 @@ const Login = ({ setPilgrim, toggleAuthenticated }) => {
               required
             />
           </div>
-          <button disabled={!formValues.username || !formValues.password}>
-            Login
-          </button>
+          <div>
+            <button
+              onClick={handleSubmit}
+              disabled={!formValues.username || !formValues.password}
+            >
+              Login
+            </button>
+            <button onClick={handleUpdate}>Forgot Password</button>
+          </div>
         </form>
       </div>
     </div>

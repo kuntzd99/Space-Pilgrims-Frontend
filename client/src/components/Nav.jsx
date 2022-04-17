@@ -11,6 +11,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
           <input type='checkbox' id="hamburger_icon" />
           <label for='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
+            <li><Link to='/home'></Link>Home</li>
             <li><Link to='/planetpage'>Planets</Link></li>
             <li><Link to='/faq'></Link>FAQ</li>
             <li><Link to='/communities'>Registry</Link></li>
