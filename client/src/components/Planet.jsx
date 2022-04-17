@@ -11,14 +11,14 @@ const Planet = ({orbitRadius, orbitSpeed, planet, surface}) => {
         width: `${orbitRadius}vh`,  
         borderRadius: "50%", 
         zIndex: `${planet}`,
-        animation: `App-logo-spin infinite ${orbitSpeed}s linear`
+        animation: `App-logo-spin infinite 95s linear`
         }}>
       <div className="planet" 
         style={{
-          backgroundImage: `url(${surface})`,
+          backgroundImage: `url(https://i.ibb.co/X3Wmq2D/saturn.jpg)`,
           backgroundSize: 'cover',
-          height: '20px', 
-          width: '20px', 
+          height: '30px', 
+          width: '30px', 
           borderRadius: "50%"
           }} 
         onClick={() => navigate(`/planetpage/${planet}`)}>
