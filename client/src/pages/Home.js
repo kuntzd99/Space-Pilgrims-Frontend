@@ -1,11 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import Planet from '../components/Planet'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const Home = () => {
+const Home = (props) => {
   let navigate = useNavigate()
 
-  const planets = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+  const getPlanets = async () => {
+    const response = await axios.get(`http://localhost:3001/api/planet/`)
+    console.log(response.data)
+    props.setPlanets(response.data)
+  }
+
+  useEffect(() => {
+    getPlanets()
+    console.log(props.planets, 'useEffect')
+  }, [])
+
   const surface =
     'https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg'
   let orbitRadius = 10
@@ -14,14 +25,15 @@ const Home = () => {
   return (
     <div className="solar-system">
       <div className="system">
-        {planets.map((planet, index) => (
+        {props.planets.map((planet, index) => (
           <Planet
             key={index}
-            orbitRadius={(orbitRadius += 5)}
-            orbitSpeed={(orbitSpeed += 10)}
-            index={index}
-            planet={planet}
-            surface={surface}
+            orbitRadius={planet.orbit}
+            orbitSpeed={planet.speed}
+            zIndex={planet.zIndex}
+            planet={planet.id}
+            surface={planet.image}
+            size={planet.size}
           />
         ))}
         <img
