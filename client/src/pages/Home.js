@@ -6,10 +6,10 @@ const Home = () => {
   let navigate = useNavigate()
 
   const planets = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-
+  const surface =
+    'https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg'
   let orbitRadius = 10
-
-  let orbitSpeed = 100
+  let orbitSpeed = 5
 
   return (
     <div className="solar-system">
@@ -18,9 +18,10 @@ const Home = () => {
           <Planet
             key={index}
             orbitRadius={(orbitRadius += 5)}
-            orbitSpeed={(orbitSpeed -= 5)}
+            orbitSpeed={(orbitSpeed += 10)}
             index={index}
             planet={planet}
+            surface={surface}
           />
         ))}
       </div>
