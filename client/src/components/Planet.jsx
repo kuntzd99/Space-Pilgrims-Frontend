@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
-const Planet = ({orbitRadius, orbitSpeed, planet}) => {
+const Planet = ({orbitRadius, orbitSpeed, planet, surface}) => {
   let navigate = useNavigate()
   
   return (
@@ -15,7 +15,8 @@ const Planet = ({orbitRadius, orbitSpeed, planet}) => {
         }}>
       <div className="planet" 
         style={{
-          backgroundColor: "green", 
+          backgroundImage: `url(${surface})`,
+          backgroundSize: 'cover',
           height: '20px', 
           width: '20px', 
           borderRadius: "50%"

@@ -42,7 +42,7 @@
 }
 
 .system {
-  background-color: rgb(237, 237, 148);
+  /* background-color: rgb(237, 237, 148); */
   width: 70vh;
   height: 70vh;
   display: flex;
