@@ -13,6 +13,7 @@ import './style/App.css'
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [pilgrim, setPilgrim] = useState(null)
+  const [planets, setPlanets] = useState([])
   const [planet, setPlanet] = useState('')
   const [communities, setCommunities] = useState([])
   const [community, setCommunity] = useState('')
@@ -57,7 +58,10 @@ const App = () => {
             }
           />
           <Route path="/register" element={<Register />} />
-          <Route path="/home" element={<Home />} />
+          <Route
+            path="/home"
+            element={<Home setPlanets={setPlanets} planets={planets} />}
+          />
           <Route
             path="/planetpage/:planetId"
             element={

@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
-const Planet = ({orbitRadius, orbitSpeed, planet, surface}) => {
+const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex}) => {
   let navigate = useNavigate()
   
   return (
@@ -10,15 +10,15 @@ const Planet = ({orbitRadius, orbitSpeed, planet, surface}) => {
         height: `${orbitRadius}vh`, 
         width: `${orbitRadius}vh`,  
         borderRadius: "50%", 
-        zIndex: `${planet}`,
-        animation: `App-logo-spin infinite 95s linear`
+        zIndex: `${zIndex}`,
+        animation: `App-logo-spin infinite ${orbitSpeed}s linear`
         }}>
       <div className="planet" 
         style={{
-          backgroundImage: `url(https://i.ibb.co/X3Wmq2D/saturn.jpg)`,
+          backgroundImage: `url(${surface})`,
           backgroundSize: 'cover',
-          height: '30px', 
-          width: '30px', 
+          height: `${size}px`, 
+          width: `${size}px`, 
           borderRadius: "50%"
           }} 
         onClick={() => navigate(`/planetpage/${planet}`)}>
