@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import CreateCommunity from './CreateCommunity'
 
@@ -27,6 +26,7 @@ const Community = (props) => {
           <div key={community.id} onClick={() => navigate(`/communitypage/${community.id}`)}>
             <h3>{community.name}</h3>
             <img className='communityImage' src={community.image} alt={community.image} style={{borderColor: community.primaryColor}} />
+            <h4>Population: {community.population}</h4>
           </div>
         ))}
       </div>
