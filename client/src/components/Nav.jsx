@@ -6,12 +6,12 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
   if (pilgrim) {
     authenticatedOptions= (
       <nav className="navbar">
-        <div className="logo" > Welcome {pilgrim.username}!</div>
+        <div className="welcome" > Welcome {pilgrim.username}!</div>
         <ul>
           <input type='checkbox' id="hamburger_icon" />
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
-            <li><Link to='/home'></Link>Home</li>
+            <li><Link to='/home'>Home</Link></li>
             {/* <li><Link to='/faq'></Link>FAQ</li> */}
             <li><Link to='/communities'>Registry</Link></li>
             <li><Link to='/forum'>Forum</Link></li>
