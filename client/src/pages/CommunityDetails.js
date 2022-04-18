@@ -38,6 +38,15 @@ const CommunityDetails = (props) => {
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population + 1)
     })
+    props.setPlanet({ ...props.planet, population: parseInt(population + 1) })
+    let communityPopulation = props.community.population
+    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+      population: parseInt(communityPopulation + 1)
+    })
+    props.setCommunity({
+      ...props.community,
+      population: parseInt(communityPopulation + 1)
+    })
     toggleClicked(!clicked)
   }
 
@@ -50,6 +59,15 @@ const CommunityDetails = (props) => {
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population - 1)
     })
+    props.setPlanet({ ...props.planet, population: parseInt(population - 1) })
+    let communityPopulation = props.community.population
+    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+      population: parseInt(communityPopulation - 1)
+    })
+    props.setCommunity({
+      ...props.community,
+      population: parseInt(communityPopulation - 1)
+    })
     toggleClicked(!clicked)
   }
 
@@ -61,6 +79,7 @@ const CommunityDetails = (props) => {
         style={{ borderColor: props.community.secondaryColor }}
         alt={props.community.name}
       />
+      <h3>Population: {props.community.population}</h3>
       <h3>Members:</h3>
       {props.pilgrims.map((pilgrim) => (
         <div key={pilgrim.id}>

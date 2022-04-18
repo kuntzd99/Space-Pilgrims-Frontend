@@ -13,7 +13,7 @@ const CreateCommunity = (props) => {
     // if (formValues.image === '') {
     //   setFormValues({ ...formValues, ['image']: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png' })
     // }
-    await axios.post(`http://localhost:3001/api/community/${props.planetId}`, formValues).catch((err) => console.log(err))
+    await axios.post(`http://localhost:3001/api/community/${props.planetId}`, {...formValues, population: 0}).catch((err) => console.log(err))
     props.toggleCreating(false)
   } 
 
