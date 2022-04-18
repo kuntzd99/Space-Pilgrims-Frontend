@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import axios from 'axios'
 import Nav from './components/Nav'
 import Home from './pages/Home'
 import Register from './pages/Register'
@@ -24,6 +25,7 @@ const App = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmNewPassword, setConfirmNewPassword] = useState('')
   const [comments, setComments] = useState([])
+  const [solarFlare, setSolarFlare] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -35,6 +37,14 @@ const App = () => {
     const pilgrim = await CheckSession()
     setPilgrim(pilgrim)
     toggleAuthenticated(true)
+  }
+
+  const nasaCall = async () => {
+    const response = await axios.get(
+      `https://api.nasa.gov/DONKI/FLR?startDate=2022-04-18&endDate=2022-12-31&api_key=p2f2NgOuddrU9P5FS38RB0ueSiciWJfAcF7PIlc8`
+    )
+    console.log(response.data)
+    setSolarFlare(response.data)
   }
 
   useEffect(() => {
@@ -74,7 +84,14 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route
             path="/home"
-            element={<Home setPlanets={setPlanets} planets={planets} />}
+            element={
+              <Home
+                setPlanets={setPlanets}
+                planets={planets}
+                nasaCall={nasaCall}
+                solarFlare={solarFlare}
+              />
+            }
           />
           <Route
             path="/planetpage/:planetId"
