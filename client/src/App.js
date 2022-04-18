@@ -104,7 +104,10 @@ const App = () => {
               />
             }
           />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/profile"
+            element={<Profile pilgrim={pilgrim} setPilgrim={setPilgrim} />}
+          />
         </Routes>
       </main>
     </div>
