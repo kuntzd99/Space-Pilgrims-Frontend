@@ -3,7 +3,7 @@ import UpdatePassword from "./UpdatePassword"
 
 const Profile = ({pilgrim}) => {
 
-  
+  console.log(pilgrim, 'PILGRIMMMMM')
 
 
   return (
