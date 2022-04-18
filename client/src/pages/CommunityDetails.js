@@ -7,7 +7,8 @@ const CommunityDetails = (props) => {
   const { communityId } = useParams()
   const [clicked, toggleClicked] = useState(false)
   const [clickedComment, toggleClickedComment] = useState(false)
-  const [usernames, setUsernames] = useState({})
+  const [usernames, setUsernames] = useState([])
+  const [deleted, toggleDeleted] = useState(false)
 
   const getCommunity = async () => {
     const response = await axios.get(
@@ -32,22 +33,21 @@ const CommunityDetails = (props) => {
       `http://localhost:3001/api/comment/${communityId}`
     )
     props.setComments(response.data)
+    const loadUsernames = []
     for (let i = 0; i < response.data.length; i++) {
       let username = await axios.get(
         `http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].pilgrimId}`
       )
-      setUsernames({
-        ...usernames,
-        [response.data[i].id]: username.data.username
-      })
+      loadUsernames.push(username.data.username)
     }
+    setUsernames(loadUsernames)
   }
 
   useEffect(() => {
     getCommunity()
     getPilgrims()
     getComments()
-  }, [clicked, clickedComment])
+  }, [clicked, clickedComment, deleted])
 
   const joinCommunity = async () => {
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
@@ -91,6 +91,11 @@ const CommunityDetails = (props) => {
     toggleClicked(!clicked)
   }
 
+  const deleteComment = async (id) => {
+    await axios.delete(`http://localhost:3001/api/comment/${id}`)
+    toggleDeleted(!deleted)
+  }
+
   // const getUsernameFromId = async (id) => {
   //   const response = await axios.get(
   //     `http://localhost:3001/api/pilgrim/pilgrims/${id}`
@@ -124,9 +129,14 @@ const CommunityDetails = (props) => {
       ) : (
         <button onClick={() => joinCommunity()}>Join Community</button>
       )}
-      {props.comments.map((comment) => (
+      {props.comments.map((comment, index) => (
         <div key={comment.id}>
-          {usernames[comment.id]}: {comment.comment}
+          {usernames[index]}: {comment.comment}
+          {comment.pilgrimId === props.pilgrim.id ? (
+            <button onClick={() => deleteComment(comment.id)}>Delete</button>
+          ) : (
+            <div></div>
+          )}
         </div>
       ))}
       {props.pilgrim === null ? (
