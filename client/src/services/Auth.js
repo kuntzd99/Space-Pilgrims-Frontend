@@ -23,6 +23,7 @@ export const RegisterPilgrim = async (data) => {
 export const UpdatePassword = async (data) => {
   try {
     const res = await Client.post('/update/:pilgrim_id', data)
+    console.log(res, 'UPDATE PASSWORD AXIOS')
     localStorage.setItem('token', res.data.token)
     return res.data.user
   } catch (error) {
