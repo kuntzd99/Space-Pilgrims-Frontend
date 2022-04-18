@@ -61,7 +61,7 @@ const Login = ({
             >
               Login
             </button>
-            <button onClick={handleUpdate}>Forgot Password</button>
+            {/* <button onClick={handleUpdate}>Forgot Password</button> */}
           </div>
         </form>
       </div>

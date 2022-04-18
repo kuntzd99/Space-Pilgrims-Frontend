@@ -8,7 +8,8 @@ import Landing from './pages/Landing'
 import PlanetPage from './pages/PlanetPage'
 import CommunityDetails from './pages/CommunityDetails'
 import Profile from './components/Profile'
-import { CheckSession, UpdatePassword } from './services/Auth'
+import UpdatePassword from './components/UpdatePassword'
+import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
 
 const App = () => {
@@ -95,7 +96,7 @@ const App = () => {
           />
 
           <Route
-            path="/update"
+            path="/update/:pilgrim_id"
             element={
               <UpdatePassword
                 pilgrim={pilgrim}

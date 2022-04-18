@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { UpdatePassword } from "../services/Auth"
+import { PasswordUpdate } from "../services/Auth"
 import { useNavigate } from "react-router-dom"
 
 
@@ -18,7 +18,7 @@ const UpdatePassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await UpdatePassword({
+    await PasswordUpdate({
       oldPassword: formValues.oldPassword,
       newPassword: formValues.newPassword,
       confirmNewPassword: formValues.confirmNewPassword
