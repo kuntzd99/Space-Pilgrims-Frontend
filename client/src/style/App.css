@@ -65,7 +65,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(29, 42, 58);
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .system {
@@ -92,6 +92,10 @@
   border-radius: 50%;
 }
 
+.planet:hover {
+  transform: scale(1.2);
+}
+
 a {
   text-decoration: none;
 }
@@ -102,20 +106,33 @@ li {
 
 .navbar {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-color: #1D2A3A;
   color: white;
 }
 
+.navbar-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .logo {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
-  height: 15vh;
+  height: 8vh;
   width: auto;
 }
 
 .welcome {
+  color: white;
   font-size: 1.2em;
 }
 
@@ -202,11 +219,9 @@ input[type='checkbox'] {
   .nav-menu {
     display: none;
     position: absolute;
-    background-image: linear-gradient(to right, #a0b5eb, #c9f0e4);
-    right: 0;
-    left: 0;
+    background: linear-gradient(to bottom, rgb(29, 42, 58), rgba(255, 255, 255, 0.659));
     text-align: center;
-    padding: 16px 0;
+    width: 200px;
   }
   .logo {
     font-size: 15px;

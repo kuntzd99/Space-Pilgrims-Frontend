@@ -26,13 +26,14 @@ const Home = (props) => {
     <div>
       <div className="title">
         <h1>Your Journey Begins NOW!</h1>
-        <h3>Select Your Destination</h3>
+        <h3>Select Your Destination :</h3>
       </div>
       <div className="solar-system">
         <div className="system">
           {props.planets.map((planet, index) => (
             <Planet
               key={index}
+              className="planet"
               orbitRadius={planet.orbit}
               orbitSpeed={planet.speed}
               zIndex={planet.zIndex}
@@ -48,7 +49,8 @@ const Home = (props) => {
               zIndex: `12`,
               height: '100px',
               width: '100px',
-              animation: `Reverse-logo-spin infinite 30s linear`
+              animation: `Reverse-logo-spin infinite 30s linear`,
+              borderRadius: `50%`
             }}
           />
         </div>
