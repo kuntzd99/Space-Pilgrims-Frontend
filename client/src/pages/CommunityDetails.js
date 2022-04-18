@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const CommunityDetails = (props) => {
   const { communityId } = useParams()
+  const [clicked, toggleClicked] = useState(false)
 
   const getCommunity = async () => {
     const response = await axios.get(
@@ -26,29 +27,31 @@ const CommunityDetails = (props) => {
   useEffect(() => {
     getCommunity()
     getPilgrims()
-    console.log(props.pilgrim)
-  }, [])
+  }, [clicked])
 
   const joinCommunity = async () => {
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
       communityId: communityId
     })
-    props.setPilgrim({ ...props.pilgrim, [communityId]: communityId })
+    props.setPilgrim({ ...props.pilgrim, communityId: communityId })
     let population = props.planet.population
+    console.log('population', props.planet.population)
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population + 1)
     })
+    toggleClicked(!clicked)
   }
 
   const leaveCommunity = async () => {
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
       communityId: null
     })
-    props.setPilgrim({ ...props.pilgrim, [communityId]: communityId })
+    props.setPilgrim({ ...props.pilgrim, communityId: null })
     let population = props.planet.population
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population - 1)
     })
+    toggleClicked(!clicked)
   }
 
   return (
