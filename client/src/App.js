@@ -51,7 +51,15 @@ const App = () => {
       />
       <main>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route
+            path="/"
+            element={
+              <Landing
+                setPilgrim={setPilgrim}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
+          />
           <Route
             path="/login"
             element={

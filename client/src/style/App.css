@@ -61,8 +61,16 @@
 
 .landing {
   background-color: rgb(29, 42, 58);
-  min-height: 100vh;
+  min-height: 90vh;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.register {
+  margin: 20px;
 }
 
 .solar-system {
@@ -203,7 +211,7 @@ input[type='checkbox'] {
   background: white;
   border-radius: 10px;
   max-width: 300px;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 3px 3px 3px grey;
   display: block;
 }
 
