@@ -12,7 +12,20 @@ const Community = (props) => {
     const response = await axios.get(
       `http://localhost:3001/api/community/${props.planetId}`
     )
-    props.setCommunities(response.data)
+    let populations = []
+    for (let i = 0; i < response.data.length; i++) {
+      populations.push([response.data[i].id, response.data[i].population])
+    }
+    populations.sort((a, b) => {
+      return a[1] - b[1]
+    })
+    populations.reverse()
+    const sortedCommunities = []
+    for (let i = 0; i < populations.length; i++) {
+      const sortedCommunity = await axios.get(`http://localhost:3001/api/community/communities/${populations[i][0]}`)
+      sortedCommunities.push(sortedCommunity.data)
+    }
+    props.setCommunities(sortedCommunities)
   }
 
   useEffect(() => {
