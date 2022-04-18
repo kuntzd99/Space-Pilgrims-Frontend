@@ -114,6 +114,11 @@ li {
   height: 15vh;
   width: auto;
 }
+
+.welcome {
+  font-size: 1.2em;
+}
+
 .nav-menu {
   display: flex;
   gap: 1em;
