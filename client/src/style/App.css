@@ -59,6 +59,11 @@
   }
 }
 
+.landing {
+  background-color: rgb(29, 42, 58);
+  min-height: 100vh;
+  color: white;
+}
 
 .solar-system {
   display: flex;
@@ -111,6 +116,13 @@ li {
   justify-content: space-between;
   background-color: #1D2A3A;
   color: white;
+}
+
+.publicOption a {
+  text-decoration: none;
+  color: white;
+  margin: 10px;
+
 }
 
 .navbar-text {
@@ -176,8 +188,8 @@ input[type='checkbox'] {
 
 .col {
   display: flex;
-  margin-top: 80px;
-  margin-left: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
   box-shadow: 2px 2px 4px 2px grey;
   border: 1px solid grey;
   border-radius: 5px;
@@ -185,13 +197,13 @@ input[type='checkbox'] {
   width: 90%;
 }
 
-.forms {
-  margin: 40px;
-  padding: 40px;
+.login-forms {
+  padding: 5px;
+  color:rgb(29, 42, 58);
   background: white;
-  border-radius: 30px;
-  padding: 70px 70px 70px 70px;
-  box-shadow: 12px 12px 22px grey;
+  border-radius: 10px;
+  max-width: 300px;
+  box-shadow: 5px 5px 5px grey;
   display: block;
 }
 
