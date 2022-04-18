@@ -98,6 +98,8 @@ const App = () => {
             path="/update"
             element={
               <UpdatePassword
+                pilgrim={pilgrim}
+                setPilgrim={setPilgrim}
                 newPassword={newPassword}
                 confirmNewPassword={confirmNewPassword}
                 setPasswordUpdate={setPasswordUpdate}
