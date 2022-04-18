@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CreateComment from '../components/CreateComment'
+import { useNavigate } from 'react-router-dom'
 
 const CommunityDetails = (props) => {
   const { communityId } = useParams()
@@ -9,6 +10,8 @@ const CommunityDetails = (props) => {
   const [clickedComment, toggleClickedComment] = useState(false)
   const [usernames, setUsernames] = useState([])
   const [deleted, toggleDeleted] = useState(false)
+
+  let navigate = useNavigate()
 
   const getCommunity = async () => {
     const response = await axios.get(
@@ -96,13 +99,6 @@ const CommunityDetails = (props) => {
     toggleDeleted(!deleted)
   }
 
-  // const getUsernameFromId = async (id) => {
-  //   const response = await axios.get(
-  //     `http://localhost:3001/api/pilgrim/pilgrims/${id}`
-  //   )
-  //   return response.data.username
-  // }
-
   return (
     <div
       style={{
@@ -119,7 +115,16 @@ const CommunityDetails = (props) => {
       <h3>Members:</h3>
       {props.pilgrims.map((pilgrim) => (
         <div key={pilgrim.id}>
-          <h3>{pilgrim.username}</h3>
+          {pilgrim.id === props.pilgrim.id ? (
+            <h3>{pilgrim.username}</h3>
+          ) : (
+            <div>
+              <h3>{pilgrim.username}</h3>
+              <button onClick={() => navigate(`/profile/${pilgrim.id}`)}>
+                View Profile
+              </button>
+            </div>
+          )}
         </div>
       ))}
       {props.pilgrim === null ? (
@@ -135,7 +140,9 @@ const CommunityDetails = (props) => {
           {comment.pilgrimId === props.pilgrim.id ? (
             <button onClick={() => deleteComment(comment.id)}>Delete</button>
           ) : (
-            <div></div>
+            <button onClick={() => navigate(`/profile/${comment.pilgrimId}`)}>
+              View Profile
+            </button>
           )}
         </div>
       ))}

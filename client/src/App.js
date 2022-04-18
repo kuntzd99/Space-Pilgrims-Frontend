@@ -9,6 +9,7 @@ import PlanetPage from './pages/PlanetPage'
 import CommunityDetails from './pages/CommunityDetails'
 import Profile from './components/Profile'
 import UpdatePassword from './components/UpdatePassword'
+import PilgrimProfile from './pages/PilgrimProfile'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
 
@@ -24,7 +25,11 @@ const App = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmNewPassword, setConfirmNewPassword] = useState('')
   const [comments, setComments] = useState([])
-
+  const [nonUserPilgrim, setNonUserPilgrim] = useState({
+    username: '',
+    bio: '',
+    communityId: null
+  })
   const handleLogout = () => {
     setPilgrim(null)
     toggleAuthenticated(false)
@@ -124,6 +129,19 @@ const App = () => {
               <Profile
                 pilgrim={pilgrim}
                 setPilgrim={setPilgrim}
+                community={community}
+                setCommunity={setCommunity}
+                planet={planet}
+                setPlanet={setPlanet}
+              />
+            }
+          />
+          <Route
+            path="/profile/:pilgrimId"
+            element={
+              <PilgrimProfile
+                nonUserPilgrim={nonUserPilgrim}
+                setNonUserPilgrim={setNonUserPilgrim}
                 community={community}
                 setCommunity={setCommunity}
                 planet={planet}

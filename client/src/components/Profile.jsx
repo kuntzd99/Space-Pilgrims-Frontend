@@ -54,7 +54,7 @@ const Profile = (props) => {
   return (
     <div className="profile">
       <div className="profile card" key={props.pilgrim.id}>
-          <h3>{props.pilgrim.username}</h3>
+          <h1>{props.pilgrim.username}</h1>
           {props.pilgrim.communityId ? (<h3>Community: {props.community.name} on {props.planet.name}</h3>) : (<div></div>)}
           <div>
             {changingImage ? 
@@ -67,8 +67,9 @@ const Profile = (props) => {
             </div>) 
             : 
             (<div>
-              <img src={props.pilgrim.image} alt='profile-picture'/>
-              <button onClick={() => toggleChangingImage(true)}>Change Image</button></div>)}
+                <img src={props.pilgrim.image} alt='profile-picture'/>
+                <button onClick={() => toggleChangingImage(true)}>Change Image</button>
+              </div>)}
           </div>
           {changingBio ?
           (
