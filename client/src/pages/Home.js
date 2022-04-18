@@ -23,29 +23,35 @@ const Home = (props) => {
   let orbitSpeed = 5
 
   return (
-    <div className="solar-system">
-      <div className="system">
-        {props.planets.map((planet, index) => (
-          <Planet
-            key={index}
-            orbitRadius={planet.orbit}
-            orbitSpeed={planet.speed}
-            zIndex={planet.zIndex}
-            planet={planet.id}
-            surface={planet.image}
-            size={planet.size}
+    <div>
+      <div className="title">
+        <h1>Your Journey Begins NOW!</h1>
+        <h3>Select Your Destination</h3>
+      </div>
+      <div className="solar-system">
+        <div className="system">
+          {props.planets.map((planet, index) => (
+            <Planet
+              key={index}
+              orbitRadius={planet.orbit}
+              orbitSpeed={planet.speed}
+              zIndex={planet.zIndex}
+              planet={planet.id}
+              surface={planet.image}
+              size={planet.size}
+            />
+          ))}
+          <img
+            src="https://i.ibb.co/x5JbPsC/sun.jpg"
+            alt="sun"
+            style={{
+              zIndex: `12`,
+              height: '100px',
+              width: '100px',
+              animation: `Reverse-logo-spin infinite 30s linear`
+            }}
           />
-        ))}
-        <img
-          src="https://i.ibb.co/x5JbPsC/sun.jpg"
-          alt="sun"
-          style={{
-            zIndex: `12`,
-            height: '100px',
-            width: '100px',
-            animation: `Reverse-logo-spin infinite 30s linear`
-          }}
-        />
+        </div>
       </div>
     </div>
   )
