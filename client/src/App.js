@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Landing from './pages/Landing'
 import PlanetPage from './pages/PlanetPage'
 import CommunityDetails from './pages/CommunityDetails'
+import Profile from './components/Profile'
 import { CheckSession, UpdatePassword } from './services/Auth'
 import './style/App.css'
 
@@ -98,6 +99,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </div>
