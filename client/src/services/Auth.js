@@ -20,6 +20,16 @@ export const RegisterPilgrim = async (data) => {
   }
 }
 
+export const UpdatePassword = async (data) => {
+  try {
+    const res = await Client.post('/update/:pilgrim_id', data)
+    localStorage.setItem('token', res.data.token)
+    return res.data.user
+  } catch (error) {
+    throw error
+  }
+}
+
 export const CheckSession = async () => {
   try {
     const res = await Client.get('/auth/session')

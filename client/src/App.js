@@ -7,7 +7,8 @@ import Login from './pages/Login'
 import Landing from './pages/Landing'
 import PlanetPage from './pages/PlanetPage'
 import CommunityDetails from './pages/CommunityDetails'
-import { CheckSession } from './services/Auth'
+import Profile from './components/Profile'
+import { CheckSession, UpdatePassword } from './services/Auth'
 import './style/App.css'
 
 const App = () => {
@@ -18,6 +19,9 @@ const App = () => {
   const [communities, setCommunities] = useState([])
   const [community, setCommunity] = useState('')
   const [pilgrims, setPilgrims] = useState([])
+  const [passwordUpdate, setPasswordUpdate] = useState(null)
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmNewPassword, setConfirmNewPassword] = useState('')
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -89,6 +93,18 @@ const App = () => {
               />
             }
           />
+
+          <Route
+            path="/update"
+            element={
+              <UpdatePassword
+                newPassword={newPassword}
+                confirmNewPassword={confirmNewPassword}
+                setPasswordUpdate={setPasswordUpdate}
+              />
+            }
+          />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </div>
