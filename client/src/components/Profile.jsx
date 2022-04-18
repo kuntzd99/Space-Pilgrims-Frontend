@@ -3,6 +3,7 @@ import UpdatePassword from "./UpdatePassword"
 import { useEffect, useState } from 'react'
 import axios from "axios"
 
+
 const Profile = (props) => {
   const [changingPassword, toggleChangingPassword] = useState(false)
   const [changingImage, toggleChangingImage] = useState(false)

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Planet from '../components/Planet'
+import SolarFlare from '../components/SolarFlare'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -45,6 +46,7 @@ const Home = (props) => {
           <img
             src="https://i.ibb.co/x5JbPsC/sun.jpg"
             alt="sun"
+            onClick={() => props.nasaCall()}
             style={{
               zIndex: `12`,
               height: '100px',
@@ -54,6 +56,16 @@ const Home = (props) => {
             }}
           />
         </div>
+      </div>
+      <div className="solarFlare-container">
+        <h1>Solar Flares:</h1>
+        {props.solarFlare.map((flare) => (
+          <SolarFlare
+            key={flare.flrID}
+            start={flare.beginTime}
+            classType={flare.classType}
+          />
+        ))}
       </div>
     </div>
   )
