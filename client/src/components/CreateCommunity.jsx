@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const CreateCommunity = (props) => {
-  const [formValues, setFormValues] = useState({name: '', image: ''})
+  const [formValues, setFormValues] = useState({name: '', image: '', primaryColor: '', secondaryColor: ''})
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -23,6 +23,10 @@ const CreateCommunity = (props) => {
       <input onChange={handleChange} type="text" name="name" required />
       <label>Community image:</label>
       <input onChange={handleChange} type="text" name="image" required />
+      <label>Primary color</label>
+      <input onChange={handleChange} type="color" name="primaryColor" required />
+      <label>Secondary color</label>
+      <input onChange={handleChange} type="color" name="secondaryColor" required />
       <button type="submit">Create Community</button>
     </form>
   )
