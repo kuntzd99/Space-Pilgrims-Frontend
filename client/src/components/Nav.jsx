@@ -5,7 +5,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
   let authenticatedOptions
   if (pilgrim) {
     authenticatedOptions= (
-      <nav className="navbar">
+      <nav className="navbar-text">
         <div className="welcome" > Welcome {pilgrim.username}!</div>
         <ul>
           <input type='checkbox' id="hamburger_icon" />
@@ -14,7 +14,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
             <li><Link to='/home'>Home</Link></li>
             {/* <li><Link to='/faq'></Link>FAQ</li> */}
             <li><Link to='/communities'>Registry</Link></li>
-            <li><Link to='/forum'>Forum</Link></li>
+            {/* <li><Link to='/forum'>Forum</Link></li> */}
             <li><Link to="/admin">Admin Access</Link></li>
             <li><Link to='/profile'>My Profile</Link></li>
             <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
@@ -34,11 +34,13 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
 
   return (
     <header className="navbar" >
+      <div className="nav-left">
       <Link to='/' >
         <div className="logo-container" alt='logo' >
-          <img className="logo" src={Logo} alt="solar-system" />
+          <img className="logo" src={Logo} alt="space-pilgrim-logo" />
         </div>
       </Link>
+      </div>
       {authenticated && pilgrim ? authenticatedOptions : publicOptions}
     </header>
   )
