@@ -1,10 +1,13 @@
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import CreateComment from '../components/CreateComment'
 
 const CommunityDetails = (props) => {
   const { communityId } = useParams()
   const [clicked, toggleClicked] = useState(false)
+  const [clickedComment, toggleClickedComment] = useState(false)
+  const [usernames, setUsernames] = useState({})
 
   const getCommunity = async () => {
     const response = await axios.get(
@@ -24,10 +27,27 @@ const CommunityDetails = (props) => {
     props.setPilgrims(response.data)
   }
 
+  const getComments = async () => {
+    const response = await axios.get(
+      `http://localhost:3001/api/comment/${communityId}`
+    )
+    props.setComments(response.data)
+    for (let i = 0; i < response.data.length; i++) {
+      let username = await axios.get(
+        `http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].pilgrimId}`
+      )
+      setUsernames({
+        ...usernames,
+        [response.data[i].id]: username.data.username
+      })
+    }
+  }
+
   useEffect(() => {
     getCommunity()
     getPilgrims()
-  }, [clicked])
+    getComments()
+  }, [clicked, clickedComment])
 
   const joinCommunity = async () => {
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
@@ -71,8 +91,19 @@ const CommunityDetails = (props) => {
     toggleClicked(!clicked)
   }
 
+  // const getUsernameFromId = async (id) => {
+  //   const response = await axios.get(
+  //     `http://localhost:3001/api/pilgrim/pilgrims/${id}`
+  //   )
+  //   return response.data.username
+  // }
+
   return (
-    <div style={{ backgroundColor: props.community.primaryColor }}>
+    <div
+      style={{
+        background: `linear-gradient(to right, ${props.community.primaryColor}, ${props.community.secondaryColor})`
+      }}
+    >
       <h1>{props.community.name}</h1>
       <img
         src={props.community.image}
@@ -92,6 +123,21 @@ const CommunityDetails = (props) => {
         <button onClick={() => leaveCommunity()}>Leave Community</button>
       ) : (
         <button onClick={() => joinCommunity()}>Join Community</button>
+      )}
+      {props.comments.map((comment) => (
+        <div key={comment.id}>
+          {usernames[comment.id]}: {comment.comment}
+        </div>
+      ))}
+      {props.pilgrim === null ? (
+        <div>Login to comment</div>
+      ) : (
+        <CreateComment
+          clickedComment={clickedComment}
+          toggleClickedComment={toggleClickedComment}
+          communityId={communityId}
+          pilgrim={props.pilgrim}
+        />
       )}
     </div>
   )

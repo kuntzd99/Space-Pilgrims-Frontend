@@ -22,6 +22,7 @@ const App = () => {
   const [passwordUpdate, setPasswordUpdate] = useState(null)
   const [newPassword, setNewPassword] = useState('')
   const [confirmNewPassword, setConfirmNewPassword] = useState('')
+  const [comments, setComments] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -90,6 +91,8 @@ const App = () => {
                 setPilgrim={setPilgrim}
                 planet={planet}
                 setPlanet={setPlanet}
+                comments={comments}
+                setComments={setComments}
               />
             }
           />
