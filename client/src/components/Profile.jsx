@@ -3,6 +3,7 @@ import UpdatePassword from "./UpdatePassword"
 import { useEffect } from 'react'
 import axios from "axios"
 
+
 const Profile = (props) => {
   const getCommunity = async () => {
     const response = await axios.get(

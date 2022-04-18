@@ -7,6 +7,9 @@ const Register = () => {
 
   const [formValues, setFormValues] = useState({
     username: '',
+    name: '',
+    image: '',
+    bio: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -20,11 +23,17 @@ const Register = () => {
     e.preventDefault()
     await RegisterPilgrim({
       username: formValues.username,
+      name: formValues.name,
+      image: formValues.image,
+      bio: formValues.bio,
       email: formValues.email,
       password: formValues.password
     })
     setFormValues({
       username: '',
+      name: '',
+      image: '',
+      bio: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -37,7 +46,7 @@ const Register = () => {
       <div className="card-overlay centered">
         <form className="forms" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label name="username">Username</label>
+            <label name="username">Username:</label>
             <input
               onChange={handleChange}
               name="username"
@@ -45,6 +54,37 @@ const Register = () => {
               placeholder="CoolPigrim08"
               value={formValues.username}
               required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label name="username">Full Name:</label>
+            <input
+              onChange={handleChange}
+              name="name"
+              type="text"
+              placeholder="Jane Doe"
+              value={formValues.name}
+              required
+            />
+          </div>
+          <div className="pilgrim-image">
+            <label for="image">Choose Your Profile Picture:</label>
+            <input
+              onChange={handleChange}
+              name="image"
+              type="file"
+              accept="image/png, image/jpeg"
+              value={formValues.image}
+            />
+          </div>
+          <div className="input-wrapper">
+            <label name="username">Bio:</label>
+            <textarea
+              onChange={handleChange}
+              name="bio"
+              type="text"
+              placeholder="Enter a short bio here..."
+              value={formValues.bio}
             />
           </div>
           <div className="input-wrapper">
@@ -58,7 +98,6 @@ const Register = () => {
               required
             />
           </div>
-
           <div className="input-wrapper">
             <label name="password">Password</label>
             <input
