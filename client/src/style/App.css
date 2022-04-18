@@ -95,6 +95,11 @@
   animation: App-logo-spin infinite 50s linear;
 }
 
+.rocket-sun {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .sun {
   position: absolute;
@@ -103,6 +108,20 @@
   width: 2.5vh;
   height: 2.5vh;
   border-radius: 50%;
+}
+
+.rocket-orbit {
+  position: absolute;
+  height: 40vh;
+  width: 40vh;
+  border-radius: 50%;
+  z-index: 2;
+  animation: App-logo-spin infinite 30s linear
+}
+
+.pilgrim-rocket {
+  height: 75px;
+  width: 75px;
 }
 
 .planet:hover {
