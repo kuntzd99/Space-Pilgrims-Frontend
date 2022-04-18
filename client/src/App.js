@@ -112,7 +112,16 @@ const App = () => {
           />
           <Route
             path="/profile"
-            element={<Profile pilgrim={pilgrim} setPilgrim={setPilgrim} />}
+            element={
+              <Profile
+                pilgrim={pilgrim}
+                setPilgrim={setPilgrim}
+                community={community}
+                setCommunity={setCommunity}
+                planet={planet}
+                setPlanet={setPlanet}
+              />
+            }
           />
         </Routes>
       </main>
