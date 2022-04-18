@@ -376,3 +376,9 @@ input[type='checkbox'] {
     display: block;
   }
 }
+
+.communityImage {
+  height: 250px;
+  width: 250px;
+  border-style: solid;
+}

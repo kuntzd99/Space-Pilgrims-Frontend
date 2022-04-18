@@ -26,7 +26,7 @@ const Community = (props) => {
         {props.communities.map((community) => (
           <div key={community.id} onClick={() => navigate(`/communitypage/${community.id}`)}>
             <h3>{community.name}</h3>
-            <img src={community.image} alt={community.image} />
+            <img className='communityImage' src={community.image} alt={community.image} style={{borderColor: community.primaryColor}} />
           </div>
         ))}
       </div>

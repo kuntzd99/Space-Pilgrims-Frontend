@@ -35,7 +35,6 @@ const CommunityDetails = (props) => {
     })
     props.setPilgrim({ ...props.pilgrim, communityId: communityId })
     let population = props.planet.population
-    console.log('population', props.planet.population)
     await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
       population: parseInt(population + 1)
     })
@@ -55,9 +54,13 @@ const CommunityDetails = (props) => {
   }
 
   return (
-    <div>
+    <div style={{ backgroundColor: props.community.primaryColor }}>
       <h1>{props.community.name}</h1>
-      <img src={props.community.image} alt={props.community.name} />
+      <img
+        src={props.community.image}
+        style={{ borderColor: props.community.secondaryColor }}
+        alt={props.community.name}
+      />
       <h3>Members:</h3>
       {props.pilgrims.map((pilgrim) => (
         <div key={pilgrim.id}>
