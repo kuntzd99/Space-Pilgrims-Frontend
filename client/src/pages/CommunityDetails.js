@@ -53,6 +53,7 @@ const CommunityDetails = (props) => {
   }
 
   useEffect(() => {
+    console.log(props.pilgrim)
     getCommunity()
     getPilgrims()
     getComments()
@@ -122,7 +123,7 @@ const CommunityDetails = (props) => {
         />
         {props.pilgrim === null ? (
           <div>Login to join</div>
-        ) : props.pilgrim.communityId === communityId ? (
+        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ? (
           <button onClick={() => leaveCommunity()}>Leave Community</button>
         ) : (
           <button onClick={() => joinCommunity()}>Join Community</button>
