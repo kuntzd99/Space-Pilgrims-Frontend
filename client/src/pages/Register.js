@@ -42,42 +42,46 @@ const Register = () => {
   }
 
   return (
-    <div className="col">
+    <div className="register col">
       <div className="card-overlay centered">
+        <h1>Register!</h1>
         <form className="forms" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label name="username">Username:</label>
+            {/* <label name="username">Username: </label> */}
             <input
               onChange={handleChange}
               name="username"
               type="text"
-              placeholder="CoolPigrim08"
+              placeholder="username"
               value={formValues.username}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label name="username">Full Name:</label>
+            {/* <label name="username">Full Name: </label> */}
             <input
               onChange={handleChange}
               name="name"
               type="text"
-              placeholder="Jane Doe"
+              placeholder="Full Name"
               value={formValues.name}
               required
             />
           </div>
           <div className="pilgrim-image">
-            <label for="image">Choose Your Profile Picture:</label>
+            {/* <label for="image">Profile Picture: </label> */}
             <input
               onChange={handleChange}
+              placeholder="Profile image"
               name="image"
               type="text"
               value={formValues.image}
             />
           </div>
           <div className="input-wrapper">
-            <label name="username">Bio:</label>
+            {/* <label name="username">
+              <span>Bio: </span>
+            </label> */}
             <textarea
               onChange={handleChange}
               name="bio"
@@ -87,30 +91,32 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            {/* <label htmlFor="email">Email: </label> */}
             <input
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="pilgrim@pilgrim.com"
+              placeholder="email"
               value={formValues.email}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label name="password">Password</label>
+            {/* <label name="password">Password: </label> */}
             <input
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder="password"
               value={formValues.password}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label name="confirmPassword">Confirm Password</label>
+            {/* <label name="confirmPassword">Confirm Password: </label> */}
             <input
               onChange={handleChange}
+              placeholder="confirm password"
               type="password"
               name="confirmPassword"
               value={formValues.confirmPassword}

@@ -30,37 +30,39 @@ const Login = ({
   }
 
   return (
-    <div className="login-forms">
-      <div className="input-wrapper">
-        <label htmlFor="username">Username </label>
-        <input
-          onChange={handleChange}
-          name="username"
-          type="username"
-          placeholder="Choose Username"
-          value={formValues.username}
-          required
-        />
-      </div>
-      <div className="input-wrapper">
-        <label htmlFor="password">Password </label>
-        <input
-          onChange={handleChange}
-          type="password"
-          name="password"
-          value={formValues.password}
-          required
-        />
-      </div>
-      <div>
-        <button
-          onClick={handleSubmit}
-          disabled={!formValues.username || !formValues.password}
-        >
-          Login
-        </button>
-        {/* <button onClick={handleUpdate}>Forgot Password</button> */}
-
+    <div className="login-page">
+      <h1>Login!</h1>
+      <div className="login-forms">
+        <div className="input-wrapper">
+          <label htmlFor="username">Username </label>
+          <input
+            onChange={handleChange}
+            name="username"
+            type="username"
+            placeholder="Choose Username"
+            value={formValues.username}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">Password </label>
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            value={formValues.password}
+            required
+          />
+        </div>
+        <div>
+          <button
+            onClick={handleSubmit}
+            disabled={!formValues.username || !formValues.password}
+          >
+            Login
+          </button>
+          {/* <button onClick={handleUpdate}>Forgot Password</button> */}
+        </div>
       </div>
     </div>
   )
