@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CreateComment from '../components/CreateComment'
@@ -101,61 +101,77 @@ const CommunityDetails = (props) => {
 
   return (
     <div
+      className="community-details"
       style={{
         background: `linear-gradient(to right, ${props.community.primaryColor}, ${props.community.secondaryColor})`
       }}
     >
-      <h1>{props.community.name}</h1>
-      <img
-        src={props.community.image}
-        style={{ borderColor: props.community.secondaryColor }}
-        alt={props.community.name}
-      />
-      <h3>Population: {props.community.population}</h3>
-      <h3>Members:</h3>
-      {props.pilgrims.map((pilgrim) => (
-        <div key={pilgrim.id}>
-          {pilgrim.id === props.pilgrim.id ? (
-            <h3>{pilgrim.username}</h3>
-          ) : (
-            <div>
-              <h3>{pilgrim.username}</h3>
-              <button onClick={() => navigate(`/profile/${pilgrim.id}`)}>
-                View Profile
-              </button>
-            </div>
-          )}
-        </div>
-      ))}
-      {props.pilgrim === null ? (
-        <div>Login to join</div>
-      ) : props.pilgrim.communityId === communityId ? (
-        <button onClick={() => leaveCommunity()}>Leave Community</button>
-      ) : (
-        <button onClick={() => joinCommunity()}>Join Community</button>
-      )}
-      {props.comments.map((comment, index) => (
-        <div key={comment.id}>
-          {usernames[index]}: {comment.comment}
-          {comment.pilgrimId === props.pilgrim.id ? (
-            <button onClick={() => deleteComment(comment.id)}>Delete</button>
-          ) : (
-            <button onClick={() => navigate(`/profile/${comment.pilgrimId}`)}>
-              View Profile
-            </button>
-          )}
-        </div>
-      ))}
-      {props.pilgrim === null ? (
-        <div>Login to comment</div>
-      ) : (
-        <CreateComment
-          clickedComment={clickedComment}
-          toggleClickedComment={toggleClickedComment}
-          communityId={communityId}
-          pilgrim={props.pilgrim}
+      <div className="first-col">
+        <h1>{props.community.name}</h1>
+        <img
+          className="community-image"
+          src={props.community.image}
+          style={{ borderColor: props.community.secondaryColor }}
+          alt={props.community.name}
         />
-      )}
+        {props.pilgrim === null ? (
+          <div>Login to join</div>
+        ) : props.pilgrim.communityId === communityId ? (
+          <button onClick={() => leaveCommunity()}>Leave Community</button>
+        ) : (
+          <button onClick={() => joinCommunity()}>Join Community</button>
+        )}
+        <h3>Members:</h3>
+        {props.pilgrims.map((pilgrim) => (
+          <div key={pilgrim.id}>
+            {pilgrim.id === props.pilgrim.id ? (
+              <h3>{pilgrim.username}</h3>
+            ) : (
+              <Link to={`/profile/${pilgrim.id}`}>
+                <h3>{pilgrim.username}</h3>
+              </Link>
+            )}
+          </div>
+        ))}
+        <h3 className="population">Population: {props.community.population}</h3>
+      </div>
+
+      {/* Second div for comments */}
+
+      <div className="second-col comments">
+        {/* Comments Input Box */}
+
+        {props.pilgrim === null ? (
+          <div>Login to comment</div>
+        ) : (
+          <CreateComment
+            clickedComment={clickedComment}
+            toggleClickedComment={toggleClickedComment}
+            communityId={communityId}
+            pilgrim={props.pilgrim}
+          />
+        )}
+
+        {/* Render all comments on communiuty page */}
+        <div className="comments-area">
+          {props.comments.map((comment, index) => (
+            <div key={comment.id}>
+              {usernames[index]}: {comment.comment}
+              {comment.pilgrimId === props.pilgrim.id ? (
+                <button onClick={() => deleteComment(comment.id)}>
+                  Delete
+                </button>
+              ) : (
+                <button
+                  onClick={() => navigate(`/profile/${comment.pilgrimId}`)}
+                >
+                  View Profile
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

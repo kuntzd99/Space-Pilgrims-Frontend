@@ -18,7 +18,7 @@ const CreateComment = (props) => {
     <form onSubmit={handleSubmit}>
       <label>Comment:</label>
       <textarea onChange={handleChange} type="text" name="comment" required />
-      <button type="submit">Post Comment</button>
+      <button className='post-comment-btn' type="submit">Post Comment</button>
     </form>
   )
 }

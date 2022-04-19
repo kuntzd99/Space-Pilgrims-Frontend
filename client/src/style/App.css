@@ -302,6 +302,38 @@ input[type='checkbox'] {
   background-color: purple;
 }
 
+.community-image {
+  height: 30vh;
+  width: 30vh;
+}
+
+.community-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  /* grid-template-rows: 2fr 1fr 5fr; */
+  min-height: 100vh;
+}
+
+.first-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.second-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.comments-area {
+  height: 50vh;
+  width: 30vh;
+  background-color: pink;
+}
+
 @media (max-width: 1000px) {
   .navbar {
     padding: 15px;
