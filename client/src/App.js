@@ -49,7 +49,6 @@ const App = () => {
     const response = await axios.get(
       `https://api.nasa.gov/DONKI/FLR?startDate=2022-04-18&endDate=2022-12-31&api_key=p2f2NgOuddrU9P5FS38RB0ueSiciWJfAcF7PIlc8`
     )
-    console.log(response.data)
     setSolarFlare(response.data)
   }
 
