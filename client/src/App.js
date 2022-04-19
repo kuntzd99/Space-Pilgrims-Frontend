@@ -150,6 +150,7 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
+                toggleAuthenticated={toggleAuthenticated}
               />
             }
           />
@@ -157,6 +158,7 @@ const App = () => {
             path="/profile/:pilgrimId"
             element={
               <PilgrimProfile
+                pilgrim={pilgrim}
                 nonUserPilgrim={nonUserPilgrim}
                 setNonUserPilgrim={setNonUserPilgrim}
                 community={community}
