@@ -18,15 +18,15 @@ const CreateCommunity = (props) => {
   } 
 
   return(
-    <form onSubmit={handleSubmit}>
-      <label>Community name:</label>
-      <input onChange={handleChange} type="text" name="name" required />
-      <label>Community image:</label>
-      <input onChange={handleChange} type="text" name="image" required />
+    <form className='community-form' onSubmit={handleSubmit}>
+      {/* <label>Community name:</label> */}
+      <input onChange={handleChange} type="text" name="name" required placeholder=' Community Name' className='community-form-input'/>
+      {/* <label>Community image:</label> */}
+      <input onChange={handleChange} type="text" name="image" required placeholder='  Community Image' className='community-form-input'/>
       <label>Primary color</label>
-      <input onChange={handleChange} type="color" name="primaryColor" required />
+      <input onChange={handleChange} type="color" name="primaryColor" required className='community-form-input'/>
       <label>Secondary color</label>
-      <input onChange={handleChange} type="color" name="secondaryColor" required />
+      <input onChange={handleChange} type="color" name="secondaryColor" required className='community-form-input'/>
       <button type="submit">Create Community</button>
     </form>
   )

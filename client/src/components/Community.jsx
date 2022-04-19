@@ -34,11 +34,11 @@ const Community = (props) => {
 
   return (
     <div>
-      <div>
+      <div className='carousel'>
         {props.communities.map((community) => (
-          <div key={community.id} onClick={() => navigate(`/communitypage/${community.id}`)}>
+          <div className='child' key={community.id} onClick={() => navigate(`/communitypage/${community.id}`)} style={{border: `5px solid ${community.primaryColor}`}}>
             <h3>{community.name}</h3>
-            <img className='communityImage' src={community.image} alt={community.image} style={{borderColor: community.primaryColor}} />
+            <img className='communityImage' src={community.image} alt={community.image}  />
             <h4>Population: {community.population}</h4>
           </div>
         ))}

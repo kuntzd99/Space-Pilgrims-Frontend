@@ -20,13 +20,16 @@ const PlanetPage = (props) => {
 
   return (
     <div className="planet-page">
-      <h1>{props.planet.name}</h1>
+      <h1 className="planet-name">{props.planet.name}</h1>
       <img
+        className="planet-image"
         src="https://i.ibb.co/SnBftkk/Untitled-design-12.png"
         alt={props.planet.name}
       />
-      <p>{props.planet.description}</p>
-      <h3>Population: {props.planet.population}</h3>
+      <p className="planet-description">Text: {props.planet.description}</p>
+      <h3 className="planet-population">
+        Population: {props.planet.population}
+      </h3>
       <div className="carousel">
         <div className="child bg-1"></div>
         <div className="child bg-2"></div>
@@ -35,6 +38,7 @@ const PlanetPage = (props) => {
         <div className="child bg-5"></div>
       </div>
       <h1>Communities:</h1>
+
       <Community
         communities={props.communities}
         setCommunities={props.setCommunities}
