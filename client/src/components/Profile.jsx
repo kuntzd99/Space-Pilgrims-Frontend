@@ -69,7 +69,9 @@ const Profile = (props) => {
             </div>) 
             : 
             (<div>
+              <div>
                 <img src={props.pilgrim.image} alt='profile-picture'/>
+              </div>
                 <button onClick={() => toggleChangingImage(true)}>Change Image</button>
               </div>)}
           </div>
