@@ -45,7 +45,7 @@ const PilgrimProfile = (props) => {
         <div></div>
       ) : (
         <div>
-          <h3>Bio:</h3>
+          <h4>Bio:</h4>
           <p>{props.nonUserPilgrim.bio}</p>
         </div>
       )}

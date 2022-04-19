@@ -22,6 +22,7 @@ const Profile = (props) => {
     }
   }
 
+
   useEffect(() => {
     getCommunity()
     console.log(props.pilgrim, '')
@@ -75,8 +76,7 @@ const Profile = (props) => {
           {changingBio ?
           (
           <div>
-            <label>New Bio:</label>
-            <textarea onChange={handleBioChange} />
+            <textarea placeholder="New Bio: " onChange={handleBioChange} />
             <div>
                 <button onClick={handleBioSubmit}>Set New Bio</button>
                 <button onClick={() => toggleChangingBio(false)}>Cancel</button>
