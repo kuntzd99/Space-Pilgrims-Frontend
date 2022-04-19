@@ -513,7 +513,7 @@ input[type='checkbox'] {
 
 .profile h3 {
   font-size: 1.5em;
-  margin: 5vh 0;
+  margin: 5vh 0 0 0;
 }
 
 .profile img {
@@ -522,6 +522,61 @@ input[type='checkbox'] {
 
 .profile textarea {
   margin: 5vh 0;
+}
+
+.profile p {
+  margin: 0 0 5vh 0;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+}
+
+.register input, textarea {
+  margin: 1vh;
+}
+
+.register form {
+  margin-top: 40px;
+  padding-left: 40px;
+  background: white;
+  border-radius: 30px;
+  padding: 70px 50px 70px 50px;
+  box-shadow: 12px 12px 22px grey;
+  display: block;
+}
+
+.register span {
+  margin-bottom: 2vh;
+}
+
+.register-button {
+  margin-top: 1vh;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1D2A3A;
+  min-height: 100vh;
+  color: white;
+}
+
+.login-page h1 {
+  margin-top: 20%;
+}
+
+.login-forms {
+  margin-top: 10%;
+  padding: 3vh;
+}
+
+.login-forms input {
+  height: 3vh;
+  margin: 1vh 0;
 }
 
 @media (max-width: 1000px) {

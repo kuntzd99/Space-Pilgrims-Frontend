@@ -32,13 +32,16 @@ const Landing = ({ setPilgrim, toggleAuthenticated }) => {
         </div>
       </div>
       <div className="register-logoIn">
-        <Login
+        {/* <Login
           setPilgrim={setPilgrim}
           toggleAuthenticated={toggleAuthenticated}
-        />
-        <button className="register" onClick={() => navigate('/register')}>
+        /> */}
+        {/* <button
+          className="register-button"
+          onClick={() => navigate('/register')}
+        >
           Register
-        </button>
+        </button> */}
       </div>
     </div>
   )
