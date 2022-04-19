@@ -261,33 +261,33 @@ input[type='checkbox'] {
 .planet-page {
   background-color: #1D2A3A;
   min-height: 100vh;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 
 
 
 .carousel {
-  scroll-snap-type: y mandatory;
   display: flex;
-  flex-direction: column;
   -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
-  width: 30vw;
+  overflow-x: auto;
+  width: 70vw;
   height: 30vw;
   border-radius: 10px;
+  border: 1px solid white;
+  margin: 0 0 5vh 0;
 }
 
 .child {
   scroll-snap-align: start;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   padding: 1rem;
   margin: 10px;
   text-align: center;
   position: relative;
   border-radius: 10px;
-  max-width: 25vw;
-  min-height: 10vw;
+  min-width: 25vh;
+  min-height: 10vh;
 }
 
 .bg-1 {
@@ -319,6 +319,11 @@ input[type='checkbox'] {
   /* grid-template-rows: 2fr 1fr 5fr; */
   min-height: 100vh;
   overflow-y: hidden;
+}
+
+.communityImage {
+  max-height: 18vh;
+  max-width: 18vh;
 }
 
 .first-col {
@@ -409,6 +414,71 @@ input[type='checkbox'] {
   align-self: center;
 }
 
+.planet-page {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.planet-name {
+  font-size: 4em;
+  margin: 5vh 0 0 0;
+}
+
+.planet-image {
+  height: 50vh;
+  animation: float 5s ease 2s infinite ;
+}
+
+.planet-description {
+  margin: 0 0 5vh 0;
+}
+
+.planet-population {
+  margin: 0 0 5vh 0;
+}
+
+.community-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5vh;
+}
+
+.community-form-input {
+  min-width: 30vh;
+  min-height: 5vh;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+ 
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* @keyframes wobble {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(5deg) translateY(5px);
+  }
+  50% {
+    transform: rotate(0deg) translateY(10px);
+  }
+  75% {
+    transform: rotate(-5deg) translateY(5px);
+  }
+} */
+
+
 @media (max-width: 1000px) {
   .navbar {
     padding: 15px;
@@ -434,8 +504,3 @@ input[type='checkbox'] {
   }
 }
 
-.communityImage {
-  height: 250px;
-  width: 250px;
-  border-style: solid;
-}
