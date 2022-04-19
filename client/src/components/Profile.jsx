@@ -25,7 +25,6 @@ const Profile = (props) => {
 
   useEffect(() => {
     getCommunity()
-    console.log(props.pilgrim, '')
   }, [])
 
   const handleImageChange = (e) => {
