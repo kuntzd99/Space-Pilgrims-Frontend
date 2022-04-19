@@ -150,7 +150,6 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
-                toggleAuthenticated={toggleAuthenticated}
               />
             }
           />
