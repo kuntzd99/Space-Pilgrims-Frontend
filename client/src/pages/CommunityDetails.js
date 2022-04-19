@@ -10,6 +10,7 @@ const CommunityDetails = (props) => {
   const [clickedComment, toggleClickedComment] = useState(false)
   const [usernames, setUsernames] = useState([])
   const [deleted, toggleDeleted] = useState(false)
+  const [userImages, setUserImages] = useState([])
 
   let navigate = useNavigate()
 
@@ -35,15 +36,20 @@ const CommunityDetails = (props) => {
     const response = await axios.get(
       `http://localhost:3001/api/comment/${communityId}`
     )
-    props.setComments(response.data)
+    let loadComments = response.data
+    loadComments.reverse()
+    props.setComments(loadComments)
     const loadUsernames = []
+    const loadImages = []
     for (let i = 0; i < response.data.length; i++) {
       let username = await axios.get(
         `http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].pilgrimId}`
       )
       loadUsernames.push(username.data.username)
+      loadImages.push(username.data.image)
     }
-    setUsernames(loadUsernames)
+    setUserImages(loadImages.reverse())
+    setUsernames(loadUsernames.reverse())
   }
 
   useEffect(() => {
@@ -156,13 +162,25 @@ const CommunityDetails = (props) => {
         <div className="comments-area">
           {props.comments.map((comment, index) => (
             <div className="singleComment" key={comment.id}>
-              {usernames[index]}: {comment.comment}
+              <div className="comment-userName">{usernames[index]}</div>
+              <div className="image-comment">
+                <img
+                  src={userImages[index]}
+                  alt="user-Image"
+                  className="user-image-comment"
+                />
+                <div className="comment-comment">{comment.comment}</div>
+              </div>
               {comment.pilgrimId === props.pilgrim.id ? (
-                <button onClick={() => deleteComment(comment.id)}>
+                <button
+                  className="comment-button"
+                  onClick={() => deleteComment(comment.id)}
+                >
                   Delete
                 </button>
               ) : (
                 <button
+                  className="comment-button"
                   onClick={() => navigate(`/profile/${comment.pilgrimId}`)}
                 >
                   View Profile

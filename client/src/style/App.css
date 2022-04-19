@@ -342,22 +342,71 @@ input[type='checkbox'] {
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
-  height: 50vh;
-  width: 30vh;
+  height: 70vh;
+  width: 60vh;
   background-color: #1D2A3A;
+  border-radius: 10px;
 }
 
 .singleComment {
-  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  /* scroll-snap-align: start; */
   border: 1px solid white;
   border-radius: 10px;
   text-align: center;
   position: relative;
   min-height: 15vh;
-  width: 25vh;
+  width: 50vh;
   background-color: white;
   margin: 10px;
   color: #1D2A3A;
+}
+
+.comment-userName {
+  font-size: 1.5em;
+  margin-left: 25px;
+  align-self: baseline;
+}
+
+.image-comment{
+  display: flex;
+}
+
+.comment-comment {
+  margin-left: 20px;
+}
+
+.user-image-comment {
+  height: auto;
+  width: 8vh;
+}
+
+.comment-form {
+  margin: 10vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.comment-form textarea {
+  height: 20vh;
+  width: 40vh;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.comment-form button {
+  margin: 10px 0 0 0;
+  width: 10vh;
+ 
+}
+
+.comment-button {
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 10vh;
+  align-self: center;
 }
 
 @media (max-width: 1000px) {
