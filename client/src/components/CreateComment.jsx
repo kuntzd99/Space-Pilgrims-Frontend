@@ -12,13 +12,13 @@ const CreateComment = (props) => {
     e.preventDefault()
     await axios.post(`http://localhost:3001/api/comment/${props.communityId}/${props.pilgrim.id}`, formValues).catch((err) => console.log(err))
     props.toggleClickedComment(!props.clickedComment)
+    setFormValues({comment: ''})
   } 
 
   return(
-    <form onSubmit={handleSubmit}>
-      <label>Comment:</label>
-      <textarea onChange={handleChange} type="text" name="comment" required />
-      <button className='post-comment-btn' type="submit">Post Comment</button>
+    <form className='comment-form' onSubmit={handleSubmit}>
+      <textarea placeholder='  Enter comment here ...' onChange={handleChange} type="text" name="comment" required value={formValues.comment} />
+      <button className='post-comment-btn' type="submit">Send</button>
     </form>
   )
 }
