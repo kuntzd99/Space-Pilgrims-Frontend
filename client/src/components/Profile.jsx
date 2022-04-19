@@ -32,14 +32,14 @@ const Profile = (props) => {
     props.toggleAuthenticated(true)
   }
 
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      checkToken()
-    } else {
-      navigate('/')
-    }
-  }, [])
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token')
+  //   if (token) {
+  //     checkToken()
+  //   } else {
+  //     navigate('/')
+  //   }
+  // }, [])
 
   useEffect(() => {
     getCommunity()
@@ -93,8 +93,7 @@ const Profile = (props) => {
           {changingBio ?
           (
           <div>
-            <label>New Bio:</label>
-            <textarea onChange={handleBioChange} />
+            <textarea placeholder="New Bio: " onChange={handleBioChange} />
             <div>
                 <button onClick={handleBioSubmit}>Set New Bio</button>
                 <button onClick={() => toggleChangingBio(false)}>Cancel</button>

@@ -383,11 +383,15 @@ input[type='checkbox'] {
 
 .comment-comment {
   margin-left: 20px;
+  max-width: 35vh;
+  word-wrap: break-word;
+  text-align: start;
 }
 
 .user-image-comment {
   height: auto;
   width: 8vh;
+  max-height: 8vh;
 }
 
 .comment-form {
@@ -493,6 +497,32 @@ input[type='checkbox'] {
   }
 } */
 
+.profile {
+  background-color: #1D2A3A;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile h1 {
+  font-size: 3em;
+  margin: 5vh 0 0 0;
+}
+
+.profile h3 {
+  font-size: 1.5em;
+  margin: 5vh 0;
+}
+
+.profile img {
+  height: 30vh;
+}
+
+.profile textarea {
+  margin: 5vh 0;
+}
 
 @media (max-width: 1000px) {
   .navbar {
