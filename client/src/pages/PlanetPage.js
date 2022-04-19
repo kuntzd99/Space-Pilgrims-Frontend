@@ -21,7 +21,10 @@ const PlanetPage = (props) => {
   return (
     <div className="planet-page">
       <h1>{props.planet.name}</h1>
-      <img src={props.planet.image} alt={props.planet.name} />
+      <img
+        src="https://i.ibb.co/SnBftkk/Untitled-design-12.png"
+        alt={props.planet.name}
+      />
       <p>{props.planet.description}</p>
       <h3>Population: {props.planet.population}</h3>
       <div className="carousel">

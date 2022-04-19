@@ -265,23 +265,26 @@ input[type='checkbox'] {
 }
 
 .carousel {
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: y mandatory;
   display: flex;
+  flex-direction: column;
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
+  overflow-y: auto;
   width: 30vw;
   height: 30vw;
-
+  border-radius: 10px;
 }
 
 .child {
   scroll-snap-align: start;
-  border-right: 1px solid white;
+  border: 1px solid white;
   padding: 1rem;
+  margin: 10px;
   text-align: center;
   position: relative;
-  min-width: 30vw;
-  height: 30vw;
+  border-radius: 10px;
+  max-width: 25vw;
+  min-height: 10vw;
 }
 
 .bg-1 {
