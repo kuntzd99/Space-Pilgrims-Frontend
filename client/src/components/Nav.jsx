@@ -13,7 +13,6 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
           <div className="nav-menu" >
             <li><Link to='/home'>Home</Link></li>
             {/* <li><Link to='/faq'></Link>FAQ</li> */}
-            <li><Link to='/communities'>Registry</Link></li>
             {/* <li><Link to='/forum'>Forum</Link></li> */}
             <li><Link to="/admin">Admin Access</Link></li>
             <li><Link to={`/profile`}>My Profile</Link></li>

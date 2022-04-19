@@ -72,8 +72,7 @@ const Register = () => {
             <input
               onChange={handleChange}
               name="image"
-              type="file"
-              accept="image/png, image/jpeg"
+              type="text"
               value={formValues.image}
             />
           </div>
