@@ -18,7 +18,7 @@ const CreateComment = (props) => {
 
   return(
     <form className='comment-form' onSubmit={handleSubmit}>
-      <input placeholder='Enter comment here ...' onChange={handleChange} type="text" name="comment" required value={formValues.comment} />
+      <textarea placeholder='Enter comment here ...' onChange={handleChange} type="text" name="comment" required value={formValues.comment} />
       <button className='post-comment-btn' type="submit">Send</button>
     </form>
   )
