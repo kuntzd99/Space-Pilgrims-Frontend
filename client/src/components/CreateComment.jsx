@@ -15,9 +15,10 @@ const CreateComment = (props) => {
     setFormValues({comment: ''})
   } 
 
+
   return(
     <form className='comment-form' onSubmit={handleSubmit}>
-      <textarea placeholder='  Enter comment here ...' onChange={handleChange} type="text" name="comment" required value={formValues.comment} />
+      <input placeholder='Enter comment here ...' onChange={handleChange} type="text" name="comment" required value={formValues.comment} />
       <button className='post-comment-btn' type="submit">Send</button>
     </form>
   )
