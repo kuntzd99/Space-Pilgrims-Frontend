@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import UpdatePassword from "./UpdatePassword"
 import { useEffect, useState } from 'react'
 import axios from "axios"
-
+import { CheckSession } from "../services/Auth"
 
 const Profile = (props) => {
   const [changingPassword, toggleChangingPassword] = useState(false)
@@ -10,6 +10,8 @@ const Profile = (props) => {
   const [image, setImage] = useState('')
   const [bio, setBio] = useState('')
   const [changingBio, toggleChangingBio] = useState(false)
+  
+  let navigate = useNavigate()
 
   const getCommunity = async () => {
     if (props.pilgrim.communityId) {
@@ -23,6 +25,21 @@ const Profile = (props) => {
       props.setPlanet(planetResponse.data[0])
     }
   }
+
+  const checkToken = async () => {
+    const pilgrim = await CheckSession()
+    props.setPilgrim(pilgrim)
+    props.toggleAuthenticated(true)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    } else {
+      navigate('/')
+    }
+  }, [])
 
   useEffect(() => {
     getCommunity()
@@ -54,6 +71,7 @@ const Profile = (props) => {
 
   return (
     <div className="profile">
+      {props.pilgrim ? (<div>
       <div className="profile card" key={props.pilgrim.id}>
           <h1>{props.pilgrim.username}</h1>
           {props.pilgrim.communityId ? (<h3>Community: {props.community.name} on {props.planet.name}</h3>) : (<div></div>)}
@@ -88,6 +106,10 @@ const Profile = (props) => {
           }
         </div>
         {changingPassword ? (<div><UpdatePassword /><button onClick={() => toggleChangingPassword(false)}>Cancel</button></div>) : (<button onClick={() => toggleChangingPassword(true)}>Change password</button>)}
+      </div>
+      )
+      :
+      (<div>Loading</div>)}
     </div>
   )
 }

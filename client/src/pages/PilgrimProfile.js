@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import Profile from '../components/Profile'
 
 const PilgrimProfile = (props) => {
   const { pilgrimId } = useParams()
@@ -24,15 +25,11 @@ const PilgrimProfile = (props) => {
 
   useEffect(() => {
     getPilgrimCommunityAndPlanet()
+    console.log(props.nonUserPilgrim.bio)
   }, [])
 
   return (
     <div className="profile">
-      {/* {props.nonUserPilgrim.username ? (
-        <h3>{props.nonUserPilgrim.username}</h3>
-      ) : (
-        <div></div>
-      )} */}
       <h1>{props.nonUserPilgrim.username}</h1>
       {props.nonUserPilgrim.communityId === null ? (
         <div></div>
@@ -44,8 +41,14 @@ const PilgrimProfile = (props) => {
       <div>
         <img src={props.nonUserPilgrim.image} alt="profile-picture" />
       </div>
-      {/* <h3>Bio:</h3>
-      <p>{props.nonUserPilgrim.bio}</p> */}
+      {props.nonUserPilgrim.bio === null ? (
+        <div></div>
+      ) : (
+        <div>
+          <h3>Bio:</h3>
+          <p>{props.nonUserPilgrim.bio}</p>
+        </div>
+      )}
     </div>
   )
 }
