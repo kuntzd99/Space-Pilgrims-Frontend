@@ -44,7 +44,7 @@ const Community = (props) => {
         ))}
       </div>
       {creating ? (<CreateCommunity toggleCreating={toggleCreating} planetId={props.planetId} />) :(
-      <button onClick={() => toggleCreating(true)}>Create Community</button>)}
+      <button className='community-create-btn' onClick={() => toggleCreating(true)}>Create Community</button>)}
     </div>
   )
 }

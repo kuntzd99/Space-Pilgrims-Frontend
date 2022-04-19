@@ -400,12 +400,16 @@ input[type='checkbox'] {
   border-bottom: #1D2A3A solid;
 }
 
-.comment-form input {
+.comment-form textarea {
   height: 20vh;
   width: 56vh;
   border-radius: 10px;
   padding: 10px;
   text-align: left;
+}
+
+.comment-form textarea::placeholder {
+  text-align: start;
 }
 
 .comment-form button {
@@ -419,6 +423,10 @@ input[type='checkbox'] {
   border-radius: 10px;
   width: 10vh;
   align-self: center;
+}
+
+.community-create-btn {
+  margin-bottom: 5vh;
 }
 
 .planet-page {
