@@ -25,7 +25,6 @@ const PilgrimProfile = (props) => {
 
   useEffect(() => {
     getPilgrimCommunityAndPlanet()
-    console.log(props.nonUserPilgrim.bio)
   }, [])
 
   return (
@@ -45,7 +44,7 @@ const PilgrimProfile = (props) => {
         <div></div>
       ) : (
         <div>
-          <h4>Bio:</h4>
+          <h3>Bio:</h3>
           <p>{props.nonUserPilgrim.bio}</p>
         </div>
       )}

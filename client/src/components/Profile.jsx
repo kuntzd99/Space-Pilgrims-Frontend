@@ -25,7 +25,6 @@ const Profile = (props) => {
 
   useEffect(() => {
     getCommunity()
-    console.log(props.pilgrim, '')
   }, [])
 
   const handleImageChange = (e) => {
@@ -69,7 +68,9 @@ const Profile = (props) => {
             </div>) 
             : 
             (<div>
+              <div>
                 <img src={props.pilgrim.image} alt='profile-picture'/>
+              </div>
                 <button onClick={() => toggleChangingImage(true)}>Change Image</button>
               </div>)}
           </div>

@@ -39,8 +39,8 @@ const CommunityDetails = (props) => {
     let loadComments = response.data
     loadComments.reverse()
     props.setComments(loadComments)
-    const loadUsernames = []
-    const loadImages = []
+    let loadUsernames = []
+    let loadImages = []
     for (let i = 0; i < response.data.length; i++) {
       let username = await axios.get(
         `http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].pilgrimId}`
@@ -48,11 +48,12 @@ const CommunityDetails = (props) => {
       loadUsernames.push(username.data.username)
       loadImages.push(username.data.image)
     }
-    setUserImages(loadImages.reverse())
-    setUsernames(loadUsernames.reverse())
+    setUserImages(loadImages)
+    setUsernames(loadUsernames)
   }
 
   useEffect(() => {
+    console.log(props.pilgrim)
     getCommunity()
     getPilgrims()
     getComments()
@@ -122,7 +123,7 @@ const CommunityDetails = (props) => {
         />
         {props.pilgrim === null ? (
           <div>Login to join</div>
-        ) : props.pilgrim.communityId === communityId ? (
+        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ? (
           <button onClick={() => leaveCommunity()}>Leave Community</button>
         ) : (
           <button onClick={() => joinCommunity()}>Join Community</button>
