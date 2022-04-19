@@ -155,7 +155,7 @@ const CommunityDetails = (props) => {
         {/* Render all comments on communiuty page */}
         <div className="comments-area">
           {props.comments.map((comment, index) => (
-            <div key={comment.id}>
+            <div className="singleComment" key={comment.id}>
               {usernames[index]}: {comment.comment}
               {comment.pilgrimId === props.pilgrim.id ? (
                 <button onClick={() => deleteComment(comment.id)}>

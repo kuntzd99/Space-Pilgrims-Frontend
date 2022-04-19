@@ -264,6 +264,9 @@ input[type='checkbox'] {
   overflow-y: hidden;
 }
 
+
+
+
 .carousel {
   scroll-snap-type: y mandatory;
   display: flex;
@@ -315,6 +318,7 @@ input[type='checkbox'] {
   grid-template-columns: 1fr 2fr;
   /* grid-template-rows: 2fr 1fr 5fr; */
   min-height: 100vh;
+  overflow-y: hidden;
 }
 
 .first-col {
@@ -332,9 +336,28 @@ input[type='checkbox'] {
 }
 
 .comments-area {
+  scroll-snap-type: y mandatory;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
   height: 50vh;
   width: 30vh;
-  background-color: pink;
+  background-color: #1D2A3A;
+}
+
+.singleComment {
+  scroll-snap-align: start;
+  border: 1px solid white;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  min-height: 15vh;
+  width: 25vh;
+  background-color: white;
+  margin: 10px;
+  color: #1D2A3A;
 }
 
 @media (max-width: 1000px) {
