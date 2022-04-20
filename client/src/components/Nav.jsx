@@ -16,6 +16,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
             {/* <li><Link to='/forum'>Forum</Link></li> */}
             <li><Link to="/admin">Admin Access</Link></li>
             <li><Link to={`/profile`}>My Profile</Link></li>
+            <li><Link to={`/messages`}>Messages</Link></li>
             <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
           </div>
         </ul>
