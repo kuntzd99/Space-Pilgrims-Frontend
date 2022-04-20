@@ -162,6 +162,10 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
+                messages={messages}
+                setMessages={setMessages}
+                senders={senders}
+                setSenders={setSenders}
               />
             }
           />
@@ -176,18 +180,6 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
-              />
-            }
-          />
-          <Route
-            path="/messages"
-            element={
-              <Mailbox
-                pilgrim={pilgrim}
-                messages={messages}
-                setMessages={setMessages}
-                senders={senders}
-                setSenders={setSenders}
               />
             }
           />
