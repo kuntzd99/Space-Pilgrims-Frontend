@@ -14,6 +14,9 @@ const Mailbox = (props) => {
       senderPilgrims.push(pilgrimResponse.data)
     }
     senderPilgrims = senderPilgrims.reverse()
+    if (senderPilgrims.length === 0) {
+      window.alert('No messages')
+    }
     setSenders(senderPilgrims)
   }
 
@@ -23,7 +26,7 @@ const Mailbox = (props) => {
   }
 
   return(
-    <div>
+    <div className='mailbox'>
       {senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
         <div>
           {props.messages.map((message, index) => (
@@ -31,7 +34,7 @@ const Mailbox = (props) => {
               <Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
                 {senders[senders.length - 1 - index].username}
               </Link>: {message.message}
-              <button onClick={() => deleteMessage(message.id)}>Delete Message</button>
+              <button style={{marginLeft: '1vh'}} onClick={() => deleteMessage(message.id)}>Delete</button>
             </div>
             ))}
         </div>)}
