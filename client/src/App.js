@@ -34,7 +34,6 @@ const App = () => {
   })
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
-  const [senders, setSenders] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -165,8 +164,6 @@ const App = () => {
                 setPlanet={setPlanet}
                 messages={messages}
                 setMessages={setMessages}
-                senders={senders}
-                setSenders={setSenders}
               />
             }
           />
