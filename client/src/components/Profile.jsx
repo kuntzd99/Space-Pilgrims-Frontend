@@ -9,24 +9,33 @@ const Profile = (props) => {
   const [image, setImage] = useState('')
   const [bio, setBio] = useState('')
   const [changingBio, toggleChangingBio] = useState(false)
+  const [loaded, toggleLoaded] = useState(false)
+  const [reload, toggleReload] = useState(false)
 
   const getCommunity = async () => {
-    if (props.pilgrim.communityId) {
-      const response = await axios.get(
-        `http://localhost:3001/api/community/communities/${props.pilgrim.communityId}`
-      )
-      props.setCommunity(response.data)
-      const planetResponse = await axios.get(
-        `http://localhost:3001/api/planet/${response.data.planetId}`
-      )
-      props.setPlanet(planetResponse.data[0])
+    if (props.pilgrim) {
+      if (props.pilgrim.communityId) {
+        const response = await axios.get(
+          `http://localhost:3001/api/community/communities/${props.pilgrim.communityId}`
+        )
+        props.setCommunity(response.data)
+        const planetResponse = await axios.get(
+          `http://localhost:3001/api/planet/${response.data.planetId}`
+        )
+        props.setPlanet(planetResponse.data[0])
+        toggleLoaded(true)
+      }
+    } else {
+      toggleReload(!reload)
     }
   }
 
 
   useEffect(() => {
-    getCommunity()
-  }, [])
+    if (!loaded) {
+      getCommunity()
+    }
+  }, [reload])
 
   const handleImageChange = (e) => {
     e.preventDefault()
@@ -57,7 +66,7 @@ const Profile = (props) => {
       {props.pilgrim ? (<div>
       <div className="profile card" key={props.pilgrim.id}>
           <h1>{props.pilgrim.username}</h1>
-          {props.community.name ? (<h3>Community: {props.community.name} on {props.planet.name}</h3>) : (<div></div>)}
+          {props.community ? (<h3>Community: {props.community.name} on {props.planet.name}</h3>) : (<div>Loading community</div>)}
           <div>
             {changingImage ? 
             (<div>
