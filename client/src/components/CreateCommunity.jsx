@@ -13,8 +13,12 @@ const CreateCommunity = (props) => {
     // if (formValues.image === '') {
     //   setFormValues({ ...formValues, ['image']: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png' })
     // }
-    await axios.post(`http://localhost:3001/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
-    props.toggleCreating(false)
+    if (formValues.image.slice(0, 4) === 'http') {
+      await axios.post(`http://localhost:3001/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
+      props.toggleCreating(false)
+    } else {
+      window.alert('Choose a different image')
+    }
   } 
 
   return(

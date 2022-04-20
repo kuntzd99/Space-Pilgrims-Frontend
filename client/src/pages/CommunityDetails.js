@@ -17,6 +17,9 @@ const CommunityDetails = (props) => {
   const [editingImage, toggleEditingImage] = useState(false)
   const [newImage, setNewImage] = useState('')
   const [creator, setCreator] = useState({})
+  const [editingColors, toggleEditingColors] = useState(false)
+  const [newPrimaryColor, setNewPrimaryColor] = useState('')
+  const [newSecondaryColor, setNewSecondaryColor] = useState('')
 
   let navigate = useNavigate()
 
@@ -167,6 +170,30 @@ const CommunityDetails = (props) => {
     toggleClicked(!clicked)
   }
 
+  const handlePrimaryColorChange = (e) => {
+    e.preventDefault()
+    setNewPrimaryColor(e.target.value)
+  }
+
+  const handleSecondaryColorChange = (e) => {
+    e.preventDefault()
+    setNewSecondaryColor(e.target.value)
+  }
+
+  const handleColorsSubmit = async (e) => {
+    e.preventDefault()
+    props.setCommunity({
+      ...props.community,
+      primaryColor: newPrimaryColor,
+      secondaryColor: newSecondaryColor
+    })
+    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+      primaryColor: newPrimaryColor,
+      secondaryColor: newSecondaryColor
+    })
+    toggleEditingColors(false)
+  }
+
   return (
     <div
       className="community-details"
@@ -279,6 +306,44 @@ const CommunityDetails = (props) => {
           </div>
         ))}
         <h3 className="population">Population: {props.community.population}</h3>
+        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
+        props.pilgrim.admin === true ? (
+          editingColors ? (
+            <div>
+              <div>
+                <input
+                  type="color"
+                  onChange={handlePrimaryColorChange}
+                  required
+                  style={{ margin: '.5vh' }}
+                />
+                <input
+                  type="color"
+                  onChange={handleSecondaryColorChange}
+                  required
+                  style={{ margin: '.5vh' }}
+                />
+              </div>
+              <div>
+                <button
+                  onClick={() => toggleEditingColors(false)}
+                  style={{ margin: '.5vh' }}
+                >
+                  Cancel
+                </button>
+                <button style={{ margin: '.5vh' }} onClick={handleColorsSubmit}>
+                  Submit
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button onClick={() => toggleEditingColors(true)}>
+              Edit Colors
+            </button>
+          )
+        ) : (
+          <div></div>
+        )}
       </div>
 
       {/* Second div for comments */}
