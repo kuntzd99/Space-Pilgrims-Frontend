@@ -18,7 +18,6 @@ const PlanetPage = (props) => {
   useEffect(() => {
     getPlanet()
     props.getPlanetImages(planetId)
-    console.log(props.pilgrim)
   }, [])
 
   return (
