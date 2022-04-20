@@ -11,7 +11,6 @@ import CommunityDetails from './pages/CommunityDetails'
 import Profile from './components/Profile'
 import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
-import Planet9 from './pages/Planet9'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
 import Mailbox from './components/Mailbox'
@@ -190,17 +189,6 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
-              />
-            }
-          />
-          <Route
-            path="/planet9"
-            element={
-              <Planet9
-                authenticated={authenticated}
-                pilgrim={pilgrim}
-                setPilgrim={setPilgrim}
-                handleLogout={handleLogout}
               />
             }
           />
