@@ -35,7 +35,6 @@ const App = () => {
   })
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
-  const [senders, setSenders] = useState([])
   const [ratings, setRatings] = useState([])
   const [averageRating, setAverageRating] = useState([])
 
@@ -129,6 +128,7 @@ const App = () => {
                 planets={planets}
                 nasaCall={nasaCall}
                 solarFlare={solarFlare}
+                pilgrim={pilgrim}
               />
             }
           />
@@ -146,6 +146,7 @@ const App = () => {
                 getAverageRating={getAverageRating}
                 ratings={ratings}
                 averageRating={averageRating}
+                pilgrim={pilgrim}
                 // authenticated={authenticated}
               />
             }
@@ -192,8 +193,6 @@ const App = () => {
                 setPlanet={setPlanet}
                 messages={messages}
                 setMessages={setMessages}
-                senders={senders}
-                setSenders={setSenders}
               />
             }
           />

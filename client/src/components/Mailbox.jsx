@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Mailbox = (props) => {
   const [senders, setSenders] = useState([])
@@ -12,17 +13,28 @@ const Mailbox = (props) => {
       const pilgrimResponse = await axios.get(`http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].sentFrom}`)
       senderPilgrims.push(pilgrimResponse.data)
     }
-    props.setSenders(senderPilgrims)
+    senderPilgrims = senderPilgrims.reverse()
+    if (senderPilgrims.length === 0) {
+      window.alert('No messages')
+    }
     setSenders(senderPilgrims)
   }
 
+  const deleteMessage = async (messageId) => {
+    await axios.delete(`http://localhost:3001/api/message/${messageId}`)
+    getMessagesAndSenders()
+  }
+
   return(
-    <div>
-      {props.senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
+    <div className='mailbox'>
+      {senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
         <div>
           {props.messages.map((message, index) => (
             <div key={message.id}>
-              {senders[senders.length - 1 - index].username}: {message.message}
+              <Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
+                {senders[senders.length - 1 - index].username}
+              </Link>: {message.message}
+              <button style={{marginLeft: '1vh'}} onClick={() => deleteMessage(message.id)}>Delete</button>
             </div>
             ))}
         </div>)}

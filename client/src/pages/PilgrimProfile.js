@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import MessageForm from '../components/MessageForm'
 
@@ -35,7 +35,12 @@ const PilgrimProfile = (props) => {
         <div></div>
       ) : (
         <h3>
-          Community: {props.community.name} on {props.planet.name}
+          Community:{' '}
+          <Link to={`/communitypage/${props.community.id}`}>
+            {props.community.name}
+          </Link>{' '}
+          on{' '}
+          <Link to={`/planetpage/${props.planet.id}`}>{props.planet.name}</Link>
         </h3>
       )}
       <div>
