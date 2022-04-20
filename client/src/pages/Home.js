@@ -39,6 +39,7 @@ const Home = (props) => {
               planet={planet.id}
               surface={planet.image}
               size={planet.size}
+              pilgrim={props.pilgrim}
             />
           ))}
           <img

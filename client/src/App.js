@@ -114,6 +114,7 @@ const App = () => {
                 planets={planets}
                 nasaCall={nasaCall}
                 solarFlare={solarFlare}
+                pilgrim={pilgrim}
               />
             }
           />
