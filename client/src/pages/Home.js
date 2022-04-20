@@ -9,13 +9,11 @@ const Home = (props) => {
 
   const getPlanets = async () => {
     const response = await axios.get(`http://localhost:3001/api/planet/`)
-    console.log(response.data)
     props.setPlanets(response.data)
   }
 
   useEffect(() => {
     getPlanets()
-    console.log(props.planets, 'useEffect')
   }, [])
 
   const surface =
