@@ -165,8 +165,6 @@ const App = () => {
                 setPlanet={setPlanet}
                 messages={messages}
                 setMessages={setMessages}
-                senders={senders}
-                setSenders={setSenders}
               />
             }
           />
