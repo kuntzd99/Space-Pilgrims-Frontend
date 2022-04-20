@@ -13,7 +13,7 @@ const Mailbox = (props) => {
       const pilgrimResponse = await axios.get(`http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].sentFrom}`)
       senderPilgrims.push(pilgrimResponse.data)
     }
-    props.setSenders(senderPilgrims)
+    senderPilgrims = senderPilgrims.reverse()
     setSenders(senderPilgrims)
   }
 
@@ -24,7 +24,7 @@ const Mailbox = (props) => {
 
   return(
     <div>
-      {props.senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
+      {senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
         <div>
           {props.messages.map((message, index) => (
             <div key={message.id}>
