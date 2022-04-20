@@ -13,6 +13,7 @@ import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
+import Mailbox from './components/Mailbox'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -32,6 +33,8 @@ const App = () => {
     communityId: null
   })
   const [solarFlare, setSolarFlare] = useState([])
+  const [messages, setMessages] = useState([])
+  const [senders, setSenders] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -164,6 +167,18 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
+              />
+            }
+          />
+          <Route
+            path="/messages"
+            element={
+              <Mailbox
+                pilgrim={pilgrim}
+                messages={messages}
+                setMessages={setMessages}
+                senders={senders}
+                setSenders={setSenders}
               />
             }
           />

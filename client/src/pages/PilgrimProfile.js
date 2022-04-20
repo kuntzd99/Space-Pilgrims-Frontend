@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import Profile from '../components/Profile'
+import { useEffect, useState } from 'react'
+import MessageForm from '../components/MessageForm'
 
 const PilgrimProfile = (props) => {
   const { pilgrimId } = useParams()
+  const [sendingMessage, toggleSendingMessage] = useState(false)
 
   const getPilgrimCommunityAndPlanet = async () => {
     const response = await axios.get(
@@ -47,6 +48,16 @@ const PilgrimProfile = (props) => {
           <h3>Bio:</h3>
           <p>{props.nonUserPilgrim.bio}</p>
         </div>
+      )}
+      {sendingMessage ? (
+        <MessageForm
+          sendingMessage={sendingMessage}
+          toggleSendingMessage={toggleSendingMessage}
+          sentTo={props.nonUserPilgrim.id}
+          sentFrom={props.pilgrim.id}
+        />
+      ) : (
+        <button onClick={() => toggleSendingMessage(true)}>Send Message</button>
       )}
     </div>
   )
