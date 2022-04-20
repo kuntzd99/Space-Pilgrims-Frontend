@@ -12,9 +12,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
             <li><Link to='/home'>Home</Link></li>
-
-            <li><Link to={`/profile`}>My Profile</Link></li>
-            <li><Link to={`/messages`}>Messages</Link></li>
+            <li><Link to="/profile">My Profile</Link></li>
             <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
           </div>
         </ul>
@@ -60,7 +58,6 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
       </Link>
       </div>
       {authenticated && pilgrim ? (pilgrim.admin === true ? adminOptions: authenticatedOptions) : publicOptions}
-      {/* {authenticated && pilgrim.admin === true ? adminOptions : publicOptions} */}
     </header>
   )
   }

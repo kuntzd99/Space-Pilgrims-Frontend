@@ -35,7 +35,6 @@ const App = () => {
   })
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
-  const [senders, setSenders] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -54,6 +53,14 @@ const App = () => {
       `https://api.nasa.gov/DONKI/FLR?startDate=2022-04-18&endDate=2022-12-31&api_key=p2f2NgOuddrU9P5FS38RB0ueSiciWJfAcF7PIlc8`
     )
     setSolarFlare(response.data)
+  }
+
+  const postRating = async (rating, planetId) => {
+    const response = await axios.post(
+      `http://localhost:3001/api/rating/${planetId}`,
+      rating
+    )
+    console.log(response.data)
   }
 
   useEffect(() => {
@@ -110,6 +117,8 @@ const App = () => {
                 setPlanet={setPlanet}
                 communities={communities}
                 setCommunities={setCommunities}
+                postRating={postRating}
+                pilgrim={pilgrim}
                 // authenticated={authenticated}
               />
             }
@@ -154,6 +163,10 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
+                messages={messages}
+                setMessages={setMessages}
+                senders={senders}
+                setSenders={setSenders}
               />
             }
           />
@@ -168,18 +181,6 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
-              />
-            }
-          />
-          <Route
-            path="/messages"
-            element={
-              <Mailbox
-                pilgrim={pilgrim}
-                messages={messages}
-                setMessages={setMessages}
-                senders={senders}
-                setSenders={setSenders}
               />
             }
           />
