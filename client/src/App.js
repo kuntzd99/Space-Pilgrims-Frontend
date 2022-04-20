@@ -118,6 +118,7 @@ const App = () => {
                 communities={communities}
                 setCommunities={setCommunities}
                 postRating={postRating}
+                pilgrim={pilgrim}
                 // authenticated={authenticated}
               />
             }
