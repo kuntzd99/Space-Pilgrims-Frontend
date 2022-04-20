@@ -11,6 +11,7 @@ const Profile = (props) => {
   const [changingBio, toggleChangingBio] = useState(false)
 
   const getCommunity = async () => {
+    console.log(props.pilgrim, 'PROFILE')
     if (props.pilgrim.communityId) {
       const response = await axios.get(
         `http://localhost:3001/api/community/communities/${props.pilgrim.communityId}`
