@@ -29,7 +29,7 @@ const PlanetPage = (props) => {
       <p className="planet-description">Text: {props.planet.description}</p>
       <div className="planet-rating">
         <div>Rate: </div>
-        <a onClick={() => console.log('planet1')}>🪐</a>
+        <a onClick={() => props.postRating(1, planetId)}>🪐</a>
         <a onClick={() => console.log('planet2')}>🪐</a>
         <a onClick={() => console.log('planet1')}>🪐</a>
         <a onClick={() => console.log('planet1')}>🪐</a>
