@@ -35,6 +35,8 @@ const App = () => {
   })
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
+  const [ratings, setRatings] = useState([])
+  const [averageRating, setAverageRating] = useState([])
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -60,7 +62,19 @@ const App = () => {
       `http://localhost:3001/api/rating/${planetId}`,
       rating
     )
+    getAverageRating(planetId)
     console.log(response.data)
+  }
+
+  const getAverageRating = async (planetId) => {
+    const response = await axios.get(
+      `http://localhost:3001/api/rating/${planetId}`
+    )
+    let sum = 0
+    for (let i = 0; i < response.data.length; i++) {
+      sum += response.data[i]
+    }
+    setAverageRating(sum / response.data.length)
   }
 
   const getPlanetImages = async (planetId) => {
@@ -129,6 +143,9 @@ const App = () => {
                 postRating={postRating}
                 getPlanetImages={getPlanetImages}
                 planetImages={planetImages}
+                getAverageRating={getAverageRating}
+                ratings={ratings}
+                averageRating={averageRating}
                 pilgrim={pilgrim}
                 // authenticated={authenticated}
               />
