@@ -21,6 +21,7 @@ const App = () => {
   const [pilgrim, setPilgrim] = useState(null)
   const [planets, setPlanets] = useState([])
   const [planet, setPlanet] = useState('')
+  const [planetImages, setPlanetImages] = useState([])
   const [communities, setCommunities] = useState([])
   const [community, setCommunity] = useState('')
   const [pilgrims, setPilgrims] = useState([])
@@ -61,6 +62,14 @@ const App = () => {
       rating
     )
     console.log(response.data)
+  }
+
+  const getPlanetImages = async (planetId) => {
+    const response = await axios.get(
+      `http://localhost:3001/api/planetImage/${planetId}`
+    )
+    console.log(response.data)
+    setPlanetImages(response.data)
   }
 
   useEffect(() => {
@@ -118,6 +127,8 @@ const App = () => {
                 communities={communities}
                 setCommunities={setCommunities}
                 postRating={postRating}
+                getPlanetImages={getPlanetImages}
+                planetImages={planetImages}
                 pilgrim={pilgrim}
                 // authenticated={authenticated}
               />
