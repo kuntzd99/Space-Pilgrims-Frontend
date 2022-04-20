@@ -454,6 +454,35 @@ input[type='checkbox'] {
   margin: 0 0 5vh 0;
 }
 
+.planet-rating {
+  display: flex;
+  align-items: center;
+}
+
+.planet-rating a {
+  scale: 2;
+  margin: 8px;
+  opacity: 50%;
+}
+
+.planet-rating:hover a {
+  opacity: 100%;
+  cursor: pointer;
+  transform: scale(2);
+}
+
+.planet-rating a:hover {
+  opacity: 100%;
+  cursor: pointer;
+  transform: scale(2);
+}
+
+.planet-rating a:hover ~ a {
+  opacity: 50%;
+  cursor: pointer;
+  transform: scale(1);
+}
+
 .planet-population {
   margin: 0 0 5vh 0;
 }

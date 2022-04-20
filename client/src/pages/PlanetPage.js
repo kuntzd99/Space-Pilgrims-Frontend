@@ -27,6 +27,14 @@ const PlanetPage = (props) => {
         alt={props.planet.name}
       />
       <p className="planet-description">Text: {props.planet.description}</p>
+      <div className="planet-rating">
+        <div>Rate: </div>
+        <a onClick={() => console.log('planet1')}>🪐</a>
+        <a onClick={() => console.log('planet2')}>🪐</a>
+        <a onClick={() => console.log('planet1')}>🪐</a>
+        <a onClick={() => console.log('planet1')}>🪐</a>
+        <a onClick={() => console.log('planet1')}>🪐</a>
+      </div>
       <h3 className="planet-population">
         Population: {props.planet.population}
       </h3>

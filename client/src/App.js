@@ -55,6 +55,10 @@ const App = () => {
     setSolarFlare(response.data)
   }
 
+  const postRating = async (rating, planetId) => {
+    const response = await axios.post('')
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -109,6 +113,7 @@ const App = () => {
                 setPlanet={setPlanet}
                 communities={communities}
                 setCommunities={setCommunities}
+                postRating={postRating}
                 // authenticated={authenticated}
               />
             }
