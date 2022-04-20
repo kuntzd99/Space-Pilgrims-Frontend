@@ -192,6 +192,7 @@ li {
 .nav-menu li a:hover {
   border-bottom: .15em solid white;
 }
+
 .nav-menu li a {
   padding: 5px 14px;
   color: white;
@@ -605,6 +606,34 @@ input[type='checkbox'] {
 .login-forms input {
   height: 3vh;
   margin: 1vh 0;
+}
+
+.profile a {
+  color: white;
+}
+
+.profile a:hover {
+  color: aqua;
+}
+
+.community-details a {
+  color: black;
+}
+
+.community-details a:hover {
+  color: aqua;
+}
+
+.mailbox a {
+  color: white;
+}
+
+.mailbox a:hover {
+  color: aqua;
+}
+
+.mailbox {
+  margin: 3vh;
 }
 
 @media (max-width: 1000px) {
