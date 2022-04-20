@@ -287,7 +287,6 @@ input[type='checkbox'] {
   text-align: center;
   position: relative;
   border-radius: 10px;
-  min-width: 25vh;
   min-height: 10vh;
 }
 

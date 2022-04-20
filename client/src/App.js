@@ -11,6 +11,7 @@ import CommunityDetails from './pages/CommunityDetails'
 import Profile from './components/Profile'
 import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
+import Planet9 from './pages/Planet9'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
 import Mailbox from './components/Mailbox'
@@ -20,6 +21,7 @@ const App = () => {
   const [pilgrim, setPilgrim] = useState(null)
   const [planets, setPlanets] = useState([])
   const [planet, setPlanet] = useState('')
+  const [planetImages, setPlanetImages] = useState([])
   const [communities, setCommunities] = useState([])
   const [community, setCommunity] = useState('')
   const [pilgrims, setPilgrims] = useState([])
@@ -60,6 +62,14 @@ const App = () => {
       rating
     )
     console.log(response.data)
+  }
+
+  const getPlanetImages = async (planetId) => {
+    const response = await axios.get(
+      `http://localhost:3001/api/planetImage/${planetId}`
+    )
+    console.log(response.data)
+    setPlanetImages(response.data)
   }
 
   useEffect(() => {
@@ -117,6 +127,8 @@ const App = () => {
                 communities={communities}
                 setCommunities={setCommunities}
                 postRating={postRating}
+                getPlanetImages={getPlanetImages}
+                planetImages={planetImages}
                 pilgrim={pilgrim}
                 // authenticated={authenticated}
               />
@@ -178,6 +190,17 @@ const App = () => {
                 setCommunity={setCommunity}
                 planet={planet}
                 setPlanet={setPlanet}
+              />
+            }
+          />
+          <Route
+            path="/planet9"
+            element={
+              <Planet9
+                authenticated={authenticated}
+                pilgrim={pilgrim}
+                setPilgrim={setPilgrim}
+                handleLogout={handleLogout}
               />
             }
           />

@@ -171,7 +171,8 @@ const CommunityDetails = (props) => {
       }}
     >
       <div className="first-col">
-        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ? (
+        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
+        props.pilgrim.admin === true ? (
           editingName ? (
             <div>
               <input type="text" onChange={handleNameChange} required />
@@ -189,7 +190,8 @@ const CommunityDetails = (props) => {
         ) : (
           <h1>{props.community.name}</h1>
         )}
-        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ? (
+        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
+        props.pilgrim.admin === true ? (
           editingImage ? (
             <div>
               <input type="text" onChange={handleImageChange} required />
@@ -233,7 +235,8 @@ const CommunityDetails = (props) => {
         )}
         {props.pilgrim === null ? (
           <div>Login to join</div>
-        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ? (
+        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ||
+          props.pilgrim.admin === true ? (
           <button onClick={() => leaveCommunity()}>Leave Community</button>
         ) : (
           <button onClick={() => joinCommunity()}>Join Community</button>
@@ -252,7 +255,7 @@ const CommunityDetails = (props) => {
             {pilgrim.id === props.pilgrim.id ? (
               <h3>{pilgrim.username}</h3>
             ) : parseInt(props.community.creatorId) ===
-              parseInt(props.pilgrim.id) ? (
+                parseInt(props.pilgrim.id) || props.pilgrim.admin === true ? (
               <div style={{ display: 'flex' }}>
                 <Link to={`/profile/${pilgrim.id}`}>
                   <h3>{pilgrim.username}</h3>
