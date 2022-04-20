@@ -69,24 +69,28 @@ const CommunityDetails = (props) => {
   }, [clicked, clickedComment, deleted])
 
   const joinCommunity = async () => {
-    await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
-      communityId: communityId
-    })
-    props.setPilgrim({ ...props.pilgrim, communityId: communityId })
-    let population = props.planet.population
-    await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
-      population: parseInt(population + 1)
-    })
-    props.setPlanet({ ...props.planet, population: parseInt(population + 1) })
-    let communityPopulation = props.community.population
-    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
-      population: parseInt(communityPopulation + 1)
-    })
-    props.setCommunity({
-      ...props.community,
-      population: parseInt(communityPopulation + 1)
-    })
-    toggleClicked(!clicked)
+    if (props.pilgrim.communityId === null) {
+      await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
+        communityId: communityId
+      })
+      props.setPilgrim({ ...props.pilgrim, communityId: communityId })
+      let population = props.planet.population
+      await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
+        population: parseInt(population + 1)
+      })
+      props.setPlanet({ ...props.planet, population: parseInt(population + 1) })
+      let communityPopulation = props.community.population
+      await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+        population: parseInt(communityPopulation + 1)
+      })
+      props.setCommunity({
+        ...props.community,
+        population: parseInt(communityPopulation + 1)
+      })
+      toggleClicked(!clicked)
+    } else {
+      window.alert('You cannot be joined to multiple communities')
+    }
   }
 
   const leaveCommunity = async () => {
