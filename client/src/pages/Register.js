@@ -41,7 +41,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (usernames.indexOf(formValues.username) !== -1) {
-      return window.alert('Choose a different username')
+      return window.alert('Account with that username already exists')
     }
     if (emails.indexOf(formValues.email) !== -1) {
       return window.alert('Account with that email already exists')
