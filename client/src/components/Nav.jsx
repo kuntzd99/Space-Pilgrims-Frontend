@@ -12,16 +12,33 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
             <li><Link to='/home'>Home</Link></li>
-            {/* <li><Link to='/faq'></Link>FAQ</li> */}
-            {/* <li><Link to='/forum'>Forum</Link></li> */}
-            <li><Link to="/admin">Admin Access</Link></li>
-            <li><Link to={`/profile`}>My Profile</Link></li>
+            <li><Link to="/profile">My Profile</Link></li>
             <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
           </div>
         </ul>
       </nav>
     )
   }
+  let adminOptions
+   if (pilgrim) {
+    adminOptions = (
+      <nav className="navbar-text">
+        <div className="welcome" > Welcome {pilgrim.username}!</div>
+        <ul>
+          <input type='checkbox' id="hamburger_icon" />
+          <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
+          <div className="nav-menu" >
+            <li><Link to='/home'>Home</Link></li>
+            <li><Link to='/faq'></Link>FAQ</li>
+            <li><Link to="/admin">Admin Access</Link></li>
+            <li><Link to={`/profile`}>My Profile</Link></li>
+            <li><Link to={`/messages`}>Messages</Link></li>
+            <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
+          </div>
+        </ul>
+      </nav>
+    )
+   }
 
   const publicOptions = (
     <nav className="publicOption">
@@ -40,9 +57,9 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
         </div>
       </Link>
       </div>
-      {authenticated && pilgrim ? authenticatedOptions : publicOptions}
+      {authenticated && pilgrim ? (pilgrim.admin === true ? adminOptions: authenticatedOptions) : publicOptions}
     </header>
   )
-}
+  }
 
 export default Nav

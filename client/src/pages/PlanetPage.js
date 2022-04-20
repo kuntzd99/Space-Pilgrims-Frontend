@@ -51,6 +51,7 @@ const PlanetPage = (props) => {
         communities={props.communities}
         setCommunities={props.setCommunities}
         planetId={planetId}
+        pilgrim={props.pilgrim}
       />
     </div>
   )
