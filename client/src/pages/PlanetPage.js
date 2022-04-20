@@ -18,7 +18,7 @@ const PlanetPage = (props) => {
   useEffect(() => {
     getPlanet()
     props.getPlanetImages(planetId)
-    console.log(props.pilgrim)
+    props.getAverageRating(planetId)
   }, [])
 
   return (
@@ -35,13 +35,17 @@ const PlanetPage = (props) => {
             alt={props.planet.name}
           />
           <p className="planet-description">Text: {props.planet.description}</p>
+          <div>Planet's Rating: {props.averageRating} / 5</div>
           <div className="planet-rating">
             <div>Rate: </div>
-            <a onClick={() => props.postRating(1, planetId)}>🪐</a>
-            <a onClick={() => console.log('planet2')}>🪐</a>
-            <a onClick={() => console.log('planet1')}>🪐</a>
-            <a onClick={() => console.log('planet1')}>🪐</a>
-            <a onClick={() => console.log('planet1')}>🪐</a>
+            <a onClick={() => props.postRating({ rating: 1 }, planetId)}>🪐</a>
+            <a onClick={() => props.postRating({ rating: 2 }, planetId)}>🪐</a>
+            <a onClick={() => props.postRating({ rating: 3 }, planetId)}>🪐</a>
+            <a onClick={() => props.postRating({ rating: 4 }, planetId)}>🪐</a>
+            <a onClick={() => props.postRating({ rating: 5 }, planetId)}>🪐</a>
+            {/* <button onClick={() => props.getAverageRating(planetId)}>
+            Get Rating
+          </button> */}
           </div>
           <h3 className="planet-population">
             Population: {props.planet.population}
@@ -52,7 +56,6 @@ const PlanetPage = (props) => {
             ))}
           </div>
           <h1>Communities:</h1>
-
           <Community
             communities={props.communities}
             setCommunities={props.setCommunities}
