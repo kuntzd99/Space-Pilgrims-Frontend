@@ -1,8 +1,19 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
-const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex}) => {
+const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex, pilgrim}) => {
   let navigate = useNavigate()
+
+
+  const madameX = (id) => {
+    if(id===9) {
+      if(pilgrim.admin){
+        navigate(`/planetpage/${id}`)
+      }
+    } else {
+      navigate(`/planetpage/${id}`)
+    }
+  }
   
   return (
     <div className="orbit" 
@@ -21,7 +32,7 @@ const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex}) => {
           width: `${size}px`, 
           borderRadius: "50%"
           }} 
-        onClick={() => navigate(`/planetpage/${planet}`)}>
+        onClick={() => madameX(planet)}>
       </div>
     </div>
   )
