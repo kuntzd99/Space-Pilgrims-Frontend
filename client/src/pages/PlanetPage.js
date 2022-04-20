@@ -23,9 +23,7 @@ const PlanetPage = (props) => {
   return (
     <div>
       {parseInt(planetId) === 9 &&
-      (props.pilgrim === null ||
-        props.pilgrim.admin === false ||
-        !props.pilgrim.admin) ? (
+      (props.pilgrim === null || props.pilgrim.admin !== true) ? (
         <h1 style={{ color: 'red' }}>ERROR: NOT AUTHORIZED</h1>
       ) : (
         <div className="planet-page">
