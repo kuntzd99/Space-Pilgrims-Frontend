@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { RegisterPilgrim } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Register = () => {
   let navigate = useNavigate()
@@ -14,6 +15,24 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   })
+  const [usernames, setUsernames] = useState([])
+  const [emails, setEmails] = useState([])
+
+  const getAllPilgrims = async () => {
+    const response = await axios.get('http://localhost:3001/api/pilgrim')
+    let loadUsernames = []
+    let loadEmails = []
+    for (let i = 0; i < response.data.length; i++) {
+      loadUsernames.push(response.data[i].username)
+      loadEmails.push(response.data[i].email)
+    }
+    setUsernames(loadUsernames)
+    setEmails(loadEmails)
+  }
+
+  useEffect(() => {
+    getAllPilgrims()
+  }, [])
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -21,6 +40,12 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (usernames.indexOf(formValues.username) !== -1) {
+      return window.alert('Choose a different username')
+    }
+    if (emails.indexOf(formValues.email) !== -1) {
+      return window.alert('Account with that email already exists')
+    }
     await RegisterPilgrim({
       username: formValues.username,
       name: formValues.name,
