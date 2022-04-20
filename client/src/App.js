@@ -56,7 +56,11 @@ const App = () => {
   }
 
   const postRating = async (rating, planetId) => {
-    const response = await axios.post('')
+    const response = await axios.post(
+      `http://localhost:3001/api/rating/${planetId}`,
+      rating
+    )
+    console.log(response.data)
   }
 
   useEffect(() => {
