@@ -11,11 +11,14 @@ import CommunityDetails from './pages/CommunityDetails'
 import Profile from './components/Profile'
 import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
+import Modal from './components/Modal'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
 import './style/Button.css'
 import './style/Form.css'
+import './style/Modal.css'
 import Mailbox from './components/Mailbox'
+import Community from './components/Community'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -38,6 +41,7 @@ const App = () => {
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
   const [averageRating, setAverageRating] = useState([])
+  const [openModal, setOpenModal] = useState(false)
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
@@ -146,6 +150,8 @@ const App = () => {
                 getAverageRating={getAverageRating}
                 averageRating={averageRating}
                 pilgrim={pilgrim}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
                 // authenticated={authenticated}
               />
             }
@@ -164,6 +170,8 @@ const App = () => {
                 setPlanet={setPlanet}
                 comments={comments}
                 setComments={setComments}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
               />
             }
           />
@@ -192,6 +200,8 @@ const App = () => {
                 setPlanet={setPlanet}
                 messages={messages}
                 setMessages={setMessages}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
               />
             }
           />
@@ -210,6 +220,9 @@ const App = () => {
             }
           />
         </Routes>
+        {openModal && (
+          <Modal setOpenModal={setOpenModal} openModal={openModal} />
+        )}
       </main>
     </div>
   )

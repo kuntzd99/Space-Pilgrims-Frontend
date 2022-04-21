@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CreateComment from '../components/CreateComment'
 import { useNavigate } from 'react-router-dom'
+import Modal from '../components/Modal'
 
 const CommunityDetails = (props) => {
   const { communityId } = useParams()
@@ -91,6 +92,7 @@ const CommunityDetails = (props) => {
   useEffect(() => {
     if (!loaded && reloads <= 20) {
       getPilgrim()
+      console.log(props.pilgrim, 'PILGRIM PROPS')
     }
   }, [reload])
 
@@ -115,7 +117,8 @@ const CommunityDetails = (props) => {
       })
       toggleClicked(!clicked)
     } else {
-      window.alert('You cannot be joined to multiple communities')
+      props.setOpenModal(true)
+      // window.alert('You cannot be joined to multiple communities')
     }
   }
 
@@ -167,7 +170,8 @@ const CommunityDetails = (props) => {
   const handleImageSubmit = async (e) => {
     e.preventDefault()
     if (newImage.slice(0, 4) !== 'http') {
-      return window.alert('Please choose a different image')
+      return props.setOpenModal(true)
+      // return window.alert('Please choose a different image')
     }
     props.setCommunity({ ...props.community, image: newImage })
     await axios.put(`${apiUrl}/api/community/${communityId}`, {
@@ -227,6 +231,12 @@ const CommunityDetails = (props) => {
         background: `linear-gradient(to right, ${props.community.primaryColor}, ${props.community.secondaryColor})`
       }}
     >
+      {props.openModal && (
+        <Modal
+          setOpenModal={props.setOpenModal}
+          text="You can only be in one community!"
+        />
+      )}
       <div className="first-col">
         {!props.pilgrim ? (
           <div>Loading</div>
@@ -307,8 +317,7 @@ const CommunityDetails = (props) => {
         )}
         {props.pilgrim === null ? (
           <div>Login to join</div>
-        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ||
-          props.pilgrim.admin === true ? (
+        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ? (
           <button onClick={() => leaveCommunity()}>Leave Community</button>
         ) : (
           <button onClick={() => joinCommunity()}>Join Community</button>

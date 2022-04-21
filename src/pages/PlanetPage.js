@@ -119,6 +119,8 @@ const PlanetPage = (props) => {
             setCommunities={props.setCommunities}
             planetId={planetId}
             pilgrim={props.pilgrim}
+            openModal={props.openModal}
+            setOpenModal={props.setOpenModal}
           />
         </div>
       )}

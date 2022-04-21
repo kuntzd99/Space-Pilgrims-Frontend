@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import Modal from './Modal'
 
 const CreateCommunity = (props) => {
   const [formValues, setFormValues] = useState({name: '', image: '', primaryColor: '', secondaryColor: ''})
@@ -23,7 +24,8 @@ const CreateCommunity = (props) => {
       await axios.post(`${apiUrl}/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
       props.toggleCreating(false)
     } else {
-      window.alert('Choose a different image')
+      return props.setOpenModal(true)
+      // window.alert('Choose a different image')
     }
   } 
 

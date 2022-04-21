@@ -1,0 +1,100 @@
+/* Create Modal Button */
+
+.modal-background {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58));
+  /* cursor: pointer; */
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  border-radius: 10px;
+}
+
+.modalContainer {
+  flex-direction: column;
+  width:500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* margin: 15% auto; */
+  padding: 25px;
+  border: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+}
+
+.modal-background:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.modal-background:active {
+  color: #000
+}
+
+.modal-background:active:after {
+  background: transparent;
+}
+
+.modal-background:hover:before {
+  opacity: 1;
+}
+
+.modal-background:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58));
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.modalContainer .modal-header{
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modalContainer .modal-body{
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalContainer .modal-footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
