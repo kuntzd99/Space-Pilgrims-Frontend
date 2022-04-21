@@ -6,8 +6,11 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
   if (pilgrim) {
     authenticatedOptions= (
       <nav className="navbar-text nav-body">
-        <div className="welcome" > Welcome {pilgrim.username}!</div>
-        <ul className="icon icon-container">
+        <div className="welcome" >
+          <h1 className="username">
+            Welcome {pilgrim.username}!
+          </h1>
+          <ul className="icon icon-container">
           <input type='checkbox' id="hamburger_icon" />
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
@@ -26,6 +29,8 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
             
           </div>
         </ul>
+      </div>
+        
       </nav>
     )
   }
@@ -33,7 +38,13 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
    if (pilgrim) {
     adminOptions = (
       <nav className="navbar-text nav-body">
-        <div className="welcome" > Welcome {pilgrim.username}!</div>
+        <div className="welcome" > 
+          <h1>
+          Welcome {pilgrim.username}!
+          </h1>
+
+          
+        </div>
         <ul className="icon icon-container">
           <input type='checkbox' id="hamburger_icon" />
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>

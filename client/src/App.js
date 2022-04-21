@@ -14,6 +14,7 @@ import PilgrimProfile from './pages/PilgrimProfile'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
 import './style/Button.css'
+import './style/Form.css'
 import Mailbox from './components/Mailbox'
 
 const App = () => {
