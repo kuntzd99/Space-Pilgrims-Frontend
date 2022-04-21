@@ -42,7 +42,9 @@ const Home = (props) => {
               pilgrim={props.pilgrim}
             />
           ))}
+
           <img
+            className="sun"
             src="https://i.ibb.co/x5JbPsC/sun.jpg"
             alt="sun"
             onClick={() => props.nasaCall()}
@@ -54,6 +56,7 @@ const Home = (props) => {
               borderRadius: `50%`
             }}
           />
+
           <div className="halfstars1"></div>
           <div className="halfstars2"></div>
         </div>
