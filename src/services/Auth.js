@@ -12,7 +12,6 @@ export const SignInPilgrim = async (data) => {
 
 export const RegisterPilgrim = async (data) => {
   try {
-    console.log(data)
     const res = await Client.post('/auth/register', data)
     return res.data
   } catch (error) {

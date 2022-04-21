@@ -58,7 +58,6 @@ const PlanetPage = (props) => {
             src={props.planet.highRes}
             alt={props.planet.name}
           />
-          <p className="planet-description">Text: {props.planet.description}</p>
           <div>
             Planet's Rating:{' '}
             {props.averageRating
@@ -73,9 +72,6 @@ const PlanetPage = (props) => {
             <a onClick={hasRated ? () => handleRating(3) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(4) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(5) : null}>🪐</a>
-            {/* <button onClick={() => props.getAverageRating(planetId)}>
-            Get Rating
-          </button> */}
           </div>
           <h3 className="planet-population">
             Population: {props.planet.population}
