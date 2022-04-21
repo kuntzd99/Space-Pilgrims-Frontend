@@ -8,8 +8,12 @@ const Landing = ({ setPilgrim, toggleAuthenticated }) => {
   return (
     <div className="landing">
       <div className="landing-text">
-        <h1>Welcome to Space Pilgrims!</h1>
-        <h3>(Add some description of the website)</h3>
+        <h1>Welcome Space Pilgrims!</h1>
+        <h3>
+          Welcome to the twenty-first-century pilgrimage! We are the generation
+          to populate the solar system. Here you will be able to explore your
+          future home, find a place to settle, and create virtual communities.{' '}
+        </h3>
       </div>
       <div className="rocket-sun">
         <img
