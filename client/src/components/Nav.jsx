@@ -39,13 +39,11 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
     adminOptions = (
       <nav className="navbar-text nav-body">
         <div className="welcome" > 
-          <h1>
+          <h1 className="username">
           Welcome {pilgrim.username}!
           </h1>
 
-          
-        </div>
-        <ul className="icon icon-container">
+          <ul className="icon icon-container">
           <input type='checkbox' id="hamburger_icon" />
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
@@ -53,21 +51,9 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
                 <li className="i fa fa-home"><Link to='/home'>Home</Link></li>
               </div>
 
-              <div className="icon icon-expand">
-                <li className="i fa fa-bars"><Link to='/faq'></Link>FAQ</li>
-              </div>
-
               <div className="icon icon-enter">
-                <li className="i fa fa-user"><Link to="/profile">My Profile</Link></li>
-              </div>
-
-              <div>
-                <li><Link to="/admin">Admin Access</Link></li>
-              </div>
-
-              <div className="icon icon-rotate">
-                <li className="i fa fa-phone"><Link to={`/messages`}>Messages</Link></li>
-              </div>
+              <li className="fa fa-user"><Link to="/profile">My Profile</Link></li>
+            </div>
 
               <div className="icon icon-collapse">
                 <li className="i fa fa-sign-in"><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
@@ -75,6 +61,10 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
             
           </div>
         </ul>
+
+          
+        </div>
+        
       </nav>
     )
    }

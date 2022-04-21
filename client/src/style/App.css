@@ -193,7 +193,7 @@ li {
 .username{
   font-size: 20px;
   margin-right: 20px;
-  margin-top: 6px;
+  /* margin-top: px; */
 }
 
 .nav-menu {
@@ -327,6 +327,7 @@ input[type='checkbox'] {
 .community-image {
   height: 30vh;
   max-width: 40vh;
+  margin-bottom: 1vh;
 }
 
 .community-details {
@@ -448,6 +449,10 @@ input[type='checkbox'] {
   border-radius: 10px;
   width: 10vh;
   align-self: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 1vh;
 }
 
 .community-create-btn {
@@ -663,6 +668,7 @@ input[type='checkbox'] {
   }
   .hamburger {
     display: block;
+    margin-top: -5px;
   }
 }
 

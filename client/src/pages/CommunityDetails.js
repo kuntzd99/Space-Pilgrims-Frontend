@@ -20,6 +20,8 @@ const CommunityDetails = (props) => {
   const [editingColors, toggleEditingColors] = useState(false)
   const [newPrimaryColor, setNewPrimaryColor] = useState('')
   const [newSecondaryColor, setNewSecondaryColor] = useState('')
+  const [loaded, toggleLoaded] = useState(false)
+  const [reload, toggleReload] = useState(false)
 
   let navigate = useNavigate()
 
@@ -65,11 +67,29 @@ const CommunityDetails = (props) => {
     setUsernames(loadUsernames)
   }
 
+  const getPilgrim = async () => {
+    if (props.pilgrim) {
+      const response = await axios.get(
+        `http://localhost:3001/api/pilgrim/pilgrims/${props.pilgrim.id}`
+      )
+      props.setPilgrim(response.data)
+      toggleLoaded(true)
+    } else {
+      toggleReload(!reload)
+    }
+  }
+
   useEffect(() => {
     getCommunity()
     getPilgrims()
     getComments()
   }, [clicked, clickedComment, deleted])
+
+  useEffect(() => {
+    if (!loaded) {
+      getPilgrim()
+    }
+  }, [reload])
 
   const joinCommunity = async () => {
     if (props.pilgrim.communityId === null) {
@@ -205,8 +225,10 @@ const CommunityDetails = (props) => {
       }}
     >
       <div className="first-col">
-        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
-        props.pilgrim.admin === true ? (
+        {!props.pilgrim ? (
+          <div>Loading</div>
+        ) : parseInt(props.community.creatorId) ===
+            parseInt(props.pilgrim.id) || props.pilgrim.admin === true ? (
           editingName ? (
             <div>
               <input type="text" onChange={handleNameChange} required />
@@ -233,8 +255,10 @@ const CommunityDetails = (props) => {
         ) : (
           <h1>{props.community.name}</h1>
         )}
-        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
-        props.pilgrim.admin === true ? (
+        {!props.pilgrim ? (
+          <div>Loading</div>
+        ) : parseInt(props.community.creatorId) ===
+            parseInt(props.pilgrim.id) || props.pilgrim.admin === true ? (
           editingImage ? (
             <div>
               <input type="text" onChange={handleImageChange} required />
@@ -286,7 +310,9 @@ const CommunityDetails = (props) => {
         ) : (
           <button onClick={() => joinCommunity()}>Join Community</button>
         )}
-        {parseInt(props.pilgrim.id) === parseInt(creator.id) ? (
+        {!props.pilgrim ? (
+          <div>Loading</div>
+        ) : parseInt(props.pilgrim.id) === parseInt(creator.id) ? (
           <h2>Creator: {creator.username}</h2>
         ) : (
           <h2>
@@ -321,8 +347,10 @@ const CommunityDetails = (props) => {
           </div>
         ))}
         <h3 className="population">Population: {props.community.population}</h3>
-        {parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
-        props.pilgrim.admin === true ? (
+        {!props.pilgrim ? (
+          <div>Loading</div>
+        ) : parseInt(props.community.creatorId) ===
+            parseInt(props.pilgrim.id) || props.pilgrim.admin === true ? (
           editingColors ? (
             <div>
               <div>
@@ -386,7 +414,11 @@ const CommunityDetails = (props) => {
         <div className="third-col comments-area">
           {props.comments.map((comment, index) => (
             <div className="singleComment" key={comment.id}>
-              <div className="comment-userName">{usernames[index]}</div>
+              <div className="comment-userName">
+                <Link to={`/profile/${comment.pilgrimId}`}>
+                  {usernames[index]}
+                </Link>
+              </div>
               <div className="image-comment">
                 <img
                   src={userImages[index]}
@@ -403,12 +435,7 @@ const CommunityDetails = (props) => {
                   Delete
                 </button>
               ) : (
-                <button
-                  className="btn"
-                  onClick={() => navigate(`/profile/${comment.pilgrimId}`)}
-                >
-                  View Profile
-                </button>
+                <div></div>
               )}
             </div>
           ))}
