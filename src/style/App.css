@@ -491,7 +491,7 @@ input[type='checkbox'] {
 
 .halfstars1,
 .halfstars2 {
-  min-height: 90vh;
+  min-height: 80vh;
   width: 90vw;
   position: absolute;
   background-size: contain;
