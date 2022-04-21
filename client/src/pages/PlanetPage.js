@@ -17,6 +17,13 @@ const PlanetPage = (props) => {
     props.setPlanet(response.data[0])
   }
 
+  const getPlanetInfo = async () => {
+    const response = await axios.get(
+      `https://api.le-systeme-solaire.net/rest/bodies/terre`
+    )
+    console.log(response)
+  }
+
   const handleRating = (rating) => {
     props.postRating({ rating: rating }, planetId)
     setHasRated(false)
@@ -68,6 +75,7 @@ const PlanetPage = (props) => {
               <PlanetImage key={image.id} image={image.image} />
             ))}
           </div>
+          <button onClick={() => getPlanetInfo()}>Info</button>
           <h1>Communities:</h1>
           <Community
             communities={props.communities}
