@@ -14,8 +14,8 @@ const Profile = (props) => {
 
   let apiUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com/'
-    : 'http://localhost:3001/'
+    ? 'https://space-pilgrims.herokuapp.com'
+    : 'http://localhost:3001'
 
   const getCommunity = async () => {
     if (props.pilgrim) {

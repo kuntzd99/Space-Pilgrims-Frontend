@@ -41,8 +41,8 @@ const App = () => {
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com/'
-      : 'http://localhost:3001/'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
 
   const handleLogout = () => {
     setPilgrim(null)

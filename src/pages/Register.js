@@ -20,8 +20,8 @@ const Register = () => {
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com/'
-      : 'http://localhost:3001/'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
 
   const getAllPilgrims = async () => {
     const response = await axios.get(`${apiUrl}/api/pilgrim`)

@@ -7,8 +7,8 @@ const Mailbox = (props) => {
 
   let apiUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com/'
-    : 'http://localhost:3001/'
+    ? 'https://space-pilgrims.herokuapp.com'
+    : 'http://localhost:3001'
 
   const getMessagesAndSenders = async () => {
     const response = await axios.get(`${apiUrl}/api/message/${props.pilgrim.id}`)

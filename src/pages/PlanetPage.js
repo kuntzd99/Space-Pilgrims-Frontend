@@ -12,8 +12,8 @@ const PlanetPage = (props) => {
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com/'
-      : 'http://localhost:3001/'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
 
   const getPlanet = async () => {
     const response = await axios.get(`${apiUrl}/api/planet/${planetId}`)
