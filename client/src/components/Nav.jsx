@@ -5,15 +5,25 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
   let authenticatedOptions
   if (pilgrim) {
     authenticatedOptions= (
-      <nav className="navbar-text">
+      <nav className="navbar-text nav-body">
         <div className="welcome" > Welcome {pilgrim.username}!</div>
-        <ul>
+        <ul className="icon icon-container">
           <input type='checkbox' id="hamburger_icon" />
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
-            <li><Link to='/home'>Home</Link></li>
-            <li><Link to="/profile">My Profile</Link></li>
-            <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
+
+            <div className="icon icon-fill">
+              <li className="i fa fa-home"><Link to='/home'>Home</Link></li>
+            </div>
+
+            <div className="icon icon-enter">
+              <li className="i fa fa-user"><Link to="/profile">My Profile</Link></li>
+            </div>
+
+            <div className="icon icon-collapse">
+              <li className="i fa fa-sign-in"><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
+            </div>
+            
           </div>
         </ul>
       </nav>
@@ -22,18 +32,36 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
   let adminOptions
    if (pilgrim) {
     adminOptions = (
-      <nav className="navbar-text">
+      <nav className="navbar-text nav-body">
         <div className="welcome" > Welcome {pilgrim.username}!</div>
-        <ul>
+        <ul className="icon icon-container">
           <input type='checkbox' id="hamburger_icon" />
           <label htmlFor='hamburger_icon' className="hamburger">&#9776;</label>
           <div className="nav-menu" >
-            <li><Link to='/home'>Home</Link></li>
-            <li><Link to='/faq'></Link>FAQ</li>
-            <li><Link to="/admin">Admin Access</Link></li>
-            <li><Link to={`/profile`}>My Profile</Link></li>
-            <li><Link to={`/messages`}>Messages</Link></li>
-            <li><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
+            <div className="icon icon-fill">
+                <li className="i fa fa-home"><Link to='/home'>Home</Link></li>
+              </div>
+
+              <div className="icon icon-expand">
+                <li className="i fa fa-bars"><Link to='/faq'></Link>FAQ</li>
+              </div>
+
+              <div className="icon icon-enter">
+                <li className="i fa fa-user"><Link to="/profile">My Profile</Link></li>
+              </div>
+
+              <div>
+                <li><Link to="/admin">Admin Access</Link></li>
+              </div>
+
+              <div className="icon icon-rotate">
+                <li className="i fa fa-phone"><Link to={`/messages`}>Messages</Link></li>
+              </div>
+
+              <div className="icon icon-collapse">
+                <li className="i fa fa-sign-in"><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
+              </div>
+            
           </div>
         </ul>
       </nav>
@@ -41,7 +69,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
    }
 
   const publicOptions = (
-    <nav className="publicOption">
+    <nav className="publicOption nav-body">
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/login">Sign In</Link>
@@ -49,8 +77,8 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
   )
 
   return (
-    <header className="navbar" >
-      <div className="nav-left">
+    <header className="navbar container" >
+      <div className="nav-left content">
       <Link to='/' >
         <div className="logo-container" alt='logo' >
           <img className="logo" src={Logo} alt="space-pilgrim-logo" />

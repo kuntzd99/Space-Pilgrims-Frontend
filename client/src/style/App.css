@@ -265,9 +265,6 @@ input[type='checkbox'] {
   overflow-x: hidden;
 }
 
-
-
-
 .carousel {
   display: flex;
   -webkit-overflow-scrolling: touch;

@@ -13,6 +13,7 @@ import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
 import { CheckSession, PasswordUpdate } from './services/Auth'
 import './style/App.css'
+import './style/Button.css'
 import Mailbox from './components/Mailbox'
 
 const App = () => {
