@@ -414,7 +414,11 @@ const CommunityDetails = (props) => {
         <div className="third-col comments-area">
           {props.comments.map((comment, index) => (
             <div className="singleComment" key={comment.id}>
-              <div className="comment-userName">{usernames[index]}</div>
+              <div className="comment-userName">
+                <Link to={`/profile/${comment.pilgrimId}`}>
+                  {usernames[index]}
+                </Link>
+              </div>
               <div className="image-comment">
                 <img
                   src={userImages[index]}
@@ -431,12 +435,7 @@ const CommunityDetails = (props) => {
                   Delete
                 </button>
               ) : (
-                <button
-                  className="btn"
-                  onClick={() => navigate(`/profile/${comment.pilgrimId}`)}
-                >
-                  View Profile
-                </button>
+                <div></div>
               )}
             </div>
           ))}
