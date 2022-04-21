@@ -27,7 +27,6 @@ const PlanetPage = (props) => {
     const infoResponse = await axios.get(
       `https://api.le-systeme-solaire.net/rest/bodies/${response.data[0].frenchName}`
     )
-    console.log(infoResponse.data)
     infoResponse.data.moons
       ? setMoons(infoResponse.data.moons.length)
       : setMoons(0)
