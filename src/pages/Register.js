@@ -58,6 +58,9 @@ const Register = () => {
     if (formValues.image.slice(0, 4) !== 'http') {
       return window.alert('Please choose a different image')
     }
+    if (formValues.password !== formValues.confirmPassword) {
+      return window.alert('Passwords must match')
+    }
     await RegisterPilgrim({
       username: formValues.username,
       name: formValues.name,
