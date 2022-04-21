@@ -10,6 +10,9 @@ const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex, pilgrim
       if(pilgrim.admin){
         navigate(`/planetpage/${id}`)
       }
+      else {
+        window.alert('Only admin can access Planet 9')
+      }
     } else {
       navigate(`/planetpage/${id}`)
     }
