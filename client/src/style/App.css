@@ -61,7 +61,7 @@
 
 .landing {
   background-color: rgb(29, 42, 58);
-  min-height: 90vh;
+  min-height: 100vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(29, 42, 58);
-  min-height: 90vh;
+  min-height: 80vh;
 }
 
 .system {
@@ -127,6 +127,7 @@
 .pilgrim-rocket {
   height: 75px;
   width: 75px;
+  border-radius: 50%;
 }
 
 #sun:hover {
@@ -500,6 +501,34 @@ input[type='checkbox'] {
   margin: 10px;
   border-radius: 10px;
 }
+
+.halfstars1,
+.halfstars2 {
+  min-height: 90vh;
+  width: 90vw;
+  position: absolute;
+  background-size: contain;
+}
+
+.halfstars1 {
+  background-image: url(../assets/halfstars1.svg);
+  animation: pulse1 4s linear 2s infinite alternate;
+}
+
+.halfstars2 {
+  background-image: url(../assets/halfstars2.svg);
+  animation: pulse1 5.5s linear 2s infinite alternate;
+}
+
+@keyframes pulse1 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
 
 @keyframes float {
   0% {

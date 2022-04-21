@@ -35,7 +35,6 @@ const App = () => {
   })
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
-  const [ratings, setRatings] = useState([])
   const [averageRating, setAverageRating] = useState([])
 
   const handleLogout = () => {
@@ -144,7 +143,6 @@ const App = () => {
                 getPlanetImages={getPlanetImages}
                 planetImages={planetImages}
                 getAverageRating={getAverageRating}
-                ratings={ratings}
                 averageRating={averageRating}
                 pilgrim={pilgrim}
                 // authenticated={authenticated}

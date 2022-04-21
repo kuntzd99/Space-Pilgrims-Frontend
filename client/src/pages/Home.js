@@ -54,6 +54,8 @@ const Home = (props) => {
               borderRadius: `50%`
             }}
           />
+          <div className="halfstars1"></div>
+          <div className="halfstars2"></div>
         </div>
       </div>
       <div className="solarFlare-container">

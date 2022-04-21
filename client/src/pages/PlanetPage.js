@@ -8,11 +8,18 @@ import PlanetImage from '../components/PlanetImage'
 const PlanetPage = (props) => {
   const { planetId } = useParams()
 
+  const [hasRated, setHasRated] = useState(true)
+
   const getPlanet = async () => {
     const response = await axios.get(
       `http://localhost:3001/api/planet/${planetId}`
     )
     props.setPlanet(response.data[0])
+  }
+
+  const handleRating = (rating) => {
+    props.postRating({ rating: rating }, planetId)
+    setHasRated(false)
   }
 
   useEffect(() => {
@@ -35,14 +42,20 @@ const PlanetPage = (props) => {
             alt={props.planet.name}
           />
           <p className="planet-description">Text: {props.planet.description}</p>
-          <div>Planet's Rating: {props.averageRating} / 5</div>
+          <div>
+            Planet's Rating:{' '}
+            {props.averageRating
+              ? parseFloat(props.averageRating).toFixed(1)
+              : 0}{' '}
+            / 5
+          </div>
           <div className="planet-rating">
             <div>Rate: </div>
-            <a onClick={() => props.postRating({ rating: 1 }, planetId)}>🪐</a>
-            <a onClick={() => props.postRating({ rating: 2 }, planetId)}>🪐</a>
-            <a onClick={() => props.postRating({ rating: 3 }, planetId)}>🪐</a>
-            <a onClick={() => props.postRating({ rating: 4 }, planetId)}>🪐</a>
-            <a onClick={() => props.postRating({ rating: 5 }, planetId)}>🪐</a>
+            <a onClick={hasRated ? () => handleRating(1) : null}>🪐</a>
+            <a onClick={hasRated ? () => handleRating(2) : null}>🪐</a>
+            <a onClick={hasRated ? () => handleRating(3) : null}>🪐</a>
+            <a onClick={hasRated ? () => handleRating(4) : null}>🪐</a>
+            <a onClick={hasRated ? () => handleRating(5) : null}>🪐</a>
             {/* <button onClick={() => props.getAverageRating(planetId)}>
             Get Rating
           </button> */}
