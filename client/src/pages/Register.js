@@ -46,6 +46,13 @@ const Register = () => {
     if (emails.indexOf(formValues.email) !== -1) {
       return window.alert('Account with that email already exists')
     }
+    if (formValues.image === '') {
+      formValues.image =
+        'https://www.clipartmax.com/png/middle/49-492189_thanksgiving-pilgrim-cartoon.png'
+    }
+    if (formValues.image.slice(0, 4) !== 'http') {
+      return window.alert('Please choose a different image')
+    }
     await RegisterPilgrim({
       username: formValues.username,
       name: formValues.name,
