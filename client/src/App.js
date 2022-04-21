@@ -39,6 +39,11 @@ const App = () => {
   const [messages, setMessages] = useState([])
   const [averageRating, setAverageRating] = useState([])
 
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com/'
+      : 'http://localhost:3001/'
+
   const handleLogout = () => {
     setPilgrim(null)
     toggleAuthenticated(false)
@@ -60,7 +65,7 @@ const App = () => {
 
   const postRating = async (rating, planetId) => {
     const response = await axios.post(
-      `http://localhost:3001/api/rating/${planetId}`,
+      `${apiUrl}/api/rating/${planetId}`,
       rating
     )
     getAverageRating(planetId)

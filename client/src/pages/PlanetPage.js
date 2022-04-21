@@ -19,7 +19,7 @@ const PlanetPage = (props) => {
 
   const getPlanetInfo = async () => {
     const response = await axios.get(
-      `https://api.le-systeme-solaire.net/rest/bodies/terre`
+      `https://api.le-systeme-solaire.net/rest/bodies/${props.planet.frenchName}`
     )
     console.log(response)
   }
