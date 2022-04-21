@@ -143,6 +143,9 @@ const CommunityDetails = (props) => {
 
   const handleImageSubmit = async (e) => {
     e.preventDefault()
+    if (newImage.slice(0, 4) !== 'http') {
+      return window.alert('Please choose a different image')
+    }
     props.setCommunity({ ...props.community, image: newImage })
     await axios.put(`http://localhost:3001/api/community/${communityId}`, {
       image: newImage

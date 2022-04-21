@@ -10,9 +10,10 @@ const CreateCommunity = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // if (formValues.image === '') {
-    //   setFormValues({ ...formValues, ['image']: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png' })
-    // }
+    if (formValues.image.length === 0) {
+      setFormValues({ ...formValues, image: 'https://banner.holidaypng.com/20191015/ugw/thanksgiving-cartoon-pumpkin-for-thanksgiving-5da595af2a2601.98162897.png'
+    })
+    }
     if (formValues.image.slice(0, 4) === 'http') {
       await axios.post(`http://localhost:3001/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
       props.toggleCreating(false)
@@ -26,12 +27,15 @@ const CreateCommunity = (props) => {
       {/* <label>Community name:</label> */}
       <input onChange={handleChange} type="text" name="name" required placeholder=' Community Name' className='community-form-input'/>
       {/* <label>Community image:</label> */}
-      <input onChange={handleChange} type="text" name="image" required placeholder='  Community Image' className='community-form-input'/>
+      <input onChange={handleChange} type="text" name="image" placeholder='  Community Image' className='community-form-input'/>
       <label>Primary color</label>
       <input onChange={handleChange} type="color" name="primaryColor" required className='community-form-input'/>
       <label>Secondary color</label>
       <input onChange={handleChange} type="color" name="secondaryColor" required className='community-form-input'/>
-      <button type="submit">Create Community</button>
+      <div>
+        <button style={{marginRight: '1vh'}} onClick={() => props.toggleCreating(false)}>Cancel</button>
+        <button type="submit">Create Community</button>
+      </div>
     </form>
   )
 }

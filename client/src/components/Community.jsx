@@ -31,12 +31,28 @@ const Community = (props) => {
   useEffect(() => {
     getCommunities()
   }, [creating])
+  
+  const goToCommunity = (communityId) => {
+    if (props.pilgrim !== null) {
+      navigate(`/communitypage/${communityId}`)
+    } else {
+      window.alert('Sign in')
+    }
+  }
+
+  const openCommnityForm = () => {
+    if (props.pilgrim !== null) {
+      toggleCreating(true)
+    } else {
+      window.alert('Sign in')
+    }
+  }
 
   return (
     <div>
       <div className='carousel'>
         {props.communities.map((community) => (
-          <div className='child' key={community.id} onClick={() => navigate(`/communitypage/${community.id}`)} style={{border: `5px solid ${community.primaryColor}`}}>
+          <div className='child' key={community.id} onClick={() => goToCommunity(community.id)} style={{border: `5px solid ${community.primaryColor}`}}>
             <h3>{community.name}</h3>
             <img className='communityImage' src={community.image} alt={community.image}  />
             <h4>Population: {community.population}</h4>
@@ -44,7 +60,7 @@ const Community = (props) => {
         ))}
       </div>
       {creating ? (<CreateCommunity toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
-      <button className='community-create-btn' onClick={() => toggleCreating(true)}>Create Community</button>)}
+      <button className='community-create-btn' onClick={openCommnityForm}>Create Community</button>)}
     </div>
   )
 }
