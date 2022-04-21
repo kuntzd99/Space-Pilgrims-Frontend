@@ -3,7 +3,7 @@ import { PasswordUpdate } from "../services/Auth"
 import { useNavigate } from "react-router-dom"
 
 
-const UpdatePassword = () => {
+const UpdatePassword = (props) => {
   let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({
@@ -19,6 +19,7 @@ const UpdatePassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await PasswordUpdate({
+      pilgrimId: props.pilgrim.id,
       oldPassword: formValues.oldPassword,
       newPassword: formValues.newPassword,
       confirmNewPassword: formValues.confirmNewPassword
@@ -28,7 +29,7 @@ const UpdatePassword = () => {
       newPassword: '',
       confirmNewPassword: ''
     })
-    navigate('/profile')
+    props.toggleChangingPassword(false)
   }
 
   return (
