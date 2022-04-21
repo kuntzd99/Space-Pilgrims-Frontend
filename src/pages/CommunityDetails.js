@@ -98,9 +98,17 @@ const CommunityDetails = (props) => {
 
   const joinCommunity = async () => {
     if (props.pilgrim.communityId === null) {
-      await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {
-        communityId: communityId
-      })
+      let updatedPilgrim = await axios.put(
+        `${apiUrl}/api/pilgrim/${props.pilgrim.id}`,
+        {
+          communityId: communityId
+        }
+      )
+      if (!updatedPilgrim) {
+        return window.alert(
+          'You cannot be joined to multiple communities, JOIN'
+        )
+      }
       props.setPilgrim({ ...props.pilgrim, communityId: communityId })
       let population = props.planet.population
       await axios.put(`${apiUrl}/api/planet/${props.planet.id}`, {
@@ -123,9 +131,15 @@ const CommunityDetails = (props) => {
   }
 
   const leaveCommunity = async () => {
-    await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {
-      communityId: null
-    })
+    let updatedPilgrim = await axios.put(
+      `${apiUrl}/api/pilgrim/${props.pilgrim.id}`,
+      {
+        communityId: null
+      }
+    )
+    if (!updatedPilgrim) {
+      return window.alert('You are not in this community')
+    }
     props.setPilgrim({ ...props.pilgrim, communityId: null })
     let population = props.planet.population
     await axios.put(`${apiUrl}/api/planet/${props.planet.id}`, {
@@ -358,7 +372,13 @@ const CommunityDetails = (props) => {
             )}
           </div>
         ))}
-        <h3 className="population">Population: {props.community.population}</h3>
+        {props.community.population < 0 ? (
+          <h3 className="population">Population: 0</h3>
+        ) : (
+          <h3 className="population">
+            Population: {props.community.population}
+          </h3>
+        )}
         {!props.pilgrim ? (
           <div>Loading</div>
         ) : parseInt(props.community.creatorId) ===

@@ -73,9 +73,13 @@ const PlanetPage = (props) => {
             <a onClick={hasRated ? () => handleRating(4) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(5) : null}>🪐</a>
           </div>
-          <h3 className="planet-population">
-            Population: {props.planet.population}
-          </h3>
+          {props.planet.population < 0 ? (
+            <h3 className="planet-population">Population: 0</h3>
+          ) : (
+            <h3 className="planet-population">
+              Population: {props.planet.population}
+            </h3>
+          )}
           {props.planet.id === 9 ? (
             <div></div>
           ) : (
