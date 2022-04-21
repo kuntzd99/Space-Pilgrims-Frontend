@@ -9,22 +9,30 @@ const PlanetPage = (props) => {
   const { planetId } = useParams()
 
   const [hasRated, setHasRated] = useState(true)
+  const [planetInfo, setPlanetInfo] = useState({})
+  const [moons, setMoons] = useState(0)
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://space-pilgrims.herokuapp.com'
       : 'http://localhost:3001'
 
+  const kelvinToFah = (temp) => {
+    return (temp - 273.15) * (9 / 5) + 32
+  }
+
   const getPlanet = async () => {
     const response = await axios.get(`${apiUrl}/api/planet/${planetId}`)
     props.setPlanet(response.data[0])
-  }
-
-  const getPlanetInfo = async () => {
-    const response = await axios.get(
-      `https://api.le-systeme-solaire.net/rest/bodies/${props.planet.frenchName}`
+    const infoResponse = await axios.get(
+      `https://api.le-systeme-solaire.net/rest/bodies/${response.data[0].frenchName}`
     )
-    console.log(response)
+    console.log(infoResponse.data)
+    infoResponse.data.moons
+      ? setMoons(infoResponse.data.moons.length)
+      : setMoons(0)
+
+    setPlanetInfo(infoResponse.data)
   }
 
   const handleRating = (rating) => {
@@ -73,12 +81,33 @@ const PlanetPage = (props) => {
           <h3 className="planet-population">
             Population: {props.planet.population}
           </h3>
+          <div className="planet-info-reel">
+            <div className="planet-info-child">
+              <div className="planet-info-data-title">Avg Temp: </div>
+              <div className="planet-info-data">
+                {kelvinToFah(planetInfo.avgTemp).toFixed(1)}°F
+              </div>
+            </div>
+            <div className="planet-info-child">
+              <div className="planet-info-data-title">Gravity: </div>
+              <div className="planet-info-data">
+                {(planetInfo.gravity / 9.8).toFixed(1)} G
+              </div>
+            </div>
+            <div className="planet-info-child">
+              <div className="planet-info-data-title">Moons: </div>
+              <div className="planet-info-data">{moons}</div>
+            </div>
+            <div className="planet-info-child">
+              <div className="planet-info-data-title">Radius: </div>
+              <div className="planet-info-data">{planetInfo.equaRadius} m</div>
+            </div>
+          </div>
           <div className="carousel">
             {props.planetImages.map((image) => (
               <PlanetImage key={image.id} image={image.image} />
             ))}
           </div>
-          <button onClick={() => getPlanetInfo()}>Info</button>
           <h1>Communities:</h1>
           <Community
             communities={props.communities}

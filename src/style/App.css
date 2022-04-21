@@ -72,9 +72,6 @@ body{
   align-items: center;
 }
 
-/* .register {
-  margin: 20px;
-} */
 
 .solar-system {
   display: flex;
@@ -220,20 +217,7 @@ input[type='checkbox'] {
   user-select: none;
 }
 
-/* .btn {
-  font-family: 'lora', serif;
-  background: linear-gradient(to right, #a0b5eb, #c9f0e4);
-  color: #4799e9 !important;
-  font-weight: bold;
-  width: 50%;
-  padding: 1.8vh;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
-  text-align: center;
-} */
+
 
 .btn{
   width: 50%;
@@ -241,42 +225,6 @@ input[type='checkbox'] {
   margin-bottom: 10px;
   margin-top: 15px;
 }
-
-/* .col {
-  display: flex;
-  margin-top: 10px;
-  margin-left: 10px;
-  box-shadow: 2px 2px 4px 2px grey;
-  border: 1px solid grey;
-  border-radius: 5px;
-  margin-bottom: 30px;
-  width: 90%;
-} */
-
-/* .login-forms {
-  padding: 5px;
-  color:rgb(29, 42, 58);
-  background: white;
-  border-radius: 10px;
-  max-width: 300px;
-  box-shadow: 3px 3px 3px grey;
-  display: block;
-} */
-
-/* .registerBtn {
-  font-family: 'lora', serif;
-  background: linear-gradient(to right, #a0b5eb, #c9f0e4);
-  color: #4799e9 !important;
-  font-weight: bold;
-  width: 50%;
-  padding: 1.8vh;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
-  margin-bottom: 50px;
-} */
 
 .planet-page {
   background-color: #1D2A3A;
@@ -297,7 +245,6 @@ input[type='checkbox'] {
 
 .child {
   scroll-snap-align: start;
-  /* border: 1px solid white; */
   padding: 1rem;
   margin: 10px;
   text-align: center;
@@ -306,22 +253,32 @@ input[type='checkbox'] {
   min-height: 10vh;
 }
 
-.bg-1 {
-  background-color: blue;
+.planet-info-reel {
+  width: 70vw;
+  height: 20vw;
+  border-radius: 10px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5vh;
 }
 
-.bg-2 {
-  background-color: green;
+.planet-info-child {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 10px;
+  background-color: white;
+  color:rgb(29, 42, 58);
 }
 
-.bg-3 {
-  background-color: red;
+.planet-info-data-title {
+  margin-top: 1vh;
 }
-.bg-4 {
-  background-color: yellow;
-}
-.bg-5 {
-  background-color: purple;
+
+.planet-info-data {
+  font-size: 30px;
+  margin-top: 3vh;
 }
 
 .community-image {
@@ -565,20 +522,6 @@ input[type='checkbox'] {
   }
 }
 
-/* @keyframes wobble {
-  0% {
-    transform: rotate(0deg) translateY(0);
-  }
-  25% {
-    transform: rotate(5deg) translateY(5px);
-  }
-  50% {
-    transform: rotate(0deg) translateY(10px);
-  }
-  75% {
-    transform: rotate(-5deg) translateY(5px);
-  }
-} */
 
 .profile {
   background-color: #1D2A3A;
