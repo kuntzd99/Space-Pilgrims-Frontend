@@ -34,7 +34,7 @@ const CreateCommunity = (props) => {
       <input onChange={handleChange} type="color" name="secondaryColor" required className='community-form-input'/>
       <div>
         <button style={{marginRight: '1vh'}} onClick={() => props.toggleCreating(false)}>Cancel</button>
-        <button type="submit">Create Community</button>
+        <button className='btn-liquid' type="submit">Create Community</button>
       </div>
     </form>
   )

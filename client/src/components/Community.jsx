@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import CreateCommunity from './CreateCommunity'
@@ -7,6 +7,15 @@ const Community = (props) => {
   let navigate = useNavigate()
 
   const [creating, toggleCreating] = useState(false)
+  const [hover, setHover] = useState()
+
+  const handleMouseIn = () => {
+    setHover(props.getLiquidButton)
+  }
+
+  const handleMouseOut = () => {
+    setHover(false)
+  }
 
   const getCommunities = async () => {
     const response = await axios.get(
@@ -60,7 +69,7 @@ const Community = (props) => {
         ))}
       </div>
       {creating ? (<CreateCommunity toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
-      <button className='community-create-btn' onClick={openCommnityForm}>Create Community</button>)}
+        <button className='community-btn' onMouseOver={props.getLiquidButton} onClick={openCommnityForm}>Create Community</button>)}
     </div>
   )
 }
