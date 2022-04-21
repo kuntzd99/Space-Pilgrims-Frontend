@@ -39,6 +39,7 @@ const Profile = (props) => {
   useEffect(() => {
     if (!loaded) {
       getCommunity()
+      console.log(props.pilgrim)
     }
   }, [reload])
 
