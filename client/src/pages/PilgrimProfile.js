@@ -51,7 +51,7 @@ const PilgrimProfile = (props) => {
       ) : (
         <div>
           <h3>Bio:</h3>
-          <p>{props.nonUserPilgrim.bio}</p>
+          <p style={{ margin: 0 }}>{props.nonUserPilgrim.bio}</p>
         </div>
       )}
       {sendingMessage ? (
@@ -62,7 +62,12 @@ const PilgrimProfile = (props) => {
           sentFrom={props.pilgrim.id}
         />
       ) : (
-        <button onClick={() => toggleSendingMessage(true)}>Send Message</button>
+        <button
+          style={{ marginTop: '1vh' }}
+          onClick={() => toggleSendingMessage(true)}
+        >
+          Send Message
+        </button>
       )}
     </div>
   )

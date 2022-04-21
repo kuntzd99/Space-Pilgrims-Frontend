@@ -15,10 +15,10 @@ const MessageForm = (props) => {
   } 
 
   return(
-    <form className='comment-form' onSubmit={handleSubmit}>
+    <form style={{margin: 0}} className='comment-form' onSubmit={handleSubmit}>
       <textarea placeholder='Enter message here ...' onChange={handleChange} type="text" name="message" required />
       <div>
-      <button onClick={() => props.toggleSendingMessage(false)}>Cancel</button>
+      <button style={{marginRight: '1vh'}} onClick={() => props.toggleSendingMessage(false)}>Cancel</button>
       <button className='post-comment-btn' type="submit">Send</button>
       </div>
     </form>

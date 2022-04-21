@@ -21,6 +21,7 @@ const Login = ({
     const payload = await SignInPilgrim(formValues)
     setFormValues({ username: '', password: '' })
     setPilgrim(payload)
+    //setPilgrimId()
     toggleAuthenticated(true)
     navigate('/home')
   }

@@ -55,10 +55,6 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
                 <li className="i fa fa-bars"><Link to='/faq'></Link>FAQ</li>
               </div>
 
-              <div className="icon icon-enter">
-                <li className="i fa fa-user"><Link to="/profile">My Profile</Link></li>
-              </div>
-
               <div>
                 <li><Link to="/admin">Admin Access</Link></li>
               </div>

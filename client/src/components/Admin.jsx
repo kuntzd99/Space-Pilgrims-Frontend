@@ -48,7 +48,7 @@ const Profile = (props) => {
 
   const handleImageSubmit = async (e) => {
     e.preventDefault()
-    if (image.slice(0, 4) === 'http') {
+    if (image.slice(0, 4) !== 'http') {
       return window.alert('Please choose a different image')
     }
     await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
