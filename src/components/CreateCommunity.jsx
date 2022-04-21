@@ -4,6 +4,11 @@ import axios from 'axios'
 const CreateCommunity = (props) => {
   const [formValues, setFormValues] = useState({name: '', image: '', primaryColor: '', secondaryColor: ''})
 
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com/'
+      : 'http://localhost:3001/'
+
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
@@ -15,7 +20,7 @@ const CreateCommunity = (props) => {
     })
     }
     if (formValues.image.slice(0, 4) === 'http') {
-      await axios.post(`http://localhost:3001/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
+      await axios.post(`${apiUrl}/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
       props.toggleCreating(false)
     } else {
       window.alert('Choose a different image')

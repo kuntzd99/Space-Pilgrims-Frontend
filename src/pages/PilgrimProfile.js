@@ -7,18 +7,23 @@ const PilgrimProfile = (props) => {
   const { pilgrimId } = useParams()
   const [sendingMessage, toggleSendingMessage] = useState(false)
 
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com/'
+      : 'http://localhost:3001/'
+
   const getPilgrimCommunityAndPlanet = async () => {
     const response = await axios.get(
-      `http://localhost:3001/api/pilgrim/pilgrims/${pilgrimId}`
+      `${apiUrl}/api/pilgrim/pilgrims/${pilgrimId}`
     )
     props.setNonUserPilgrim(response.data)
     if (response.data.communityId) {
       const communityResponse = await axios.get(
-        `http://localhost:3001/api/community/communities/${response.data.communityId}`
+        `${apiUrl}/api/community/communities/${response.data.communityId}`
       )
       props.setCommunity(communityResponse.data)
       const planetResponse = await axios.get(
-        `http://localhost:3001/api/planet/${communityResponse.data.planetId}`
+        `${apiUrl}/api/planet/${communityResponse.data.planetId}`
       )
       props.setPlanet(planetResponse.data[0])
     }

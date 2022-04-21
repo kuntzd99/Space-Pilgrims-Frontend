@@ -5,21 +5,21 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const Home = (props) => {
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com/'
+      : 'http://localhost:3001/'
+
   let navigate = useNavigate()
 
   const getPlanets = async () => {
-    const response = await axios.get(`http://localhost:3001/api/planet/`)
+    const response = await axios.get(`${apiUrl}/api/planet/`)
     props.setPlanets(response.data)
   }
 
   useEffect(() => {
     getPlanets()
   }, [])
-
-  const surface =
-    'https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg'
-  let orbitRadius = 10
-  let orbitSpeed = 5
 
   return (
     <div>
