@@ -1,0 +1,32 @@
+.card-overlay, .login-page{
+  margin-top: 40px;
+  border-radius: 30px;
+  padding: 70px 50px 70px 50px;
+  box-shadow: 12px 12px 22px grey ;
+  display: block;
+}
+
+.card-overlay h1, .login-page h1{
+  margin-bottom: 30px;
+}
+.login-page label{
+  float: left;
+}
+
+.card-overlay input, .login-page input, .com-input, .profile input{
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.register-bio{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.glow-on-hover-register, .glow-on-hover-login{
+  margin-top: 30px;
+}
+

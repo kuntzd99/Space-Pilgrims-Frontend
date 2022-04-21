@@ -77,11 +77,11 @@ const Profile = (props) => {
           {props.community ? (<h3>Community: {props.community.name} on {props.planet.name}</h3>) : (<div>No community</div>)}
           <div>
             {changingImage ? 
-            (<div style={{marginTop: '1vh'}}>
-              <label>New image: </label><input type="text" onChange={handleImageChange} />
-              <div style={{marginTop: '1vh'}}>
-                <button onClick={handleImageSubmit}>Set New Image</button>
-                <button onClick={() => toggleChangingImage(false)}>Cancel</button>
+            (<div>
+              <label>New image:</label><input type="text" onChange={handleImageChange} />
+              <div>
+                <button className="btn" onClick={handleImageSubmit}>Set Image</button>
+                <button className="btn" onClick={() => toggleChangingImage(false)}>Cancel</button>
               </div>
             </div>) 
             : 
@@ -95,18 +95,18 @@ const Profile = (props) => {
           {changingBio ?
           (
           <div>
-            <textarea placeholder="New Bio: " onChange={handleBioChange} />
+            <textarea rows="6" cols="50" placeholder="New Bio: " onChange={handleBioChange} />
             <div>
-                <button onClick={handleBioSubmit}>Set New Bio</button>
-                <button onClick={() => toggleChangingBio(false)}>Cancel</button>
+                <button className="btn" onClick={handleBioSubmit}>Set New Bio</button>
+                <button className="btn" onClick={() => toggleChangingBio(false)}>Cancel</button>
               </div>
           </div>)
           :
           props.pilgrim.bio ? (<div><h3>Bio:</h3><p>{props.pilgrim.bio}</p><button onClick={() => toggleChangingBio(true)}>Change Bio</button></div>) :
-          (<button onClick={() => toggleChangingBio(true)}>Set Bio</button>)
+          (<button className="btn" onClick={() => toggleChangingBio(true)}>Set Bio</button>)
           }
           <Mailbox pilgrim={props.pilgrim} messages={props.messages} setMessages={props.setMessages} />
-          {changingPassword ? (<div><UpdatePassword /><button onClick={() => toggleChangingPassword(false)}>Cancel</button></div>) : (<button onClick={() => toggleChangingPassword(true)}>Change password</button>)}
+          {changingPassword ? (<div><UpdatePassword /><button className="btn" onClick={() => toggleChangingPassword(false)}>Cancel</button></div>) : (<button onClick={() => toggleChangingPassword(true)}>Change password</button>)}
         </div>
       </div>
       )

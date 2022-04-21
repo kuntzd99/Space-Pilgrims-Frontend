@@ -115,6 +115,8 @@ const Register = () => {
               <span>Bio: </span>
             </label> */}
             <textarea
+              className="register-bio"
+              rows="10"
               onChange={handleChange}
               name="bio"
               type="text"
@@ -156,7 +158,7 @@ const Register = () => {
             />
           </div>
           <button
-            className="registerbtn"
+            className="glow-on-hover-register"
             disabled={
               !formValues.username ||
               (!formValues.password &&

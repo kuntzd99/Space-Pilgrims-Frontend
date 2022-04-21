@@ -3,8 +3,11 @@
   font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
+  max-width:2000vw
 }
-
+body{
+  overflow-x: hidden;
+}
 .App {
   text-align: center;
 }
@@ -69,16 +72,16 @@
   align-items: center;
 }
 
-.register {
+/* .register {
   margin: 20px;
-}
+} */
 
 .solar-system {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(29, 42, 58);
-  min-height: 80vh;
+  height: 80vh;
 }
 
 .system {
@@ -102,7 +105,7 @@
 }
 
 .solarFlare-container {
-  height: 20vh;
+  height: 40vh;
   width: 100vw;
   color: white;
   background-color: rgb(29, 42, 58);
@@ -130,7 +133,7 @@
   border-radius: 50%;
 }
 
-#sun:hover {
+.sun:hover {
   transform: scale(1.3);
 }
 
@@ -181,8 +184,16 @@ li {
 }
 
 .welcome {
+  display: flex;
+  justify-content:space-evenly;
   color: white;
   font-size: 1.2em;
+}
+
+.username{
+  font-size: 20px;
+  margin-right: 20px;
+  margin-top: 6px;
 }
 
 .nav-menu {
@@ -191,7 +202,7 @@ li {
   font-size: 18px;
 }
 .nav-menu li a:hover {
-  border-bottom: .15em solid white;
+  color: black;
 }
 
 .nav-menu li a {
@@ -209,7 +220,7 @@ input[type='checkbox'] {
   user-select: none;
 }
 
-.btn {
+/* .btn {
   font-family: 'lora', serif;
   background: linear-gradient(to right, #a0b5eb, #c9f0e4);
   color: #4799e9 !important;
@@ -222,9 +233,16 @@ input[type='checkbox'] {
   cursor: pointer;
   text-align: center;
   text-align: center;
+} */
+
+.btn{
+  width: 50%;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-top: 15px;
 }
 
-.col {
+/* .col {
   display: flex;
   margin-top: 10px;
   margin-left: 10px;
@@ -233,9 +251,9 @@ input[type='checkbox'] {
   border-radius: 5px;
   margin-bottom: 30px;
   width: 90%;
-}
+} */
 
-.login-forms {
+/* .login-forms {
   padding: 5px;
   color:rgb(29, 42, 58);
   background: white;
@@ -243,9 +261,9 @@ input[type='checkbox'] {
   max-width: 300px;
   box-shadow: 3px 3px 3px grey;
   display: block;
-}
+} */
 
-.registerBtn {
+/* .registerBtn {
   font-family: 'lora', serif;
   background: linear-gradient(to right, #a0b5eb, #c9f0e4);
   color: #4799e9 !important;
@@ -258,7 +276,7 @@ input[type='checkbox'] {
   cursor: pointer;
   text-align: center;
   margin-bottom: 50px;
-}
+} */
 
 .planet-page {
   background-color: #1D2A3A;
@@ -308,7 +326,7 @@ input[type='checkbox'] {
 
 .community-image {
   height: 30vh;
-  width: 30vh;
+  width: 35vh;
 }
 
 .community-details {
@@ -328,6 +346,7 @@ input[type='checkbox'] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 30px;
   /* justify-content: center; */
 }
 
@@ -336,6 +355,10 @@ input[type='checkbox'] {
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
+}
+
+.first-col, .second-col {
+  margin-top: 70px;
 }
 
 .comments-area {
@@ -583,63 +606,16 @@ input[type='checkbox'] {
   margin: 0 0 5vh 0;
 }
 
-.register {
-  display: flex;
-  flex-direction: column;
-  padding: 2vh;
-}
-
-.register input, textarea {
-  margin: 1vh;
-}
-
-.register form {
-  margin-top: 40px;
-  padding-left: 40px;
-  background: white;
-  border-radius: 30px;
-  padding: 70px 50px 70px 50px;
-  box-shadow: 12px 12px 22px grey;
-  display: block;
-}
-
-.register span {
-  margin-bottom: 2vh;
-}
-
-.register-button {
-  margin-top: 1vh;
-}
-
-.login-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1D2A3A;
-  min-height: 100vh;
-  color: white;
-}
-
-.login-page h1 {
-  margin-top: 20%;
-}
-
-.login-forms {
-  margin-top: 10%;
-  padding: 3vh;
-}
-
-.login-forms input {
-  height: 3vh;
-  margin: 1vh 0;
-}
-
 .profile a {
   color: white;
 }
 
 .profile a:hover {
   color: aqua;
+}
+
+.profile .card {
+  margin-top: 20px;
 }
 
 .community-details a {
@@ -662,6 +638,7 @@ input[type='checkbox'] {
   margin: 3vh;
 }
 
+
 @media (max-width: 1000px) {
   .navbar {
     padding: 15px;
@@ -669,9 +646,11 @@ input[type='checkbox'] {
   .nav-menu {
     display: none;
     position: absolute;
-    background: linear-gradient(to bottom, rgb(29, 42, 58), rgba(255, 255, 255, 0.659));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58));
+    right: 0;
+    left: 0;
     text-align: center;
-    width: 200px;
+    padding: 5px;
   }
   .logo {
     font-size: 15px;
