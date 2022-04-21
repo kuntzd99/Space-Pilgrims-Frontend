@@ -12,7 +12,6 @@ export const SignInPilgrim = async (data) => {
 
 export const RegisterPilgrim = async (data) => {
   try {
-    console.log(data)
     const res = await Client.post('/auth/register', data)
     return res.data
   } catch (error) {
@@ -32,7 +31,6 @@ export const PasswordUpdate = async ({
       newPassword,
       confirmNewPassword
     })
-    console.log(res, 'UPDATE PASSWORD AXIOS')
     localStorage.setItem('token', res.data.token)
     return res.data.user
   } catch (error) {
