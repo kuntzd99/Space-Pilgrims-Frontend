@@ -72,7 +72,7 @@ const Community = (props) => {
           </div>
         ))}
       </div>
-      {creating ? (<CreateCommunity toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
+      {creating ? (<CreateCommunity setOpenModal={props.setOpenModal} toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
         <button className='community-btn' onClick={openCommnityForm}>Create Community</button>)}
     </div>
   )

@@ -170,7 +170,7 @@ const CommunityDetails = (props) => {
   const handleImageSubmit = async (e) => {
     e.preventDefault()
     if (newImage.slice(0, 4) !== 'http') {
-      props.setOpenModal(true)
+      return props.setOpenModal(true)
       // return window.alert('Please choose a different image')
     }
     props.setCommunity({ ...props.community, image: newImage })
@@ -231,6 +231,12 @@ const CommunityDetails = (props) => {
         background: `linear-gradient(to right, ${props.community.primaryColor}, ${props.community.secondaryColor})`
       }}
     >
+      {props.openModal && (
+        <Modal
+          setOpenModal={props.setOpenModal}
+          text="You can only be in one community!"
+        />
+      )}
       <div className="first-col">
         {!props.pilgrim ? (
           <div>Loading</div>
@@ -307,12 +313,6 @@ const CommunityDetails = (props) => {
             src={props.community.image}
             style={{ borderColor: props.community.secondaryColor }}
             alt={props.community.name}
-          />
-        )}
-        {props.openModal && (
-          <Modal
-            setOpenModal={props.setOpenModal}
-            text="You can only be in one community!"
           />
         )}
         {props.pilgrim === null ? (

@@ -4,7 +4,7 @@ const Modal = ({openModal, setOpenModal, heading, text}) => {
 
   return (
     <div>
-      <div className="modal">
+      <div className="modal-container">
           <div className="modalContainer">
 
             <div className="modal-header">
@@ -19,7 +19,6 @@ const Modal = ({openModal, setOpenModal, heading, text}) => {
               <button className="closeBtn" onClick={() => {setOpenModal(false)}}>Close</button>
             </div>
           </div>
-          {openModal && <Modal />}
       </div>
     </div>
     )

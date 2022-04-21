@@ -27,7 +27,6 @@ const PlanetPage = (props) => {
     const infoResponse = await axios.get(
       `https://api.le-systeme-solaire.net/rest/bodies/${response.data[0].frenchName}`
     )
-    console.log(infoResponse.data)
     infoResponse.data.moons
       ? setMoons(infoResponse.data.moons.length)
       : setMoons(0)
@@ -81,28 +80,34 @@ const PlanetPage = (props) => {
           <h3 className="planet-population">
             Population: {props.planet.population}
           </h3>
-          <div className="planet-info-reel">
-            <div className="planet-info-child">
-              <div className="planet-info-data-title">Avg Temp: </div>
-              <div className="planet-info-data">
-                {kelvinToFah(planetInfo.avgTemp).toFixed(1)}°F
+          {props.planet.id === 9 ? (
+            <div></div>
+          ) : (
+            <div className="planet-info-reel">
+              <div className="planet-info-child">
+                <div className="planet-info-data-title">Avg Temp: </div>
+                <div className="planet-info-data">
+                  {kelvinToFah(planetInfo.avgTemp).toFixed(1)}°F
+                </div>
+              </div>
+              <div className="planet-info-child">
+                <div className="planet-info-data-title">Gravity: </div>
+                <div className="planet-info-data">
+                  {(planetInfo.gravity / 9.8).toFixed(1)} G
+                </div>
+              </div>
+              <div className="planet-info-child">
+                <div className="planet-info-data-title">Moons: </div>
+                <div className="planet-info-data">{moons}</div>
+              </div>
+              <div className="planet-info-child">
+                <div className="planet-info-data-title">Radius: </div>
+                <div className="planet-info-data">
+                  {planetInfo.equaRadius} m
+                </div>
               </div>
             </div>
-            <div className="planet-info-child">
-              <div className="planet-info-data-title">Gravity: </div>
-              <div className="planet-info-data">
-                {(planetInfo.gravity / 9.8).toFixed(1)} G
-              </div>
-            </div>
-            <div className="planet-info-child">
-              <div className="planet-info-data-title">Moons: </div>
-              <div className="planet-info-data">{moons}</div>
-            </div>
-            <div className="planet-info-child">
-              <div className="planet-info-data-title">Radius: </div>
-              <div className="planet-info-data">{planetInfo.equaRadius} m</div>
-            </div>
-          </div>
+          )}
           <div className="carousel">
             {props.planetImages.map((image) => (
               <PlanetImage key={image.id} image={image.image} />
@@ -114,6 +119,8 @@ const PlanetPage = (props) => {
             setCommunities={props.setCommunities}
             planetId={planetId}
             pilgrim={props.pilgrim}
+            openModal={props.openModal}
+            setOpenModal={props.setOpenModal}
           />
         </div>
       )}

@@ -72,6 +72,11 @@ body{
   align-items: center;
 }
 
+.landing h3 {
+  margin: 3vh;
+  max-width: 60vh;
+}
+
 
 .solar-system {
   display: flex;

@@ -73,7 +73,6 @@ const App = () => {
       rating
     )
     getAverageRating(planetId)
-    console.log(response.data)
   }
 
   const getAverageRating = async (planetId) => {
@@ -87,7 +86,6 @@ const App = () => {
 
   const getPlanetImages = async (planetId) => {
     const response = await axios.get(`${apiUrl}/api/planetImage/${planetId}`)
-    console.log(response.data)
     setPlanetImages(response.data)
   }
 

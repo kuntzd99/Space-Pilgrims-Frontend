@@ -24,7 +24,7 @@ const CreateCommunity = (props) => {
       await axios.post(`${apiUrl}/api/community/${props.planetId}`, {...formValues, population: 0, creatorId: props.pilgrim.id}).catch((err) => console.log(err))
       props.toggleCreating(false)
     } else {
-      props.setOpenModal(true)
+      return props.setOpenModal(true)
       // window.alert('Choose a different image')
     }
   } 
