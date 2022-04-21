@@ -1,19 +1,33 @@
-/* Registration page */
+/* Create Modal Button */
 
-button {
-  width: 220px;
-  height: 50px;
-  border: none;
-  outline: none;
+.modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* border: none;
+  outline: none; */
   color: #fff;
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
+  background-color: #111;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* cursor: pointer; */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
   border-radius: 10px;
 }
 
-button:before {
+.modalContainer {
+  background-color: linear-gradient(45deg, black, white);
+  margin: 15% auto;
+  padding: 20px;
+  border: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  width: 50%;
+
+}
+
+.modal:before {
   content: '';
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
@@ -30,19 +44,19 @@ button:before {
   border-radius: 10px;
 }
 
-button:active {
+.modal:active {
   color: #000
 }
 
-button:active:after {
+.modal:active:after {
   background: transparent;
 }
 
-button:hover:before {
+.modal:hover:before {
   opacity: 1;
 }
 
-button:after {
+.modal:after {
   z-index: -1;
   content: '';
   position: absolute;
@@ -59,4 +73,3 @@ button:after {
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
-
