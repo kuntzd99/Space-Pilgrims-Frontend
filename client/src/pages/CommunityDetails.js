@@ -211,14 +211,23 @@ const CommunityDetails = (props) => {
             <div>
               <input type="text" onChange={handleNameChange} required />
               <div>
-                <button onClick={() => toggleEditingName(false)}>Cancel</button>
-                <button onClick={handleNameSubmit}>Submit</button>
+                <button
+                  className="btn"
+                  onClick={() => toggleEditingName(false)}
+                >
+                  Cancel
+                </button>
+                <button className="btn" onClick={handleNameSubmit}>
+                  Submit
+                </button>
               </div>
             </div>
           ) : (
             <div style={{ display: 'flex' }}>
               <h1>{props.community.name}</h1>
-              <button onClick={() => toggleEditingName(true)}>Edit</button>
+              <button className="btn" onClick={() => toggleEditingName(true)}>
+                Edit
+              </button>
             </div>
           )
         ) : (
@@ -230,10 +239,15 @@ const CommunityDetails = (props) => {
             <div>
               <input type="text" onChange={handleImageChange} required />
               <div>
-                <button onClick={() => toggleEditingImage(false)}>
+                <button
+                  className="btn"
+                  onClick={() => toggleEditingImage(false)}
+                >
                   Cancel
                 </button>
-                <button onClick={handleImageSubmit}>Submit</button>
+                <button className="btn" onClick={handleImageSubmit}>
+                  Submit
+                </button>
               </div>
             </div>
           ) : (
@@ -251,10 +265,7 @@ const CommunityDetails = (props) => {
                 style={{ borderColor: props.community.secondaryColor }}
                 alt={props.community.name}
               />
-              <button
-                onClick={() => toggleEditingImage(true)}
-                style={{ maxWidth: '5vh' }}
-              >
+              <button className="btn" onClick={() => toggleEditingImage(true)}>
                 Edit
               </button>
             </div>
@@ -295,6 +306,7 @@ const CommunityDetails = (props) => {
                   <h3>{pilgrim.username}</h3>
                 </Link>
                 <button
+                  className="btn"
                   onClick={() => removePilgrim(pilgrim.id)}
                   style={{ marginLeft: '1vh' }}
                 >
@@ -329,18 +341,23 @@ const CommunityDetails = (props) => {
               </div>
               <div>
                 <button
+                  className="btn"
                   onClick={() => toggleEditingColors(false)}
                   style={{ margin: '.5vh' }}
                 >
                   Cancel
                 </button>
-                <button style={{ margin: '.5vh' }} onClick={handleColorsSubmit}>
+                <button
+                  className="btn"
+                  style={{ margin: '.5vh' }}
+                  onClick={handleColorsSubmit}
+                >
                   Submit
                 </button>
               </div>
             </div>
           ) : (
-            <button onClick={() => toggleEditingColors(true)}>
+            <button className="btn" onClick={() => toggleEditingColors(true)}>
               Edit Colors
             </button>
           )
@@ -380,14 +397,14 @@ const CommunityDetails = (props) => {
               </div>
               {comment.pilgrimId === props.pilgrim.id ? (
                 <button
-                  className="comment-button"
+                  className="comment-button btn"
                   onClick={() => deleteComment(comment.id)}
                 >
                   Delete
                 </button>
               ) : (
                 <button
-                  className="comment-button"
+                  className="btn"
                   onClick={() => navigate(`/profile/${comment.pilgrimId}`)}
                 >
                   View Profile

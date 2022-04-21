@@ -5,7 +5,9 @@
   padding: 0;
   max-width:2000vw
 }
-
+body{
+  overflow-x: hidden;
+}
 .App {
   text-align: center;
 }
@@ -70,9 +72,9 @@
   align-items: center;
 }
 
-.register {
+/* .register {
   margin: 20px;
-}
+} */
 
 .solar-system {
   display: flex;
@@ -186,6 +188,10 @@ li {
   font-size: 1.2em;
 }
 
+.username{
+  font-size: 20px;
+}
+
 .nav-menu {
   display: flex;
   gap: 1em;
@@ -210,7 +216,7 @@ input[type='checkbox'] {
   user-select: none;
 }
 
-.btn {
+/* .btn {
   font-family: 'lora', serif;
   background: linear-gradient(to right, #a0b5eb, #c9f0e4);
   color: #4799e9 !important;
@@ -223,9 +229,16 @@ input[type='checkbox'] {
   cursor: pointer;
   text-align: center;
   text-align: center;
+} */
+
+.btn{
+  width: 50%;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-top: 15px;
 }
 
-.col {
+/* .col {
   display: flex;
   margin-top: 10px;
   margin-left: 10px;
@@ -234,9 +247,9 @@ input[type='checkbox'] {
   border-radius: 5px;
   margin-bottom: 30px;
   width: 90%;
-}
+} */
 
-.login-forms {
+/* .login-forms {
   padding: 5px;
   color:rgb(29, 42, 58);
   background: white;
@@ -244,9 +257,9 @@ input[type='checkbox'] {
   max-width: 300px;
   box-shadow: 3px 3px 3px grey;
   display: block;
-}
+} */
 
-.registerBtn {
+/* .registerBtn {
   font-family: 'lora', serif;
   background: linear-gradient(to right, #a0b5eb, #c9f0e4);
   color: #4799e9 !important;
@@ -259,7 +272,7 @@ input[type='checkbox'] {
   cursor: pointer;
   text-align: center;
   margin-bottom: 50px;
-}
+} */
 
 .planet-page {
   background-color: #1D2A3A;
@@ -309,7 +322,7 @@ input[type='checkbox'] {
 
 .community-image {
   height: 30vh;
-  width: 30vh;
+  width: 35vh;
 }
 
 .community-details {
@@ -329,6 +342,7 @@ input[type='checkbox'] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 30px;
   /* justify-content: center; */
 }
 
@@ -584,17 +598,17 @@ input[type='checkbox'] {
   margin: 0 0 5vh 0;
 }
 
-.register {
+/* .register {
   display: flex;
   flex-direction: column;
   padding: 2vh;
-}
+} */
 
-.register input, textarea {
+/* .register input, textarea {
   margin: 1vh;
-}
+} */
 
-.register form {
+/* .register form {
   margin-top: 40px;
   padding-left: 40px;
   background: white;
@@ -602,17 +616,17 @@ input[type='checkbox'] {
   padding: 70px 50px 70px 50px;
   box-shadow: 12px 12px 22px grey;
   display: block;
-}
+} */
 
-.register span {
+/* .register span {
   margin-bottom: 2vh;
-}
+} */
 
-.register-button {
+/* .register-button {
   margin-top: 1vh;
-}
+} */
 
-.login-page {
+/* .login-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -633,7 +647,7 @@ input[type='checkbox'] {
 .login-forms input {
   height: 3vh;
   margin: 1vh 0;
-}
+} */
 
 .profile a {
   color: white;

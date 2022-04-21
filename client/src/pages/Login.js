@@ -56,7 +56,7 @@ const Login = ({
         </div>
         <div>
           <button
-            className="glow-on-hover"
+            className="glow-on-hover-login"
             onClick={handleSubmit}
             disabled={!formValues.username || !formValues.password}
           >
