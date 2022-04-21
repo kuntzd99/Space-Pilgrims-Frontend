@@ -383,7 +383,7 @@ const CommunityDetails = (props) => {
         )}
 
         {/* Render all comments on communiuty page */}
-        <div className="comments-area">
+        <div className="third-col comments-area">
           {props.comments.map((comment, index) => (
             <div className="singleComment" key={comment.id}>
               <div className="comment-userName">{usernames[index]}</div>

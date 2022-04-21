@@ -81,7 +81,7 @@ body{
   justify-content: center;
   align-items: center;
   background-color: rgb(29, 42, 58);
-  min-height: 80vh;
+  height: 80vh;
 }
 
 .system {
@@ -105,7 +105,7 @@ body{
 }
 
 .solarFlare-container {
-  height: 20vh;
+  height: 40vh;
   width: 100vw;
   color: white;
   background-color: rgb(29, 42, 58);
@@ -184,12 +184,16 @@ li {
 }
 
 .welcome {
+  display: flex;
+  justify-content:space-evenly;
   color: white;
   font-size: 1.2em;
 }
 
 .username{
   font-size: 20px;
+  margin-right: 20px;
+  margin-top: 6px;
 }
 
 .nav-menu {
@@ -198,7 +202,7 @@ li {
   font-size: 18px;
 }
 .nav-menu li a:hover {
-  border-bottom: .15em solid white;
+  color: black;
 }
 
 .nav-menu li a {
@@ -351,6 +355,10 @@ input[type='checkbox'] {
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
+}
+
+.first-col, .second-col {
+  margin-top: 70px;
 }
 
 .comments-area {
@@ -598,63 +606,16 @@ input[type='checkbox'] {
   margin: 0 0 5vh 0;
 }
 
-/* .register {
-  display: flex;
-  flex-direction: column;
-  padding: 2vh;
-} */
-
-/* .register input, textarea {
-  margin: 1vh;
-} */
-
-/* .register form {
-  margin-top: 40px;
-  padding-left: 40px;
-  background: white;
-  border-radius: 30px;
-  padding: 70px 50px 70px 50px;
-  box-shadow: 12px 12px 22px grey;
-  display: block;
-} */
-
-/* .register span {
-  margin-bottom: 2vh;
-} */
-
-/* .register-button {
-  margin-top: 1vh;
-} */
-
-/* .login-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1D2A3A;
-  min-height: 100vh;
-  color: white;
-}
-
-.login-page h1 {
-  margin-top: 20%;
-}
-
-.login-forms {
-  margin-top: 10%;
-  padding: 3vh;
-}
-
-.login-forms input {
-  height: 3vh;
-  margin: 1vh 0;
-} */
-
 .profile a {
   color: white;
 }
 
 .profile a:hover {
   color: aqua;
+}
+
+.profile .card {
+  margin-top: 20px;
 }
 
 .community-details a {
@@ -677,6 +638,7 @@ input[type='checkbox'] {
   margin: 3vh;
 }
 
+
 @media (max-width: 1000px) {
   .navbar {
     padding: 15px;
@@ -684,9 +646,11 @@ input[type='checkbox'] {
   .nav-menu {
     display: none;
     position: absolute;
-    background: linear-gradient(to bottom, rgb(29, 42, 58), rgba(255, 255, 255, 0.659));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58));
+    right: 0;
+    left: 0;
     text-align: center;
-    width: 200px;
+    padding: 5px;
   }
   .logo {
     font-size: 15px;

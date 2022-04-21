@@ -47,7 +47,7 @@ const UpdatePassword = () => {
               <label htmlFor="confirmNewPassword"> Confirm New Password:</label>
               <input onChange={handleChange} name='confirmNewPassword' type='text' placeholder="Confirm New Password" value={formValues.confirmNewPassword} required/>
             </div>
-            <button disabled={!formValues.oldPassword || (!formValues.newPassword && formValues.confirmNewPassword === formValues.newPassword) }>Update Password</button>
+            <button className="btn" disabled={!formValues.oldPassword || (!formValues.newPassword && formValues.confirmNewPassword === formValues.newPassword) }>Update</button>
           </form>
         </div>
     </div>
