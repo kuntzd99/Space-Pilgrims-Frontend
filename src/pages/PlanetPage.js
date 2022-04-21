@@ -10,10 +10,13 @@ const PlanetPage = (props) => {
 
   const [hasRated, setHasRated] = useState(true)
 
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
+
   const getPlanet = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/planet/${planetId}`
-    )
+    const response = await axios.get(`${apiUrl}/api/planet/${planetId}`)
     props.setPlanet(response.data[0])
   }
 

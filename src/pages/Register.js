@@ -18,8 +18,13 @@ const Register = () => {
   const [usernames, setUsernames] = useState([])
   const [emails, setEmails] = useState([])
 
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
+
   const getAllPilgrims = async () => {
-    const response = await axios.get('http://localhost:3001/api/pilgrim')
+    const response = await axios.get(`${apiUrl}/api/pilgrim`)
     let loadUsernames = []
     let loadEmails = []
     for (let i = 0; i < response.data.length; i++) {

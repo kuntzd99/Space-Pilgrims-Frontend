@@ -9,6 +9,11 @@ const Community = (props) => {
   const [creating, toggleCreating] = useState(false)
   const [hover, setHover] = useState()
 
+  let apiUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://space-pilgrims.herokuapp.com'
+    : 'http://localhost:3001'
+
   const handleMouseIn = () => {
     setHover(props.getLiquidButton)
   }
@@ -19,7 +24,7 @@ const Community = (props) => {
 
   const getCommunities = async () => {
     const response = await axios.get(
-      `http://localhost:3001/api/community/${props.planetId}`
+      `${apiUrl}/api/community/${props.planetId}`
     )
     let populations = []
     for (let i = 0; i < response.data.length; i++) {
@@ -31,7 +36,7 @@ const Community = (props) => {
     populations.reverse()
     const sortedCommunities = []
     for (let i = 0; i < populations.length; i++) {
-      const sortedCommunity = await axios.get(`http://localhost:3001/api/community/communities/${populations[i][0]}`)
+      const sortedCommunity = await axios.get(`${apiUrl}/api/community/communities/${populations[i][0]}`)
       sortedCommunities.push(sortedCommunity.data)
     }
     props.setCommunities(sortedCommunities)

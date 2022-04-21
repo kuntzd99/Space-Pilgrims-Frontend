@@ -23,34 +23,35 @@ const CommunityDetails = (props) => {
   const [loaded, toggleLoaded] = useState(false)
   const [reload, toggleReload] = useState(false)
 
+  let apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
+
   let navigate = useNavigate()
 
   const getCommunity = async () => {
     const response = await axios.get(
-      `http://localhost:3001/api/community/communities/${communityId}`
+      `${apiUrl}/api/community/communities/${communityId}`
     )
     props.setCommunity(response.data)
     const creatorResponse = await axios.get(
-      `http://localhost:3001/api/pilgrim/pilgrims/${response.data.creatorId}`
+      `${apiUrl}/api/pilgrim/pilgrims/${response.data.creatorId}`
     )
     setCreator(creatorResponse.data)
     const planetResponse = await axios.get(
-      `http://localhost:3001/api/planet/${response.data.planetId}`
+      `${apiUrl}/api/planet/${response.data.planetId}`
     )
     props.setPlanet(planetResponse.data[0])
   }
 
   const getPilgrims = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/pilgrim/${communityId}`
-    )
+    const response = await axios.get(`${apiUrl}/api/pilgrim/${communityId}`)
     props.setPilgrims(response.data)
   }
 
   const getComments = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/comment/${communityId}`
-    )
+    const response = await axios.get(`${apiUrl}/api/comment/${communityId}`)
     let loadComments = response.data
     loadComments.reverse()
     props.setComments(loadComments)
@@ -58,7 +59,7 @@ const CommunityDetails = (props) => {
     let loadImages = []
     for (let i = 0; i < response.data.length; i++) {
       let username = await axios.get(
-        `http://localhost:3001/api/pilgrim/pilgrims/${response.data[i].pilgrimId}`
+        `${apiUrl}/api/pilgrim/pilgrims/${response.data[i].pilgrimId}`
       )
       loadUsernames.push(username.data.username)
       loadImages.push(username.data.image)
@@ -70,7 +71,7 @@ const CommunityDetails = (props) => {
   const getPilgrim = async () => {
     if (props.pilgrim) {
       const response = await axios.get(
-        `http://localhost:3001/api/pilgrim/pilgrims/${props.pilgrim.id}`
+        `${apiUrl}/api/pilgrim/pilgrims/${props.pilgrim.id}`
       )
       props.setPilgrim(response.data)
       toggleLoaded(true)
@@ -93,17 +94,17 @@ const CommunityDetails = (props) => {
 
   const joinCommunity = async () => {
     if (props.pilgrim.communityId === null) {
-      await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
+      await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {
         communityId: communityId
       })
       props.setPilgrim({ ...props.pilgrim, communityId: communityId })
       let population = props.planet.population
-      await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
+      await axios.put(`${apiUrl}/api/planet/${props.planet.id}`, {
         population: parseInt(population + 1)
       })
       props.setPlanet({ ...props.planet, population: parseInt(population + 1) })
       let communityPopulation = props.community.population
-      await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+      await axios.put(`${apiUrl}/api/community/${communityId}`, {
         population: parseInt(communityPopulation + 1)
       })
       props.setCommunity({
@@ -117,17 +118,17 @@ const CommunityDetails = (props) => {
   }
 
   const leaveCommunity = async () => {
-    await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {
+    await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {
       communityId: null
     })
     props.setPilgrim({ ...props.pilgrim, communityId: null })
     let population = props.planet.population
-    await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
+    await axios.put(`${apiUrl}/api/planet/${props.planet.id}`, {
       population: parseInt(population - 1)
     })
     props.setPlanet({ ...props.planet, population: parseInt(population - 1) })
     let communityPopulation = props.community.population
-    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+    await axios.put(`${apiUrl}/api/community/${communityId}`, {
       population: parseInt(communityPopulation - 1)
     })
     props.setCommunity({
@@ -138,7 +139,7 @@ const CommunityDetails = (props) => {
   }
 
   const deleteComment = async (id) => {
-    await axios.delete(`http://localhost:3001/api/comment/${id}`)
+    await axios.delete(`${apiUrl}/api/comment/${id}`)
     toggleDeleted(!deleted)
   }
 
@@ -150,7 +151,7 @@ const CommunityDetails = (props) => {
   const handleNameSubmit = async (e) => {
     e.preventDefault()
     props.setCommunity({ ...props.community, name: newName })
-    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+    await axios.put(`${apiUrl}/api/community/${communityId}`, {
       name: newName
     })
     toggleEditingName(false)
@@ -167,23 +168,23 @@ const CommunityDetails = (props) => {
       return window.alert('Please choose a different image')
     }
     props.setCommunity({ ...props.community, image: newImage })
-    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+    await axios.put(`${apiUrl}/api/community/${communityId}`, {
       image: newImage
     })
     toggleEditingImage(false)
   }
 
   const removePilgrim = async (pilgrimId) => {
-    await axios.put(`http://localhost:3001/api/pilgrim/${pilgrimId}`, {
+    await axios.put(`${apiUrl}/api/pilgrim/${pilgrimId}`, {
       communityId: null
     })
     let population = props.planet.population
-    await axios.put(`http://localhost:3001/api/planet/${props.planet.id}`, {
+    await axios.put(`${apiUrl}/api/planet/${props.planet.id}`, {
       population: parseInt(population - 1)
     })
     props.setPlanet({ ...props.planet, population: parseInt(population - 1) })
     let communityPopulation = props.community.population
-    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+    await axios.put(`${apiUrl}/api/community/${communityId}`, {
       population: parseInt(communityPopulation - 1)
     })
     props.setCommunity({
@@ -210,7 +211,7 @@ const CommunityDetails = (props) => {
       primaryColor: newPrimaryColor,
       secondaryColor: newSecondaryColor
     })
-    await axios.put(`http://localhost:3001/api/community/${communityId}`, {
+    await axios.put(`${apiUrl}/api/community/${communityId}`, {
       primaryColor: newPrimaryColor,
       secondaryColor: newSecondaryColor
     })

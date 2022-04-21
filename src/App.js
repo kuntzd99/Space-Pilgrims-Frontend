@@ -41,8 +41,8 @@ const App = () => {
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com/'
-      : 'http://localhost:3001/'
+      ? 'https://space-pilgrims.herokuapp.com'
+      : 'http://localhost:3001'
 
   const handleLogout = () => {
     setPilgrim(null)
@@ -73,9 +73,7 @@ const App = () => {
   }
 
   const getAverageRating = async (planetId) => {
-    const response = await axios.get(
-      `http://localhost:3001/api/rating/${planetId}`
-    )
+    const response = await axios.get(`${apiUrl}/api/rating/${planetId}`)
     let sum = 0
     for (let i = 0; i < response.data.length; i++) {
       sum += response.data[i]
@@ -84,9 +82,7 @@ const App = () => {
   }
 
   const getPlanetImages = async (planetId) => {
-    const response = await axios.get(
-      `http://localhost:3001/api/planetImage/${planetId}`
-    )
+    const response = await axios.get(`${apiUrl}/api/planetImage/${planetId}`)
     console.log(response.data)
     setPlanetImages(response.data)
   }

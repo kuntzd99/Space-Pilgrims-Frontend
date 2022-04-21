@@ -12,19 +12,24 @@ const Profile = (props) => {
   const [loaded, toggleLoaded] = useState(false)
   const [reload, toggleReload] = useState(false)
 
+  let apiUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://space-pilgrims.herokuapp.com'
+    : 'http://localhost:3001'
+
   const getCommunity = async () => {
     if (props.pilgrim) {
       const pilgrimResponse = await axios.get(
-        `http://localhost:3001/api/pilgrim/pilgrims/${props.pilgrim.id}`
+        `${apiUrl}/api/pilgrim/pilgrims/${props.pilgrim.id}`
       )
       props.setPilgrim(pilgrimResponse.data)
       if (pilgrimResponse.data.communityId) {
         const response = await axios.get(
-          `http://localhost:3001/api/community/communities/${pilgrimResponse.data.communityId}`
+          `${apiUrl}/api/community/communities/${pilgrimResponse.data.communityId}`
         )
         props.setCommunity(response.data)
         const planetResponse = await axios.get(
-          `http://localhost:3001/api/planet/${response.data.planetId}`
+          `${apiUrl}/api/planet/${response.data.planetId}`
         )
         props.setPlanet(planetResponse.data[0])
         toggleLoaded(true)
@@ -58,14 +63,14 @@ const Profile = (props) => {
     if (image.slice(0, 4) !== 'http') {
       return window.alert('Please choose a different image')
     }
-    await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {image: image})
+    await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {image: image})
     props.setPilgrim({...props.pilgrim, image: image})
     toggleChangingImage(false)
   }
 
   const handleBioSubmit = async (e) => {
     e.preventDefault()
-    await axios.put(`http://localhost:3001/api/pilgrim/${props.pilgrim.id}`, {bio: bio})
+    await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {bio: bio})
     props.setPilgrim({...props.pilgrim, bio: bio})
     toggleChangingBio(false)
   }
