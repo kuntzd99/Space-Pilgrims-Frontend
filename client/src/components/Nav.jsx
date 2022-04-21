@@ -20,7 +20,7 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
             </div>
 
             <div className="icon icon-enter">
-              <li className="i fa fa-user"><Link to="/profile">My Profile</Link></li>
+              <li className="fa fa-user"><Link to="/profile">My Profile</Link></li>
             </div>
 
             <div className="icon icon-collapse">
