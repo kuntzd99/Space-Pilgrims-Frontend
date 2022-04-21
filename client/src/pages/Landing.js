@@ -30,6 +30,8 @@ const Landing = ({ setPilgrim, toggleAuthenticated }) => {
             alt="Pilgrim Rocket"
           />
         </div>
+        <div className="halfstars1"></div>
+        <div className="halfstars2"></div>
       </div>
       <div className="register-logoIn">
         {/* <Login
