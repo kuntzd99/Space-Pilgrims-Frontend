@@ -130,7 +130,7 @@
   border-radius: 50%;
 }
 
-#sun:hover {
+.sun:hover {
   transform: scale(1.3);
 }
 
