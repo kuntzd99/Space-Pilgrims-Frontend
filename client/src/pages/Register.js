@@ -156,7 +156,7 @@ const Register = () => {
             />
           </div>
           <button
-            className="registerbtn"
+            className="glow-on-hover"
             disabled={
               !formValues.username ||
               (!formValues.password &&
