@@ -22,6 +22,7 @@ const CommunityDetails = (props) => {
   const [newSecondaryColor, setNewSecondaryColor] = useState('')
   const [loaded, toggleLoaded] = useState(false)
   const [reload, toggleReload] = useState(false)
+  const [reloads, setReloads] = useState(0)
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
@@ -76,6 +77,7 @@ const CommunityDetails = (props) => {
       props.setPilgrim(response.data)
       toggleLoaded(true)
     } else {
+      setReloads(reloads + 1)
       toggleReload(!reload)
     }
   }
@@ -87,7 +89,7 @@ const CommunityDetails = (props) => {
   }, [clicked, clickedComment, deleted])
 
   useEffect(() => {
-    if (!loaded) {
+    if (!loaded && reloads <= 20) {
       getPilgrim()
     }
   }, [reload])

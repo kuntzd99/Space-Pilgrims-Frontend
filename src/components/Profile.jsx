@@ -2,6 +2,7 @@ import UpdatePassword from "./UpdatePassword"
 import { useEffect, useState } from 'react'
 import axios from "axios"
 import Mailbox from "./Mailbox"
+import { Link } from "react-router-dom"
 
 const Profile = (props) => {
   const [changingPassword, toggleChangingPassword] = useState(false)
@@ -11,6 +12,7 @@ const Profile = (props) => {
   const [changingBio, toggleChangingBio] = useState(false)
   const [loaded, toggleLoaded] = useState(false)
   const [reload, toggleReload] = useState(false)
+  const [reloads, setReloads] = useState(0)
 
   let apiUrl =
   process.env.NODE_ENV === 'production'
@@ -36,15 +38,15 @@ const Profile = (props) => {
       }
       toggleLoaded(true)
     } else {
+      setReloads(reloads + 1)
       toggleReload(!reload)
     }
   }
 
 
   useEffect(() => {
-    if (!loaded) {
+    if (!loaded && reloads <= 20) {
       getCommunity()
-      console.log(props.pilgrim)
     }
   }, [reload])
 
@@ -80,7 +82,7 @@ const Profile = (props) => {
       {props.pilgrim ? (<div>
       <div className="profile card" key={props.pilgrim.id}>
           <h1>{props.pilgrim.username}</h1>
-          {props.community ? (<h3>Community: {props.community.name} on {props.planet.name}</h3>) : (<div>No community</div>)}
+          {props.community ? (<h3>Community: <Link to={`/communitypage/${props.community.id}`}>{props.community.name}</Link> on <Link to={`/planetpage/${props.planet.id}`}>{props.planet.name}</Link></h3>) : (<div>No community</div>)}
           <div>
             {changingImage ? 
             (<div>
