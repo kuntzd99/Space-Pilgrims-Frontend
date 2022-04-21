@@ -9,7 +9,6 @@ import Landing from './pages/Landing'
 import PlanetPage from './pages/PlanetPage'
 import CommunityDetails from './pages/CommunityDetails'
 import Profile from './components/Profile'
-import Admin from './components/Admin'
 import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
 import { CheckSession, PasswordUpdate } from './services/Auth'
@@ -186,21 +185,6 @@ const App = () => {
             path="/profile"
             element={
               <Profile
-                pilgrim={pilgrim}
-                setPilgrim={setPilgrim}
-                community={community}
-                setCommunity={setCommunity}
-                planet={planet}
-                setPlanet={setPlanet}
-                messages={messages}
-                setMessages={setMessages}
-              />
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <Admin
                 pilgrim={pilgrim}
                 setPilgrim={setPilgrim}
                 community={community}

@@ -20,9 +20,18 @@ export const RegisterPilgrim = async (data) => {
   }
 }
 
-export const PasswordUpdate = async (data) => {
+export const PasswordUpdate = async ({
+  pilgrimId,
+  oldPassword,
+  newPassword,
+  confirmNewPassword
+}) => {
   try {
-    const res = await Client.post('/update/:pilgrim_id', data)
+    const res = await Client.put(`auth/update/${pilgrimId}`, {
+      oldPassword,
+      newPassword,
+      confirmNewPassword
+    })
     console.log(res, 'UPDATE PASSWORD AXIOS')
     localStorage.setItem('token', res.data.token)
     return res.data.user

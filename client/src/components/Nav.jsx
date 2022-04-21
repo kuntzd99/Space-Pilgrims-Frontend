@@ -51,17 +51,9 @@ const Nav = ({authenticated, pilgrim, handleLogout}) => {
                 <li className="i fa fa-home"><Link to='/home'>Home</Link></li>
               </div>
 
-              <div className="icon icon-expand">
-                <li className="i fa fa-bars"><Link to='/faq'></Link>FAQ</li>
-              </div>
-
-              <div>
-                <li><Link to="/admin">Admin Access</Link></li>
-              </div>
-
-              <div className="icon icon-rotate">
-                <li className="i fa fa-phone"><Link to={`/messages`}>Messages</Link></li>
-              </div>
+              <div className="icon icon-enter">
+              <li className="fa fa-user"><Link to="/profile">My Profile</Link></li>
+            </div>
 
               <div className="icon icon-collapse">
                 <li className="i fa fa-sign-in"><Link onClick={handleLogout} to='/'>Sign Out</Link></li>
