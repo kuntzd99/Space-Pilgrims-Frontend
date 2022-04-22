@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
+import Modal from "./Modal"
 
-const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex, pilgrim}) => {
+const Planet = ({setOpenModal, setErrorMessage, orbitRadius, orbitSpeed, planet, surface, size, zIndex, pilgrim}) => {
   let navigate = useNavigate()
 
 
@@ -10,7 +11,11 @@ const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex, pilgrim
         navigate(`/planetpage/${id}`)
       }
       else {
-        window.alert('Only admin can access Planet 9')
+        setOpenModal(true)
+        setErrorMessage(
+          'You need Admin access to view this planet! Please vacate immediately!'
+        )
+        // window.alert('Only admin can access Planet 9')
       }
     } else {
       navigate(`/planetpage/${id}`)

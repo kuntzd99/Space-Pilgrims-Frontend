@@ -9,11 +9,11 @@
   outline: none;
   color: #fff;
   background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58));
-  /* cursor: pointer; */
+  cursor: pointer;
   position: fixed;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  z-index: 15;
   border-radius: 10px;
 }
 
@@ -24,7 +24,7 @@
   border-radius: 12px;
   background-color: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  /* margin: 15% auto; */
+  margin: 15% auto;
   padding: 25px;
   border: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
 }
