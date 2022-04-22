@@ -43,7 +43,7 @@ const Mailbox = (props) => {
               </Link>: {message.message}
               <div>
               <button 
-              style={{width: '7vw', marginTop: '1vh'}} 
+              style={{width: '7vw', margin: '1vh 0 1vh 0', height: '3vh'}} 
               onClick={() => deleteMessage(message.id)}>Delete</button>
               </div>
             </div>
