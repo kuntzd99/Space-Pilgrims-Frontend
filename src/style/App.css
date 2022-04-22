@@ -72,6 +72,13 @@ body{
   align-items: center;
 }
 
+.landing body {
+overflow-x: hidden;
+background-color: #1D2A3A;
+min-height: 50vh;
+/* overflow-y: hidden; */
+}
+
 .landing h3 {
   margin: 3vh;
   max-width: 60vw;

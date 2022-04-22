@@ -22,7 +22,8 @@ const Mailbox = (props) => {
     senderPilgrims = senderPilgrims.reverse()
     if (senderPilgrims.length === 0) {
       props.setOpenModal(true)
-      window.alert('No messages')
+      props.setErrorMessage('You have no messages')
+      // window.alert('No messages')
     }
     setSenders(senderPilgrims)
   }
