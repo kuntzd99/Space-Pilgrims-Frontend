@@ -4,10 +4,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 const Home = (props) => {
-  let apiUrl =
-    process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com'
-      : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const getPlanets = async () => {
     const response = await axios.get(`${apiUrl}/api/planet/`)

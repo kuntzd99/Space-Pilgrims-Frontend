@@ -12,10 +12,7 @@ const PlanetPage = (props) => {
   const [planetInfo, setPlanetInfo] = useState({})
   const [moons, setMoons] = useState(0)
 
-  let apiUrl =
-    process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com'
-      : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const kelvinToFah = (temp) => {
     return (temp - 273.15) * (9 / 5) + 32

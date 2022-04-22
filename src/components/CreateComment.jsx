@@ -5,9 +5,7 @@ const CreateComment = (props) => {
   const [formValues, setFormValues] = useState({comment: ''})
 
   let apiUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com'
-    : 'http://localhost:3001'
+  process.env.NODE_ENV === 'https://space-pilgrims.herokuapp.com'
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })

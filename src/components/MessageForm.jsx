@@ -4,10 +4,7 @@ import axios from 'axios'
 const MessageForm = (props) => {
   const [formValues, setFormValues] = useState({message: ''})
 
-  let apiUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com'
-    : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })

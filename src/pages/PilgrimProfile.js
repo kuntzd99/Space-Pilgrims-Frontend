@@ -7,10 +7,7 @@ const PilgrimProfile = (props) => {
   const { pilgrimId } = useParams()
   const [sendingMessage, toggleSendingMessage] = useState(false)
 
-  let apiUrl =
-    process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com'
-      : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const getPilgrimCommunityAndPlanet = async () => {
     const response = await axios.get(

@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom'
 const Mailbox = (props) => {
   const [senders, setSenders] = useState([])
 
-  let apiUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com'
-    : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const getMessagesAndSenders = async () => {
     const response = await axios.get(`${apiUrl}/api/message/${props.pilgrim.id}`)

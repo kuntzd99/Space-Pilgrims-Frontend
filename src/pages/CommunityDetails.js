@@ -23,10 +23,7 @@ const CommunityDetails = (props) => {
   const [reload, toggleReload] = useState(false)
   const [reloads, setReloads] = useState(0)
 
-  let apiUrl =
-    process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com'
-      : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const getCommunity = async () => {
     const response = await axios.get(
