@@ -62,7 +62,8 @@ const PlanetPage = (props) => {
             alt={props.planet.name}
           />
           <div className="planet-avg">
-            Planet's Rating: //If there isn't average rating set it equal to 0.
+            Planet's Rating:
+            {/* //If there isn't average rating set it equal to 0. */}
             {props.averageRating
               ? parseFloat(props.averageRating).toFixed(1)
               : 0}{' '}
@@ -70,7 +71,7 @@ const PlanetPage = (props) => {
           </div>
           <div className="planet-rating">
             <div>Rate: </div>
-            //Checking to see if the user has rated already.
+            {/* //Checking to see if the user has rated already. */}
             <a onClick={hasRated ? () => handleRating(1) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(2) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(3) : null}>🪐</a>
@@ -84,7 +85,7 @@ const PlanetPage = (props) => {
               Population: {props.planet.population}
             </h3>
           )}
-          // Preventing access on planet 9 to unauthorized users.
+          {/* // Preventing access on planet 9 to unauthorized users. */}
           {props.planet.id === 9 ? (
             <div></div>
           ) : (
@@ -114,7 +115,7 @@ const PlanetPage = (props) => {
               </div>
             </div>
           )}
-          // Showing images of the planet based on which planet is selected.
+          {/* // Showing images of the planet based on which planet is selected. */}
           <div className="carousel">
             {props.planetImages.map((image) => (
               <PlanetImage key={image.id} image={image.image} />
