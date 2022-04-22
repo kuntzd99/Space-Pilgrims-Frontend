@@ -90,7 +90,6 @@ const Register = () => {
         <h1>Register!</h1>
         <form className="forms" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            {/* <label name="username">Username: </label> */}
             <input
               onChange={handleChange}
               name="username"
@@ -101,7 +100,6 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            {/* <label name="username">Full Name: </label> */}
             <input
               onChange={handleChange}
               name="name"
@@ -112,7 +110,6 @@ const Register = () => {
             />
           </div>
           <div className="pilgrim-image">
-            {/* <label for="image">Profile Picture: </label> */}
             <input
               onChange={handleChange}
               placeholder="Profile image"
@@ -122,9 +119,6 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            {/* <label name="username">
-              <span>Bio: </span>
-            </label> */}
             <textarea
               className="register-bio"
               rows="10"
@@ -136,7 +130,6 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            {/* <label htmlFor="email">Email: </label> */}
             <input
               onChange={handleChange}
               name="email"
@@ -147,7 +140,6 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            {/* <label name="password">Password: </label> */}
             <input
               onChange={handleChange}
               type="password"
@@ -158,7 +150,6 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            {/* <label name="confirmPassword">Confirm Password: </label> */}
             <input
               onChange={handleChange}
               placeholder="confirm password"
