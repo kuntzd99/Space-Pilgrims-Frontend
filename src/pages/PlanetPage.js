@@ -58,7 +58,7 @@ const PlanetPage = (props) => {
             src={props.planet.highRes}
             alt={props.planet.name}
           />
-          <div>
+          <div className="planet-avg">
             Planet's Rating:{' '}
             {props.averageRating
               ? parseFloat(props.averageRating).toFixed(1)
