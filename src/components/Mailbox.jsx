@@ -33,6 +33,7 @@ const Mailbox = (props) => {
 
   return(
     <div className='mailbox'>
+      {/* uses button instead of use effect because that's what worked */}
       {senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
         <div>
           {props.messages.map((message, index) => (

@@ -48,6 +48,8 @@ const Profile = (props) => {
 
 
   useEffect(() => {
+    // loops until the props.pilgrim has loaded
+    // if props.pilgrim is null (shouldn't happen), it will only loop 20 times
     if (!loaded && reloads <= 20) {
       getCommunity()
     }
@@ -85,6 +87,7 @@ const Profile = (props) => {
       {props.pilgrim ? (<div>
       <div className="profile card" key={props.pilgrim.id}>
           <h1>{props.pilgrim.username}</h1>
+          {/* if community */}
           {Object.keys(props.community).length !== 0 ? 
           (<h3>
             Community: <Link to={`/communitypage/${props.community.id}`}>{props.community.name}</Link> on <Link to={`/planetpage/${props.planet.id}`}>{props.planet.name}</Link>
@@ -92,6 +95,7 @@ const Profile = (props) => {
           ) : (
           <div>No community</div>)}
           <div>
+            {/* if editing */}
             {changingImage ? 
             (<div>
               <label>New image:</label><input type="text" onChange={handleImageChange} />
