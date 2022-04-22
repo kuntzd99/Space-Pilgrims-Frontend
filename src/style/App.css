@@ -305,7 +305,6 @@ input[type='checkbox'] {
 .community-details {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  /* grid-template-rows: 2fr 1fr 5fr; */
   min-height: 100vh;
   overflow-y: hidden;
 }
@@ -320,7 +319,6 @@ input[type='checkbox'] {
   flex-direction: column;
   align-items: center;
   margin-left: 30px;
-  /* justify-content: center; */
 }
 
 .second-col {
@@ -355,7 +353,6 @@ input[type='checkbox'] {
 .singleComment {
   display: flex;
   flex-direction: column;
-  /* scroll-snap-align: start; */
   border: 1px solid white;
   border-radius: 10px;
   text-align: center;
@@ -390,8 +387,6 @@ input[type='checkbox'] {
   font-size: 1em;
   text-align: left;
   color: black;
-  /* margin-left: 25px; */
-  /* align-self: baseline; */
 }
 
 .msg-comment{
