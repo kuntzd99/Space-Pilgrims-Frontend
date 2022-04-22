@@ -361,7 +361,7 @@ const CommunityDetails = (props) => {
             )}
           </div>
         ))}
-        {/* preventing negative population */}
+        {/* preventing negative population  */}
         {props.community.population < 0 ? (
           <h3 className="population">Population: 0</h3>
         ) : (
