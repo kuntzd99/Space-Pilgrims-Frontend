@@ -36,9 +36,12 @@ const Profile = (props) => {
         )
         props.setPlanet(planetResponse.data[0])
         toggleLoaded(true)
+      } else {
+        props.setPlanet({})
+        props.setCommunity({})
       }
       toggleLoaded(true)
-    } else {
+     } else {
       setReloads(reloads + 1)
       toggleReload(!reload)
     }
@@ -64,7 +67,6 @@ const Profile = (props) => {
   const handleImageSubmit = async (e) => {
     e.preventDefault()
     if (image.slice(0, 4) !== 'http') {
-      // props.setOpenModal(true)
       return window.alert('Please choose a different image')
     }
     await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {image: image})
@@ -84,7 +86,12 @@ const Profile = (props) => {
       {props.pilgrim ? (<div>
       <div className="profile card" key={props.pilgrim.id}>
           <h1>{props.pilgrim.username}</h1>
-          {props.community ? (<h3>Community: <Link to={`/communitypage/${props.community.id}`}>{props.community.name}</Link> on <Link to={`/planetpage/${props.planet.id}`}>{props.planet.name}</Link></h3>) : (<div>No community</div>)}
+          {Object.keys(props.community).length !== 0 ? 
+          (<h3>
+            Community: <Link to={`/communitypage/${props.community.id}`}>{props.community.name}</Link> on <Link to={`/planetpage/${props.planet.id}`}>{props.planet.name}</Link>
+          </h3>
+          ) : (
+          <div>No community</div>)}
           <div>
             {changingImage ? 
             (<div>

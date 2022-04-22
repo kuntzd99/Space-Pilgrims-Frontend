@@ -42,7 +42,11 @@ const Mailbox = (props) => {
               <Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
                 {senders[senders.length - 1 - index].username}
               </Link>: {message.message}
-              <button style={{marginLeft: '1vh'}} onClick={() => deleteMessage(message.id)}>Delete</button>
+              <div>
+              <button 
+              style={{width: '7vw', marginTop: '1vh'}} 
+              onClick={() => deleteMessage(message.id)}>Delete</button>
+              </div>
             </div>
             ))}
         </div>)}
