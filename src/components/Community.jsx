@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import CreateCommunity from './CreateCommunity'
-import Modal from './Modal'
 
 const Community = (props) => {
   let navigate = useNavigate()
@@ -47,7 +46,6 @@ const Community = (props) => {
     if (props.pilgrim !== null) {
       navigate(`/communitypage/${communityId}`)
     } else {
-      // window.alert('Sign in')
       props.setOpenModal(true)
       props.setErrorMessage('You are not Logged in. please return to the homepage and create an account!')
     }
@@ -57,8 +55,8 @@ const Community = (props) => {
     if (props.pilgrim !== null) {
       toggleCreating(true)
     } else {
-      // window.alert('Sign in')
       props.setOpenModal(true)
+      props.setErrorMessage('Please sign in')
     }
   }
 

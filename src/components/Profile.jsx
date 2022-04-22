@@ -2,7 +2,6 @@ import UpdatePassword from "./UpdatePassword"
 import { useEffect, useState } from 'react'
 import axios from "axios"
 import Mailbox from "./Mailbox"
-import Modal from "./Modal"
 import { Link } from "react-router-dom"
 
 const Profile = (props) => {

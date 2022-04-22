@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router-dom'
 import Planet from '../components/Planet'
 import SolarFlare from '../components/SolarFlare'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import axios from 'axios'
 
 const Home = (props) => {
@@ -9,8 +8,6 @@ const Home = (props) => {
     process.env.NODE_ENV === 'production'
       ? 'https://space-pilgrims.herokuapp.com'
       : 'http://localhost:3001'
-
-  let navigate = useNavigate()
 
   const getPlanets = async () => {
     const response = await axios.get(`${apiUrl}/api/planet/`)

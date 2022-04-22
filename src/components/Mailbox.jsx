@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Modal from './Modal'
 
 const Mailbox = (props) => {
   const [senders, setSenders] = useState([])
@@ -23,7 +22,6 @@ const Mailbox = (props) => {
     if (senderPilgrims.length === 0) {
       props.setOpenModal(true)
       props.setErrorMessage('You have no messages')
-      // window.alert('No messages')
     }
     setSenders(senderPilgrims)
   }

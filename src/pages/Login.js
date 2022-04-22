@@ -1,14 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SignInPilgrim, UpdatePassword } from '../services/Auth'
+import { SignInPilgrim } from '../services/Auth'
 
-const Login = ({
-  setPilgrim,
-  toggleAuthenticated,
-  setPasswordUpdate,
-  newPassword,
-  confirmNewPassword
-}) => {
+const Login = ({ setPilgrim, toggleAuthenticated }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ username: '', password: '' })
 
@@ -21,13 +15,8 @@ const Login = ({
     const payload = await SignInPilgrim(formValues)
     setFormValues({ username: '', password: '' })
     setPilgrim(payload)
-    //setPilgrimId()
     toggleAuthenticated(true)
     navigate('/home')
-  }
-
-  const handleUpdate = async (e) => {
-    navigate('/update')
   }
 
   return (
@@ -63,7 +52,6 @@ const Login = ({
           >
             Login
           </button>
-          {/* <button onClick={handleUpdate}>Forgot Password</button> */}
         </div>
       </div>
     </div>

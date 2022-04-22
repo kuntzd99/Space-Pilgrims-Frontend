@@ -2,8 +2,6 @@ import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CreateComment from '../components/CreateComment'
-import { useNavigate } from 'react-router-dom'
-import Modal from '../components/Modal'
 
 const CommunityDetails = (props) => {
   const { communityId } = useParams()
@@ -29,8 +27,6 @@ const CommunityDetails = (props) => {
     process.env.NODE_ENV === 'production'
       ? 'https://space-pilgrims.herokuapp.com'
       : 'http://localhost:3001'
-
-  let navigate = useNavigate()
 
   const getCommunity = async () => {
     const response = await axios.get(
@@ -437,9 +433,13 @@ const CommunityDetails = (props) => {
           {props.comments.map((comment, index) => (
             <div className="singleComment" key={comment.id}>
               <div className="comment-userName">
-                <Link to={`/profile/${comment.pilgrimId}`}>
-                  {usernames[index]}
-                </Link>
+                {props.pilgrim.id === comment.pilgrimId ? (
+                  <div>{usernames[index]}</div>
+                ) : (
+                  <Link to={`/profile/${comment.pilgrimId}`}>
+                    {usernames[index]}
+                  </Link>
+                )}
               </div>
               <div className="image-comment">
                 <img

@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
 const Planet = ({orbitRadius, orbitSpeed, planet, surface, size, zIndex, pilgrim}) => {

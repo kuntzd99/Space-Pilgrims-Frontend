@@ -1,10 +1,8 @@
 import { useState } from "react"
 import { PasswordUpdate } from "../services/Auth"
-import { useNavigate } from "react-router-dom"
 
 
 const UpdatePassword = (props) => {
-  let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({
     oldPassword: '',

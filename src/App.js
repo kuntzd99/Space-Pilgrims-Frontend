@@ -12,13 +12,11 @@ import Profile from './components/Profile'
 import UpdatePassword from './components/UpdatePassword'
 import PilgrimProfile from './pages/PilgrimProfile'
 import Modal from './components/Modal'
-import { CheckSession, PasswordUpdate } from './services/Auth'
+import { CheckSession } from './services/Auth'
 import './style/App.css'
 import './style/Button.css'
 import './style/Form.css'
 import './style/Modal.css'
-import Mailbox from './components/Mailbox'
-import Community from './components/Community'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
