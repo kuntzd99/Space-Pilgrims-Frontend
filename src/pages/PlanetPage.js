@@ -27,6 +27,8 @@ const PlanetPage = (props) => {
     const infoResponse = await axios.get(
       `https://api.le-systeme-solaire.net/rest/bodies/${response.data[0].frenchName}`
     )
+
+    //Some planets have moons = null
     infoResponse.data.moons
       ? setMoons(infoResponse.data.moons.length)
       : setMoons(0)
@@ -36,6 +38,7 @@ const PlanetPage = (props) => {
 
   const handleRating = (rating) => {
     props.postRating({ rating: rating }, planetId)
+    //Turning the ability to rate on that planet off.
     setHasRated(false)
   }
 
@@ -59,7 +62,7 @@ const PlanetPage = (props) => {
             alt={props.planet.name}
           />
           <div className="planet-avg">
-            Planet's Rating:{' '}
+            Planet's Rating: //If there isn't average rating set it equal to 0.
             {props.averageRating
               ? parseFloat(props.averageRating).toFixed(1)
               : 0}{' '}
@@ -67,6 +70,7 @@ const PlanetPage = (props) => {
           </div>
           <div className="planet-rating">
             <div>Rate: </div>
+            //Checking to see if the user has rated already.
             <a onClick={hasRated ? () => handleRating(1) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(2) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(3) : null}>🪐</a>
@@ -80,9 +84,11 @@ const PlanetPage = (props) => {
               Population: {props.planet.population}
             </h3>
           )}
+          // Preventing access on planet 9 to unauthorized users.
           {props.planet.id === 9 ? (
             <div></div>
           ) : (
+            // Information coming from the API on each planet.
             <div className="planet-info-reel">
               <div className="planet-info-child">
                 <div className="planet-info-data-title">Avg Temp: </div>
@@ -108,6 +114,7 @@ const PlanetPage = (props) => {
               </div>
             </div>
           )}
+          // Showing images of the planet based on which planet is selected.
           <div className="carousel">
             {props.planetImages.map((image) => (
               <PlanetImage key={image.id} image={image.image} />
