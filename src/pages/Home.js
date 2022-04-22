@@ -40,6 +40,8 @@ const Home = (props) => {
               surface={planet.image}
               size={planet.size}
               pilgrim={props.pilgrim}
+              setOpenModal={props.setOpenModal}
+              setErrorMessage={props.setErrorMessage}
             />
           ))}
 

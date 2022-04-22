@@ -5,20 +5,22 @@ import CreateCommunity from './CreateCommunity'
 import Modal from './Modal'
 
 const Community = (props) => {
-  let navigate = useNavigate()
 
-  const [creating, toggleCreating] = useState(false)
-  const [hover, setHover] = useState()
 
+  let navigate = useNavigate()   // Define useNavigate as a variable
+
+  
+  const [creating, toggleCreating] = useState(false) // Define useState that controls creating a community
+
+
+  // Axios call link to control deployed site
   let apiUrl =
   process.env.NODE_ENV === 'production'
     ? 'https://space-pilgrims.herokuapp.com'
     : 'http://localhost:3001'
 
-  const handleMouseOut = () => {
-    setHover(false)
-  }
 
+  // Axios call to get all communities by planet Id
   const getCommunities = async () => {
     const response = await axios.get(
       `${apiUrl}/api/community/${props.planetId}`
@@ -39,25 +41,30 @@ const Community = (props) => {
     props.setCommunities(sortedCommunities)
   }
 
+  //useEffect to handle the getCommunities axios call with the dependency variable to watch fo when the community is being created
+
   useEffect(() => {
     getCommunities()
   }, [creating])
+
+  // Function to navigate pilgrim to commmunity
   
   const goToCommunity = (communityId) => {
     if (props.pilgrim !== null) {
       navigate(`/communitypage/${communityId}`)
-    } else {
-      // window.alert('Sign in')
+    } else { 
+      // Error handling to ensure only logged in pilgrims can navigate to community. Modal appears with the setErrorMessage 
       props.setOpenModal(true)
       props.setErrorMessage('You are not Logged in. please return to the homepage and create an account!')
     }
   }
 
+  // Function to handle community form if a pilgrim clicks the Create Community Button
+  
   const openCommnityForm = () => {
     if (props.pilgrim !== null) {
       toggleCreating(true)
     } else {
-      // window.alert('Sign in')
       props.setOpenModal(true)
     }
   }
@@ -73,6 +80,9 @@ const Community = (props) => {
           </div>
         ))}
       </div>
+      
+      {/* Toggle the CreateCommunity form if the button is selected */}
+
       {creating ? (<CreateCommunity setOpenModal={props.setOpenModal} toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
         <button className='community-btn' onClick={openCommnityForm}>Create Community</button>)}
     </div>

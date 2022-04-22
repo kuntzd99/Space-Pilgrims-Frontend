@@ -135,6 +135,10 @@ const App = () => {
                 nasaCall={nasaCall}
                 solarFlare={solarFlare}
                 pilgrim={pilgrim}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
               />
             }
           />
