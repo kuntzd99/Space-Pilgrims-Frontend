@@ -105,9 +105,7 @@ const CommunityDetails = (props) => {
         }
       )
       if (!updatedPilgrim) {
-        return window.alert(
-          'You cannot be joined to multiple communities, JOIN'
-        )
+        return window.alert('You cannot be joined to multiple communities')
       }
       props.setPilgrim({ ...props.pilgrim, communityId: communityId })
       let population = props.planet.population
@@ -126,6 +124,7 @@ const CommunityDetails = (props) => {
       toggleClicked(!clicked)
     } else {
       props.setOpenModal(true)
+      props.setErrorMessage('You cannot be joined to multiple communities!')
       // window.alert('You cannot be joined to multiple communities')
     }
   }
@@ -245,12 +244,6 @@ const CommunityDetails = (props) => {
         background: `linear-gradient(to right, ${props.community.primaryColor}, ${props.community.secondaryColor})`
       }}
     >
-      {props.openModal && (
-        <Modal
-          setOpenModal={props.setOpenModal}
-          text="You can only be in one community!"
-        />
-      )}
       <div className="first-col">
         {!props.pilgrim ? (
           <div>Loading</div>

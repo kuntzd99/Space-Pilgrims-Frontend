@@ -64,8 +64,8 @@ const Profile = (props) => {
   const handleImageSubmit = async (e) => {
     e.preventDefault()
     if (image.slice(0, 4) !== 'http') {
-      props.setOpenModal(true)
-      // return window.alert('Please choose a different image')
+      // props.setOpenModal(true)
+      return window.alert('Please choose a different image')
     }
     await axios.put(`${apiUrl}/api/pilgrim/${props.pilgrim.id}`, {image: image})
     props.setPilgrim({...props.pilgrim, image: image})
@@ -115,13 +115,7 @@ const Profile = (props) => {
           props.pilgrim.bio ? (<div><h3>Bio:</h3><p>{props.pilgrim.bio}</p><button onClick={() => toggleChangingBio(true)}>Change Bio</button></div>) :
           (<button className="btn" onClick={() => toggleChangingBio(true)}>Set Bio</button>)
           }
-          {props.openModal && (
-          <Modal
-            setOpenModal={props.setOpenModal}
-            text="You have no messages!"
-          />
-        )}
-          <Mailbox openModal={props.openModal} setOpenModal={props.setOpenModal} pilgrim={props.pilgrim} messages={props.messages} setMessages={props.setMessages} />
+          <Mailbox setErrorMessage={props.setErrorMessage} openModal={props.openModal} setOpenModal={props.setOpenModal} pilgrim={props.pilgrim} messages={props.messages} setMessages={props.setMessages} />
           {changingPassword ? (<div><UpdatePassword pilgrim={props.pilgrim} toggleChangingPassword={toggleChangingPassword} /><button className="btn" onClick={() => toggleChangingPassword(false)}>Cancel</button></div>) : (<button onClick={() => toggleChangingPassword(true)}>Change password</button>)}
         </div>
       </div>

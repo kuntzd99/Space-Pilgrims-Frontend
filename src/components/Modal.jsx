@@ -1,8 +1,6 @@
 
 const Modal = ({openModal, setOpenModal, heading, text, text2}) => {
 
-
-
   return (
     <div>
       <div className="modal-background">

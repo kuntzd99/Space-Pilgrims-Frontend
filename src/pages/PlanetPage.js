@@ -121,6 +121,7 @@ const PlanetPage = (props) => {
             pilgrim={props.pilgrim}
             openModal={props.openModal}
             setOpenModal={props.setOpenModal}
+            setErrorMessage={props.setErrorMessage}
           />
         </div>
       )}
