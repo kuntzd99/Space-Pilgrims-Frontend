@@ -2,7 +2,6 @@ import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CreateComment from '../components/CreateComment'
-import { useNavigate } from 'react-router-dom'
 import Modal from '../components/Modal'
 
 const CommunityDetails = (props) => {
@@ -29,8 +28,6 @@ const CommunityDetails = (props) => {
     process.env.NODE_ENV === 'production'
       ? 'https://space-pilgrims.herokuapp.com'
       : 'http://localhost:3001'
-
-  let navigate = useNavigate()
 
   const getCommunity = async () => {
     const response = await axios.get(
