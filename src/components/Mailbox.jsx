@@ -36,16 +36,16 @@ const Mailbox = (props) => {
     <div className='mailbox'>
       {/* uses button instead of use effect because that's what worked */}
       {senders.length === 0 ? (<button onClick={() => getMessagesAndSenders()}>Get messages</button>): (
-        <div>
+        <div className='mailbox-msg'>
           {props.messages.map((message, index) => (
-            <div key={message.id}>
-              <Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
-                {senders[senders.length - 1 - index].username}
-              </Link>: {message.message}
-              <div>
+            <div className='msg-display' key={message.id}>
+              <div className='msg-comment'><Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
+                {senders[senders.length - 1 - index].username}:
+              </Link></div>{message.message}
               <button 
               style={{width: '7vw', margin: '1vh 0 1vh 0', height: '3vh'}} 
-              onClick={() => deleteMessage(message.id)}>Delete</button>
+              onClick={() => deleteMessage(message.id)} className='msg-display-btn'>Delete</button>
+              <div>
               </div>
             </div>
             ))}

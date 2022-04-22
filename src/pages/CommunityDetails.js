@@ -240,8 +240,10 @@ const CommunityDetails = (props) => {
       <div className="first-col">
         {!props.pilgrim ? (
           <div>Loading</div>
-        ) : parseInt(props.community.creatorId) ===
-            parseInt(props.pilgrim.id) || props.pilgrim.admin === true ? (
+        ) : // if creator or admin
+        parseInt(props.community.creatorId) === parseInt(props.pilgrim.id) ||
+          props.pilgrim.admin === true ? (
+          //if editing
           editingName ? (
             <div>
               <input type="text" onChange={handleNameChange} required />
@@ -266,6 +268,7 @@ const CommunityDetails = (props) => {
             </div>
           )
         ) : (
+          // not creator
           <h1>{props.community.name}</h1>
         )}
         {!props.pilgrim ? (
@@ -358,6 +361,7 @@ const CommunityDetails = (props) => {
             )}
           </div>
         ))}
+        {/* preventing negative population */}
         {props.community.population < 0 ? (
           <h3 className="population">Population: 0</h3>
         ) : (

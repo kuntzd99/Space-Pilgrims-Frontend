@@ -6,13 +6,15 @@
 
 [Trello](https://trello.com/b/M5meLcNJ/space-pilgrims)
 
+[Backend Repo](https://github.com/kuntzd99/Space-Pilgrims-Backend)
+
 ---
 
 ### **_Socials_**
 
 Daniel Kuntz: [Github](https://github.com/kuntzd99) | [LinkedIn](https://www.linkedin.com/in/daniel-kuntz-09a036207/)
 
-Chinwendu Ukoha: [LinkedIn](https://www.linkedin.com/in/chinwenduukoha)
+Chinwendu Ukoha: [Github](https://github.com/cchinw)|[LinkedIn](https://www.linkedin.com/in/chinwenduukoha)
 
 Mark Kennedy:[Github](https://github.com/kennedymark680) | [LinkedIn](https://www.linkedin.com/in/kennedymark680/)
 
