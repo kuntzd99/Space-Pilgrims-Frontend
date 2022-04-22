@@ -92,7 +92,6 @@ const CommunityDetails = (props) => {
   useEffect(() => {
     if (!loaded && reloads <= 20) {
       getPilgrim()
-      console.log(props.pilgrim, 'PILGRIM PROPS')
     }
   }, [reload])
 
@@ -104,7 +103,7 @@ const CommunityDetails = (props) => {
           communityId: communityId
         }
       )
-      if (!updatedPilgrim) {
+      if (updatedPilgrim.data === null) {
         return window.alert('You cannot be joined to multiple communities')
       }
       props.setPilgrim({ ...props.pilgrim, communityId: communityId })
@@ -125,7 +124,6 @@ const CommunityDetails = (props) => {
     } else {
       props.setOpenModal(true)
       props.setErrorMessage('You cannot be joined to multiple communities!')
-      // window.alert('You cannot be joined to multiple communities')
     }
   }
 
@@ -136,7 +134,7 @@ const CommunityDetails = (props) => {
         communityId: null
       }
     )
-    if (!updatedPilgrim) {
+    if (updatedPilgrim.data === null) {
       return window.alert('You are not in this community')
     }
     props.setPilgrim({ ...props.pilgrim, communityId: null })
@@ -183,8 +181,7 @@ const CommunityDetails = (props) => {
   const handleImageSubmit = async (e) => {
     e.preventDefault()
     if (newImage.slice(0, 4) !== 'http') {
-      return props.setOpenModal(true)
-      // return window.alert('Please choose a different image')
+      return window.alert('Please choose a different image')
     }
     props.setCommunity({ ...props.community, image: newImage })
     await axios.put(`${apiUrl}/api/community/${communityId}`, {
