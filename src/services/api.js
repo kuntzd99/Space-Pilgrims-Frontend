@@ -1,10 +1,7 @@
 import Axios from 'axios'
 
 //Universal API call for the entire Auth on the app
-let apiUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com/api'
-    : 'http://localhost:3001/api'
+let apiUrl = 'https://space-pilgrims.herokuapp.com/api'
 
 const Client = Axios.create({ baseURL: apiUrl })
 

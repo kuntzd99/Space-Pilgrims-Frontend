@@ -43,10 +43,7 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('') //Error message that appear son Modal
   const [header, setHeader] = useState('')
   // Universal API call for entire app
-  let apiUrl =
-    process.env.NODE_ENV === 'production'
-      ? 'https://space-pilgrims.herokuapp.com'
-      : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const handleLogout = () => {
     setPilgrim(null) //Once logged out, the user no longer has pilgrim priviledges

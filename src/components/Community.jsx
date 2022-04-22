@@ -13,10 +13,7 @@ const Community = (props) => {
 
 
   // Axios call link to control deployed site
-  let apiUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://space-pilgrims.herokuapp.com'
-    : 'http://localhost:3001'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
 
   // Axios call to get all communities by planet Id
