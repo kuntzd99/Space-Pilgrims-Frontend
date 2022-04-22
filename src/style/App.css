@@ -229,8 +229,6 @@ input[type='checkbox'] {
   user-select: none;
 }
 
-
-
 .btn{
   width: 50%;
   height: 25px;
@@ -241,7 +239,7 @@ input[type='checkbox'] {
 .planet-page {
   background-color: #1D2A3A;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .carousel {
@@ -287,9 +285,12 @@ input[type='checkbox'] {
 .planet-info-data-title {
   margin-top: 1vh;
 }
+.planet-avg {
+  margin-top: 20px;
+}
 
 .planet-info-data {
-  font-size: 30px;
+  font-size: 25px;
   margin-top: 3vh;
 }
 
