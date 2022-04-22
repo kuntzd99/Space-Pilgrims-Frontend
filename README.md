@@ -14,19 +14,29 @@ Daniel Kuntz: [Github](https://github.com/kuntzd99) | [LinkedIn](https://www.lin
 
 Chinwendu Ukoha: [LinkedIn](https://www.linkedin.com/in/chinwenduukoha)
 
-Mark Kennedy: [LinkedIn](https://www.linkedin.com/in/kennedymark680/)
+Mark Kennedy:[Github](https://github.com/kennedymark680) | [LinkedIn](https://www.linkedin.com/in/kennedymark680/)
 
 ---
 
 ### **_Description_**
 
-This website allows travelers to create communities on other planets within our solar system and populate those planets.
+![HomePage](https://i.ibb.co/PQtPrPT/Screen-Shot-2022-04-21-at-9-08-09-PM.png)
+
+Welcome to the twenty-first-century pilgrimage! We are the generation to populate the solar system. Here you will be able to explore your future home, find a place to settle, and create virtual communities.
 
 ---
 
 ### **_Technologies Used_**
 
-This website is created using Postgresql, Express, React, and Node. CSS is used to style.
+This website is created using:
+
+1. Postgresql
+2. Express
+3. React
+4. Node.
+5. Flexbox / Grid
+6. KeyFrames
+7. Third Party API's
 
 ---
 
@@ -43,8 +53,6 @@ Go to the website, register an account, log in, and click on a planet. From ther
 ---
 
 ### **_Photos_**
-
-![HomePage](https://i.ibb.co/PQtPrPT/Screen-Shot-2022-04-21-at-9-08-09-PM.png)
 
 ![CommunityPage](https://i.ibb.co/VpsLnSd/Screen-Shot-2022-04-21-at-9-12-57-PM.png)
 
@@ -65,3 +73,7 @@ Go to the website, register an account, log in, and click on a planet. From ther
 [Default Pilgrim Image](https://www.clipartmax.com/png/middle/49-492189_thanksgiving-pilgrim-cartoon.png)
 
 [Default Community Image](https://banner.holidaypng.com/20191015/ugw/thanksgiving-cartoon-pumpkin-for-thanksgiving-5da595af2a2601.98162897.png)
+
+[Solar System API ](https://api.le-systeme-solaire.net/en/)
+
+[Solar Flare API](https://api.nasa.gov/DONKI/FLR?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=DEMO_KEY)
