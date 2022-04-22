@@ -1,5 +1,5 @@
 
-const Modal = ({openModal, setOpenModal, heading, text, text2}) => {
+const Modal = ({setOpenModal, text, text2}) => {
 
   return (
     <div>

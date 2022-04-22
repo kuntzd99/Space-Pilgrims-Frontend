@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import Community from '../components/Community'
 import PlanetImage from '../components/PlanetImage'
 import Modal from '../components/Modal'

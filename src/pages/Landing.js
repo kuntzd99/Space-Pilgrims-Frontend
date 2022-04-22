@@ -1,10 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import SolarSystem from '../assets/SolarSystemImage.webp'
-import Login from './Login'
 
-const Landing = ({ setPilgrim, toggleAuthenticated }) => {
-  let navigate = useNavigate()
-
+const Landing = () => {
   return (
     <div className="landing">
       <div className="halfstars1"></div>

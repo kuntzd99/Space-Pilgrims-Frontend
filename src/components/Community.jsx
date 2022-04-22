@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import CreateCommunity from './CreateCommunity'
-import Modal from './Modal'
 
 const Community = (props) => {
 
@@ -66,6 +65,7 @@ const Community = (props) => {
       toggleCreating(true)
     } else {
       props.setOpenModal(true)
+      props.setErrorMessage('Please sign in')
     }
   }
 
