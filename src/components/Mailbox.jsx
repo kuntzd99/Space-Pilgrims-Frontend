@@ -39,12 +39,12 @@ const Mailbox = (props) => {
         <div className='mailbox-msg'>
           {props.messages.map((message, index) => (
             <div className='msg-display' key={message.id}>
-              <div className='comment-userName'><Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
-                {senders[senders.length - 1 - index].username}
-              </Link></div> {message.message}
+              <div className='msg-comment'><Link to={`/profile/${senders[senders.length - 1 - index].id}`}>
+                {senders[senders.length - 1 - index].username}:
+              </Link></div>{message.message}
               <button 
               style={{width: '7vw', margin: '1vh 0 1vh 0', height: '3vh'}} 
-              onClick={() => deleteMessage(message.id)} className='msg-display-btn'>X</button>
+              onClick={() => deleteMessage(message.id)} className='msg-display-btn'>Delete</button>
               <div>
               </div>
             </div>
