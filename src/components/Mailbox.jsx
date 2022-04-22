@@ -21,6 +21,7 @@ const Mailbox = (props) => {
     senderPilgrims = senderPilgrims.reverse()
     if (senderPilgrims.length === 0) {
       props.setOpenModal(true)
+      props.setHeader('Gee! You really need to make some friends!')
       props.setErrorMessage('You have no messages')
     }
     setSenders(senderPilgrims)

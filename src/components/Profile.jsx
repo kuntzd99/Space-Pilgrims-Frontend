@@ -125,7 +125,7 @@ const Profile = (props) => {
           props.pilgrim.bio ? (<div><h3>Bio:</h3><p>{props.pilgrim.bio}</p><button onClick={() => toggleChangingBio(true)}>Change Bio</button></div>) :
           (<button className="btn" onClick={() => toggleChangingBio(true)}>Set Bio</button>)
           }
-          <Mailbox setErrorMessage={props.setErrorMessage} openModal={props.openModal} setOpenModal={props.setOpenModal} pilgrim={props.pilgrim} messages={props.messages} setMessages={props.setMessages} />
+          <Mailbox setHeader={props.setHeader} setErrorMessage={props.setErrorMessage} openModal={props.openModal} setOpenModal={props.setOpenModal} pilgrim={props.pilgrim} messages={props.messages} setMessages={props.setMessages} />
           {changingPassword ? (<div><UpdatePassword pilgrim={props.pilgrim} toggleChangingPassword={toggleChangingPassword} /><button className="btn" onClick={() => toggleChangingPassword(false)}>Cancel</button></div>) : (<button onClick={() => toggleChangingPassword(true)}>Change password</button>)}
         </div>
       </div>

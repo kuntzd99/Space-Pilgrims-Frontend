@@ -18,6 +18,7 @@ const Register = () => {
   const [usernames, setUsernames] = useState([])
   const [emails, setEmails] = useState([])
 
+  // Universal Axios call
   let apiUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://space-pilgrims.herokuapp.com'
@@ -27,6 +28,8 @@ const Register = () => {
     const response = await axios.get(`${apiUrl}/api/pilgrim`)
     let loadUsernames = []
     let loadEmails = []
+
+    // Getting all usernames and emails that currently exists and checks if the username and email they input is unique. If not, it throws an error.
     for (let i = 0; i < response.data.length; i++) {
       loadUsernames.push(response.data[i].username)
       loadEmails.push(response.data[i].email)

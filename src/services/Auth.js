@@ -1,5 +1,6 @@
 import Client from './api'
 
+// Axios call to check token, verify and sign in user
 export const SignInPilgrim = async (data) => {
   try {
     const res = await Client.post('/auth/login', data)
@@ -10,6 +11,7 @@ export const SignInPilgrim = async (data) => {
   }
 }
 
+// Axios call to create a new user
 export const RegisterPilgrim = async (data) => {
   try {
     const res = await Client.post('/auth/register', data)
@@ -19,12 +21,14 @@ export const RegisterPilgrim = async (data) => {
   }
 }
 
+// Data needed as input in password update
 export const PasswordUpdate = async ({
   pilgrimId,
   oldPassword,
   newPassword,
   confirmNewPassword
 }) => {
+  // Axios call to make update password
   try {
     const res = await Client.put(`auth/update/${pilgrimId}`, {
       oldPassword,
@@ -38,6 +42,7 @@ export const PasswordUpdate = async ({
   }
 }
 
+// Axios call to verify if user is still signed in and authorized to make certain requests.
 export const CheckSession = async () => {
   try {
     const res = await Client.get('/auth/session')

@@ -1,5 +1,6 @@
 import Axios from 'axios'
 
+//Universal API call for the entire Auth on the app
 let apiUrl =
   process.env.NODE_ENV === 'production'
     ? 'https://space-pilgrims.herokuapp.com/api'
