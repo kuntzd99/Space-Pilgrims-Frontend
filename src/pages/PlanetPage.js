@@ -109,7 +109,7 @@ const PlanetPage = (props) => {
               <div className="planet-info-child">
                 <div className="planet-info-data-title">Radius: </div>
                 <div className="planet-info-data">
-                  {planetInfo.equaRadius} m
+                  {(planetInfo.equaRadius / 1.609).toFixed(1)} mi
                 </div>
               </div>
             </div>
