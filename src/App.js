@@ -146,7 +146,6 @@ const App = () => {
                 getAverageRating={getAverageRating}
                 averageRating={averageRating}
                 pilgrim={pilgrim}
-                // authenticated={authenticated}
               />
             }
           />
