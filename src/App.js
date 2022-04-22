@@ -41,7 +41,7 @@ const App = () => {
   const [averageRating, setAverageRating] = useState([])
   const [openModal, setOpenModal] = useState(false) // Set modal open or close
   const [errorMessage, setErrorMessage] = useState('') //Error message that appear son Modal
-
+  const [header, setHeader] = useState('')
   // Universal API call for entire app
   let apiUrl =
     process.env.NODE_ENV === 'production'
@@ -105,7 +105,13 @@ const App = () => {
     <div className="App">
       {/* Call the modall on the app and set the message the modal returns */}
 
-      {openModal && <Modal setOpenModal={setOpenModal} text={errorMessage} />}
+      {openModal && (
+        <Modal
+          setOpenModal={setOpenModal}
+          text={errorMessage}
+          header={header}
+        />
+      )}
 
       {/* Passing props into the various pages and components */}
 
@@ -149,6 +155,7 @@ const App = () => {
                 openModal={openModal}
                 setOpenModal={setOpenModal}
                 errorMessage={errorMessage}
+                setHeader={setHeader}
                 setErrorMessage={setErrorMessage}
               />
             }
@@ -169,6 +176,7 @@ const App = () => {
                 pilgrim={pilgrim}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
+                setHeader={setHeader}
                 setErrorMessage={setErrorMessage}
               />
             }
@@ -189,6 +197,7 @@ const App = () => {
                 setComments={setComments}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
+                setHeader={setHeader}
                 setErrorMessage={setErrorMessage}
               />
             }
@@ -220,6 +229,7 @@ const App = () => {
                 setMessages={setMessages}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
+                setHeader={setHeader}
                 setErrorMessage={setErrorMessage}
               />
             }

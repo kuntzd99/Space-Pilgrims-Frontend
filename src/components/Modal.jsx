@@ -1,5 +1,5 @@
 
-const Modal = ({setOpenModal, text, text2}) => {
+const Modal = ({setOpenModal, text, header}) => {
 
   return (
     <div>
@@ -7,11 +7,11 @@ const Modal = ({setOpenModal, text, text2}) => {
           <div className="modalContainer">
 
             <div className="modal-header">
-              <h1>Uh-oh!</h1>
+              <h1>{header}</h1>
             </div>
 
             <div className="modal-body">
-              <p className="modalText">{text}<span className="modalImage">{text2}<img src="https://media3.giphy.com/media/wPyDWwurn8XEWdR9ol/giphy.gif" alt="astronaut-in-space"/></span></p>
+              <p className="modalText">{text}<span className="modalImage"><img src="https://media3.giphy.com/media/wPyDWwurn8XEWdR9ol/giphy.gif" alt="astronaut-in-space"/></span></p>
             </div>
 
             <div className="modal-footer">
