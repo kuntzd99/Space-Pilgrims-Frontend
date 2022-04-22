@@ -39,26 +39,28 @@ const App = () => {
   const [solarFlare, setSolarFlare] = useState([])
   const [messages, setMessages] = useState([])
   const [averageRating, setAverageRating] = useState([])
-  const [openModal, setOpenModal] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [openModal, setOpenModal] = useState(false) // Set modal open or close
+  const [errorMessage, setErrorMessage] = useState('') //Error message that appear son Modal
 
+  // Universal API call for entire app
   let apiUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://space-pilgrims.herokuapp.com'
       : 'http://localhost:3001'
 
   const handleLogout = () => {
-    setPilgrim(null)
-    toggleAuthenticated(false)
+    setPilgrim(null) //Once logged out, the user no longer has pilgrim priviledges
+    toggleAuthenticated(false) // Once logged out, the user is no longer authenticated
     localStorage.clear()
   }
 
+  // Check each time if the user is a pilgrim and authenticated to make certain commands
   const checkToken = async () => {
     const pilgrim = await CheckSession()
     setPilgrim(pilgrim)
     toggleAuthenticated(true)
   }
-
+  //Nasa API call to get Solar Flare info
   const nasaCall = async () => {
     const response = await axios.get(
       `https://api.nasa.gov/DONKI/FLR?startDate=2022-04-18&endDate=2022-12-31&api_key=p2f2NgOuddrU9P5FS38RB0ueSiciWJfAcF7PIlc8`
@@ -66,6 +68,7 @@ const App = () => {
     setSolarFlare(response.data)
   }
 
+  // Post request API to rate a planet and set the average of the ratings
   const postRating = async (rating, planetId) => {
     const response = await axios.post(
       `${apiUrl}/api/rating/${planetId}`,
@@ -74,6 +77,7 @@ const App = () => {
     getAverageRating(planetId)
   }
 
+  //Get the average of the ratings on each planet
   const getAverageRating = async (planetId) => {
     const response = await axios.get(`${apiUrl}/api/rating/${planetId}`)
     let sum = 0
@@ -83,11 +87,13 @@ const App = () => {
     setAverageRating(sum / response.data.length)
   }
 
+  //Axios call to get all planet images from the backend
   const getPlanetImages = async (planetId) => {
     const response = await axios.get(`${apiUrl}/api/planetImage/${planetId}`)
     setPlanetImages(response.data)
   }
 
+  // Verify token
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -97,12 +103,19 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* Call the modall on the app and set the message the modal returns */}
+
       {openModal && <Modal setOpenModal={setOpenModal} text={errorMessage} />}
+
+      {/* Passing props into the various pages and components */}
+
+      {/* Pass Props into the Nav Bar */}
       <Nav
         authenticated={authenticated}
         pilgrim={pilgrim}
         handleLogout={handleLogout}
       />
+      {/* Main Pages Routes, with the states being passed into them */}
       <main>
         <Routes>
           <Route
