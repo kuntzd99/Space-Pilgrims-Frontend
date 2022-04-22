@@ -7,6 +7,8 @@ const Landing = ({ setPilgrim, toggleAuthenticated }) => {
 
   return (
     <div className="landing">
+      <div className="halfstars1"></div>
+      <div className="halfstars2"></div>
       <div className="landing-text">
         <h1>Welcome Space Pilgrims!</h1>
         <h3>
@@ -17,7 +19,7 @@ const Landing = ({ setPilgrim, toggleAuthenticated }) => {
       </div>
       <div className="rocket-sun">
         <img
-          src="https://i.ibb.co/x5JbPsC/sun.jpg"
+          src="https://i.ibb.co/BCpzrTv/Untitled-design-26.png"
           alt="sun"
           style={{
             zIndex: `12`,
@@ -30,25 +32,12 @@ const Landing = ({ setPilgrim, toggleAuthenticated }) => {
         <div className="rocket-orbit">
           <img
             className="pilgrim-rocket"
-            src="https://i.ibb.co/0yZwSVz/Pilgrim-Rocket.jpg"
+            src="https://i.ibb.co/myCMgXC/Pilgrim-Rocket.png"
             alt="Pilgrim Rocket"
           />
         </div>
-        <div className="halfstars1"></div>
-        <div className="halfstars2"></div>
       </div>
-      <div className="register-logoIn">
-        {/* <Login
-          setPilgrim={setPilgrim}
-          toggleAuthenticated={toggleAuthenticated}
-        /> */}
-        {/* <button
-          className="register-button"
-          onClick={() => navigate('/register')}
-        >
-          Register
-        </button> */}
-      </div>
+      <div className="register-logoIn"></div>
     </div>
   )
 }

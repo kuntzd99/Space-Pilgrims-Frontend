@@ -64,7 +64,7 @@ body{
 
 .landing {
   background-color: rgb(29, 42, 58);
-  min-height: 100vh;
+  min-height: 92vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@ body{
 
 .landing h3 {
   margin: 3vh;
-  max-width: 60vh;
+  max-width: 60vw;
 }
 
 
@@ -107,8 +107,9 @@ body{
 }
 
 .solarFlare-container {
-  height: 40vh;
+  height: auto;
   width: 100vw;
+  padding: 0 0 5vh 0;
   color: white;
   background-color: rgb(29, 42, 58);
   top: 90;
