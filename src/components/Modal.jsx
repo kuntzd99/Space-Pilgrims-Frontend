@@ -7,7 +7,7 @@ const Modal = ({setOpenModal, text, header}) => {
           <div className="modalContainer">
 
             <div className="modal-header">
-              <h1>{header}</h1>
+              <h1>Oops!</h1>
             </div>
 
             <div className="modal-body">
