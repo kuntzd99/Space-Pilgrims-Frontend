@@ -36,6 +36,22 @@ Go to the website, register an account, log in, and click on a planet. From ther
 
 ---
 
+### **_Entity Relationship Diagram_**
+
+![ERD](https://i.ibb.co/pQPVS8v/Screen-Shot-2022-04-21-at-9-05-43-PM.png)
+
+---
+
+### **_Photos_**
+
+![HomePage](https://i.ibb.co/PQtPrPT/Screen-Shot-2022-04-21-at-9-08-09-PM.png)
+
+![CommunityPage](https://i.ibb.co/VpsLnSd/Screen-Shot-2022-04-21-at-9-12-57-PM.png)
+
+![PlanetPage](https://i.ibb.co/Wyr06QD/Screen-Shot-2022-04-21-at-9-20-13-PM.png)
+
+---
+
 ### **_Credits_**
 
 [Default Pilgrim Image](https://www.clipartmax.com/png/middle/49-492189_thanksgiving-pilgrim-cartoon.png)

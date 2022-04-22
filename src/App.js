@@ -155,7 +155,6 @@ const App = () => {
                 openModal={openModal}
                 setOpenModal={setOpenModal}
                 setErrorMessage={setErrorMessage}
-                // authenticated={authenticated}
               />
             }
           />
