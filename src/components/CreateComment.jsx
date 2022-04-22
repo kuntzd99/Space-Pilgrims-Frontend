@@ -4,8 +4,7 @@ import axios from 'axios'
 const CreateComment = (props) => {
   const [formValues, setFormValues] = useState({comment: ''})
 
-  let apiUrl =
-  process.env.NODE_ENV === 'https://space-pilgrims.herokuapp.com'
+  let apiUrl = 'https://space-pilgrims.herokuapp.com'
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
