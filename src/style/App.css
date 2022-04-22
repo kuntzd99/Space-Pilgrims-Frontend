@@ -64,7 +64,7 @@ body{
 
 .landing {
   background-color: rgb(29, 42, 58);
-  min-height: 100vh;
+  min-height: 92vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -72,9 +72,16 @@ body{
   align-items: center;
 }
 
+.landing body {
+overflow-x: hidden;
+background-color: #1D2A3A;
+min-height: 50vh;
+/* overflow-y: hidden; */
+}
+
 .landing h3 {
   margin: 3vh;
-  max-width: 60vh;
+  max-width: 60vw;
 }
 
 
@@ -107,8 +114,9 @@ body{
 }
 
 .solarFlare-container {
-  height: 40vh;
+  height: auto;
   width: 100vw;
+  padding: 0 0 5vh 0;
   color: white;
   background-color: rgb(29, 42, 58);
   top: 90;
@@ -222,8 +230,6 @@ input[type='checkbox'] {
   user-select: none;
 }
 
-
-
 .btn{
   width: 50%;
   height: 25px;
@@ -234,7 +240,7 @@ input[type='checkbox'] {
 .planet-page {
   background-color: #1D2A3A;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .carousel {
@@ -280,9 +286,12 @@ input[type='checkbox'] {
 .planet-info-data-title {
   margin-top: 1vh;
 }
+.planet-avg {
+  margin-top: 20px;
+}
 
 .planet-info-data {
-  font-size: 30px;
+  font-size: 25px;
   margin-top: 3vh;
 }
 
@@ -491,7 +500,7 @@ input[type='checkbox'] {
 
 .halfstars1,
 .halfstars2 {
-  min-height: 90vh;
+  min-height: 80vh;
   width: 90vw;
   position: absolute;
   background-size: contain;

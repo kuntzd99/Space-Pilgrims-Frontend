@@ -45,7 +45,7 @@ const Home = (props) => {
 
           <img
             className="sun"
-            src="https://i.ibb.co/x5JbPsC/sun.jpg"
+            src="https://i.ibb.co/BCpzrTv/Untitled-design-26.png"
             alt="sun"
             onClick={() => props.nasaCall()}
             style={{

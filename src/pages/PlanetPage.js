@@ -58,8 +58,7 @@ const PlanetPage = (props) => {
             src={props.planet.highRes}
             alt={props.planet.name}
           />
-          <p className="planet-description">Text: {props.planet.description}</p>
-          <div>
+          <div className="planet-avg">
             Planet's Rating:{' '}
             {props.averageRating
               ? parseFloat(props.averageRating).toFixed(1)
@@ -73,9 +72,6 @@ const PlanetPage = (props) => {
             <a onClick={hasRated ? () => handleRating(3) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(4) : null}>🪐</a>
             <a onClick={hasRated ? () => handleRating(5) : null}>🪐</a>
-            {/* <button onClick={() => props.getAverageRating(planetId)}>
-            Get Rating
-          </button> */}
           </div>
           {props.planet.population < 0 ? (
             <h3 className="planet-population">Population: 0</h3>
@@ -123,6 +119,9 @@ const PlanetPage = (props) => {
             setCommunities={props.setCommunities}
             planetId={planetId}
             pilgrim={props.pilgrim}
+            openModal={props.openModal}
+            setOpenModal={props.setOpenModal}
+            setErrorMessage={props.setErrorMessage}
           />
         </div>
       )}

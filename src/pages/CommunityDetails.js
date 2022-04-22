@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CreateComment from '../components/CreateComment'
 import { useNavigate } from 'react-router-dom'
+import Modal from '../components/Modal'
 
 const CommunityDetails = (props) => {
   const { communityId } = useParams()
@@ -91,6 +92,7 @@ const CommunityDetails = (props) => {
   useEffect(() => {
     if (!loaded && reloads <= 20) {
       getPilgrim()
+      console.log(props.pilgrim, 'PILGRIM PROPS')
     }
   }, [reload])
 
@@ -103,9 +105,7 @@ const CommunityDetails = (props) => {
         }
       )
       if (!updatedPilgrim) {
-        return window.alert(
-          'You cannot be joined to multiple communities, JOIN'
-        )
+        return window.alert('You cannot be joined to multiple communities')
       }
       props.setPilgrim({ ...props.pilgrim, communityId: communityId })
       let population = props.planet.population
@@ -123,7 +123,9 @@ const CommunityDetails = (props) => {
       })
       toggleClicked(!clicked)
     } else {
-      window.alert('You cannot be joined to multiple communities')
+      props.setOpenModal(true)
+      props.setErrorMessage('You cannot be joined to multiple communities!')
+      // window.alert('You cannot be joined to multiple communities')
     }
   }
 
@@ -181,7 +183,8 @@ const CommunityDetails = (props) => {
   const handleImageSubmit = async (e) => {
     e.preventDefault()
     if (newImage.slice(0, 4) !== 'http') {
-      return window.alert('Please choose a different image')
+      return props.setOpenModal(true)
+      // return window.alert('Please choose a different image')
     }
     props.setCommunity({ ...props.community, image: newImage })
     await axios.put(`${apiUrl}/api/community/${communityId}`, {
@@ -321,8 +324,7 @@ const CommunityDetails = (props) => {
         )}
         {props.pilgrim === null ? (
           <div>Login to join</div>
-        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ||
-          props.pilgrim.admin === true ? (
+        ) : parseInt(props.pilgrim.communityId) === parseInt(communityId) ? (
           <button onClick={() => leaveCommunity()}>Leave Community</button>
         ) : (
           <button onClick={() => joinCommunity()}>Join Community</button>

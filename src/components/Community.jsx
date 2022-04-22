@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import CreateCommunity from './CreateCommunity'
+import Modal from './Modal'
 
 const Community = (props) => {
   let navigate = useNavigate()
@@ -13,10 +14,6 @@ const Community = (props) => {
   process.env.NODE_ENV === 'production'
     ? 'https://space-pilgrims.herokuapp.com'
     : 'http://localhost:3001'
-
-  const handleMouseIn = () => {
-    setHover(props.getLiquidButton)
-  }
 
   const handleMouseOut = () => {
     setHover(false)
@@ -50,7 +47,9 @@ const Community = (props) => {
     if (props.pilgrim !== null) {
       navigate(`/communitypage/${communityId}`)
     } else {
-      window.alert('Sign in')
+      // window.alert('Sign in')
+      props.setOpenModal(true)
+      props.setErrorMessage('You are not Logged in. please return to the homepage and create an account!')
     }
   }
 
@@ -58,7 +57,8 @@ const Community = (props) => {
     if (props.pilgrim !== null) {
       toggleCreating(true)
     } else {
-      window.alert('Sign in')
+      // window.alert('Sign in')
+      props.setOpenModal(true)
     }
   }
 
@@ -73,8 +73,8 @@ const Community = (props) => {
           </div>
         ))}
       </div>
-      {creating ? (<CreateCommunity toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
-        <button className='community-btn' onMouseOver={props.getLiquidButton} onClick={openCommnityForm}>Create Community</button>)}
+      {creating ? (<CreateCommunity setOpenModal={props.setOpenModal} toggleCreating={toggleCreating} planetId={props.planetId} pilgrim={props.pilgrim} />) :(
+        <button className='community-btn' onClick={openCommnityForm}>Create Community</button>)}
     </div>
   )
 }
