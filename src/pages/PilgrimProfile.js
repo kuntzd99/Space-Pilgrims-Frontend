@@ -37,7 +37,7 @@ const PilgrimProfile = (props) => {
     <div className="profile">
       <h1>{props.nonUserPilgrim.username}</h1>
       {props.nonUserPilgrim.communityId === null ? (
-        <div></div>
+        <div>No Community</div>
       ) : (
         <h3>
           Community:{' '}

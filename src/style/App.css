@@ -72,6 +72,13 @@ body{
   align-items: center;
 }
 
+.landing body {
+overflow-x: hidden;
+background-color: #1D2A3A;
+min-height: 50vh;
+/* overflow-y: hidden; */
+}
+
 .landing h3 {
   margin: 3vh;
   max-width: 60vw;
@@ -152,7 +159,7 @@ li {
   list-style: none;
 }
 
-.navbar {
+.navbar, .container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -222,8 +229,6 @@ input[type='checkbox'] {
   user-select: none;
 }
 
-
-
 .btn{
   width: 50%;
   height: 25px;
@@ -280,9 +285,12 @@ input[type='checkbox'] {
 .planet-info-data-title {
   margin-top: 1vh;
 }
+.planet-avg {
+  margin-top: 20px;
+}
 
 .planet-info-data {
-  font-size: 30px;
+  font-size: 25px;
   margin-top: 3vh;
 }
 
@@ -499,12 +507,12 @@ input[type='checkbox'] {
 
 .halfstars1 {
   background-image: url(../assets/halfstars1.svg);
-  animation: pulse1 4s linear 2s infinite alternate;
+  animation: pulse1 2.5s linear 2s infinite alternate;
 }
 
 .halfstars2 {
   background-image: url(../assets/halfstars2.svg);
-  animation: pulse1 5.5s linear 2s infinite alternate;
+  animation: pulse1 4s linear 2s infinite alternate;
 }
 
 @keyframes pulse1 {
@@ -599,12 +607,72 @@ input[type='checkbox'] {
   .nav-menu {
     display: none;
     position: absolute;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58));
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),  rgb(29, 42, 58)); */
     right: 0;
     left: 0;
     text-align: center;
     padding: 5px;
+
+
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    /* border-radius: 10px; */
   }
+
+  .nav-menu:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(150% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  .nav-menu:active {
+    color: #000
+  }
+  
+  .nav-menu:active:after {
+    background: transparent;
+  }
+  
+  .nav-menu:hover:before {
+    opacity: 1;
+  }
+  
+  .nav-menu:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    background: linear-gradient(45deg, #000000, #14213d, #fca311, #e5e5e5, #ffffff);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+
   .logo {
     font-size: 15px;
   }

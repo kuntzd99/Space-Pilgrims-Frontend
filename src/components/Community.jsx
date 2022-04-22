@@ -49,6 +49,7 @@ const Community = (props) => {
     } else {
       // window.alert('Sign in')
       props.setOpenModal(true)
+      props.setErrorMessage('You are not Logged in. please return to the homepage and create an account!')
     }
   }
 

@@ -42,6 +42,7 @@ const App = () => {
   const [messages, setMessages] = useState([])
   const [averageRating, setAverageRating] = useState([])
   const [openModal, setOpenModal] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   let apiUrl =
     process.env.NODE_ENV === 'production'
@@ -98,6 +99,7 @@ const App = () => {
 
   return (
     <div className="App">
+      {openModal && <Modal setOpenModal={setOpenModal} text={errorMessage} />}
       <Nav
         authenticated={authenticated}
         pilgrim={pilgrim}
@@ -152,7 +154,7 @@ const App = () => {
                 pilgrim={pilgrim}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
-                // authenticated={authenticated}
+                setErrorMessage={setErrorMessage}
               />
             }
           />
@@ -172,6 +174,7 @@ const App = () => {
                 setComments={setComments}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
+                setErrorMessage={setErrorMessage}
               />
             }
           />
@@ -202,6 +205,7 @@ const App = () => {
                 setMessages={setMessages}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
+                setErrorMessage={setErrorMessage}
               />
             }
           />
@@ -220,9 +224,6 @@ const App = () => {
             }
           />
         </Routes>
-        {openModal && (
-          <Modal setOpenModal={setOpenModal} openModal={openModal} />
-        )}
       </main>
     </div>
   )
